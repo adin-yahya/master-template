@@ -25,7 +25,9 @@ new Vue({
     el: '#invitation',
     data: {
         guestName: null,
-        isOpenInvitation: true,
+        isOpenInvitation: false,
+        isAudioPlay: false,
+        audioComp: null,
         client: clientData,
         countdown: [],
         guestResume: {
@@ -34,19 +36,24 @@ new Vue({
             tidak: 0,
             ragu: 0,
         },
+        confirmationList: [
+            { name: 'Hadir', val: 'akan_hadir', class: 'bg-success-theme' },
+            { name: 'Tidak Hadir', val: 'tidak_hadir', class: 'bg-danger-theme' },
+            { name: 'Masih Ragu', val: 'ragu_hadir', class: 'bg-gray-theme' },
+        ],
         guestBook: [],
         guestBookForm: {
             guestName: '',
             alias: '',
             comment: '',
-            confirmation: '',
+            confirmation: 'akan_hadir',
             amount: '',
             phone: '',
             gift: '',
             trxID: '',
             trxStats: false
         },
-        loveeLogo: 'https://drive.google.com/file/d/1RFtFh92iedY1YC__2o6qO26ZPj2Ar6d-/view?usp=sharing'
+        loveeLogo: 'https://drive.google.com/file/d/1RFtFh92iedY1YC__2o6qO26ZPj2Ar6d-/view?usp=sharing',
     },
     computed: {
         isMobile: function () {
@@ -66,8 +73,17 @@ new Vue({
             deep: false,
             handler (val) {
                 if (val) {
-                    // play audio
+                    this.audioComp = new Audio(this.changeAudioURL(this.client.sound))
+                    this.isAudioPlay = true
                 }
+            }
+        },
+        isAudioPlay: {
+            immediate: false,
+            deep: false,
+            handler (val) {
+                if (val) this.audioComp.play()
+                else this.audioComp.pause()
             }
         }
     },
@@ -93,10 +109,12 @@ new Vue({
             return value
         }
     },
+    created () {
+        document.getElementById('htmlTitle').innerHTML = this.eventTitle
+    },
     beforeMount () {
         this.getGuestName()
         this.$set(this.guestBookForm, 'guestName', this.guestName)
-        
     },
     mounted () {
         for (let i = 0; i < this.client.event.length; i++) {
@@ -105,10 +123,8 @@ new Vue({
                 this.countdown = this.countEndTime(event.startDateTime)
             }.bind(this), 1000)
         }
-        document.getElementById('htmlTitle').innerHTML = this.eventTitle
         globalInit()
         this.getComment()
-        // this.addComment(this.guestBookForm)
 
     },
     methods: {
@@ -124,14 +140,21 @@ new Vue({
             const a = fs.query(fs.collection(firestore, window.location.hostname), fs.orderBy("sendtime", "desc"))
             const unsubscribe = fs.onSnapshot(a, (querySnapshot) => {
                 const data = []
+                const unique = []
                 querySnapshot.forEach((doc) => {
                     data.push(doc.data())
                 })
+                // confirmation
+                const uniqueData = this.countUnique(data.map(x => x.guestName.trim()))
+                uniqueData.forEach(el => {
+                    var evUser = data.filter(x => x.guestName.trim() === el)
+                    unique.push({ guestName: evUser[0].guestName, confirmation: evUser[0].confirmation })
+                })
                 let resume = {
-                    total: this.countUnique(data.map(x => x.guestName.trim())),
-                    akan: data.filter(x => x.confirmation === 'akan_hadir').length,
-                    tidak: data.filter(x => x.confirmation === 'tidak_hadir').length,
-                    ragu: data.filter(x => x.confirmation === 'ragu_hadir').length,
+                    total: uniqueData.size,
+                    akan: unique.filter(x => x.confirmation === 'akan_hadir').length,
+                    tidak: unique.filter(x => x.confirmation === 'tidak_hadir').length,
+                    ragu: unique.filter(x => x.confirmation === 'ragu_hadir').length,
                 }
                 this.guestResume = Object.assign({}, resume)
                 this.guestBook = data
@@ -142,20 +165,10 @@ new Vue({
             formdata.alias = this.getAlias(formdata.guestName)
             formdata.sendtime = new fs.serverTimestamp()
             await fs.addDoc(fs.collection(firestore, window.location.hostname), formdata)
-            this.guestBookForm = Object.assign({}, {
-                guestName: this.guestName,
-                alias: '',
-                comment: '',
-                confirmation: '',
-                amount: '',
-                phone: '',
-                gift: '',
-                trxID: '',
-                trxStats: false
-            })
+            this.$set(this.guestBookForm, 'comment', '')
         },
         countUnique: function (iterable) {
-            return new Set(iterable).size
+            return new Set(iterable)
         },
         getAlias: function (e) {
             if (e.split(' ').length > 1) return e.split(' ')[0].charAt(0).toUpperCase() + e.split(' ')[1].charAt(0).toUpperCase()
@@ -171,9 +184,9 @@ new Vue({
             return res
         },
         changeAudioURL: function (e) {
-            const urls = e.split('id')
+            const urls = e.match(/[-\w]{25,}/)
             const baseURL = 'https://docs.google.com/uc?export=download&'
-            const res = baseURL + 'id' + urls[1]
+            const res = baseURL + 'id=' + urls
             return res
         },
         getAPI: function (methods, endpoint, params) {
@@ -197,6 +210,9 @@ new Vue({
                 { name: 'Detik', res: seconds },
             ]
             return result
+        },
+        chooseConfirmation: function (e) {
+            this.$set(this.guestBookForm, 'confirmation', e)
         }
     }
 })

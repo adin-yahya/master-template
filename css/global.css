@@ -6,6 +6,9 @@
     outline: none !important;
     box-shadow: none !important;
 }
+.pointer {
+    cursor: pointer;
+}
 
 html {
     scroll-behavior: smooth;
@@ -69,6 +72,10 @@ nav.mobile-nav-wrapper {
     background-color: var(--primary);
 }
 
+.mobile-nav .nav-link.active {
+    background-color: var(--dark-primary);
+}
+
 .mobile-nav .nav-link img {
     width: 30px;
     height: 30px;
@@ -114,9 +121,29 @@ nav.web-nav-wrapper {
     background-color: var(--primary);
 }
 
+.web-nav .nav-link.active {
+    background-color: var(--dark-primary);
+}
+
 .web-nav .nav-link img {
     width: 30px;
     height: 30px;
+}
+
+.web-audio {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+}
+
+.mobile-audio {
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+#audio-control img {
+    width: 75px;
 }
 
 /* @media (min-width: 1200px) {

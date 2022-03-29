@@ -9,7 +9,7 @@
     <meta name=title content="Lovee invitation">
     <meta name=author content="hehehe">
     <meta name=language content="Indonesia">
-    <title id="htmlTitle">?? TITLE</title>
+    <title id="htmlTitle">Lovee invitation</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
@@ -20,8 +20,8 @@
 
 <body class="position-relative">
     <div id="invitation">
-        <div v-show="isOpenInvitation" class="inner-content">
-            <section id="hero-section" class="bg-full-img full-height" id="saveDate" :style="{background: 'url(' + changeImgURL(client.banner[0], 1500, 1500) + ') center center/cover no-repeat' }">
+        <div v-show="isOpenInvitation" key="innerContent" class="inner-content animate__animated animate__fadeIn animate__slower">
+            <section data-anchor="hero-section" id="hero-section" class="bg-full-img full-height" id="saveDate" :style="{background: 'url(' + changeImgURL(client.banner[0], 1500, 1500) + ') center center/cover no-repeat' }">
                 <div class="container">
                     <div class="d-flex flex-column justify-content-between align-items-center text-center" style="min-height: 80vh;">
                         <div class="text-center">
@@ -49,7 +49,7 @@
                     </div>
                 </div>
             </section>
-            <section id="profile-section" class="bg-set-1 full-height">
+            <section data-anchor="profile-section" id="profile-section" class="bg-set-1 full-height">
                 <div class="container px-md-5">
                     <div class="mx-lg-big">
                         <div class="opening-hero text-center mt-5 mt-md-0">
@@ -79,7 +79,7 @@
                     </div>
                 </div>
             </section>
-            <section id="event-section" class="bg-set-1 py-2 py-lg-5">
+            <section data-anchor="event-section" id="event-section" class="bg-set-1 py-2 py-lg-5">
                 <div class="container px-0 px-lg-5">
                     <div class="mx-lg-big px-5 px-sm-0 px-lg-5">
                         <div class="opening-hero text-center mt-5 mt-md-0">
@@ -99,16 +99,20 @@
                     </div>
                 </div>
             </section>
-            <section id="maps-section" class="bg-set-1 py-2 py-lg-5">
-                <div class="container px-md-5">
+            <section data-anchor="maps-section" id="maps-section" class="bg-set-1 full-height">
+                <div class="container px-md-5 py-5">
                     <div class="row align-items-center">
-                        <div class="order-2 order-lg-1 col-md-7">
+                        <div class="order-2 order-lg-1 col-md-12">
+                            <div class="d-flex justify-content-center align-items-center mb-3">
+                                <img src="./images/attachment/vector_2.png" width="30px" class="text-center">
+                                <h5 style="font-weight: 600;" class="text-dark-theme font-italic mb-0 ml-3">Jadilah Saksi <br>di Hari Bahagia Kami</h5>
+                            </div>
                             <div style="border-radius:23px;overflow: hidden;display: flex;">
                                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.741075480206!2d111.14410261477221!3d-6.801321895084145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd9f060c5541007c8!2zNsKwNDgnMDQuOCJTIDExMcKwMDgnNDYuNyJF!5e0!3m2!1sen!2sid!4v1646938148878!5m2!1sen!2sid"
-                                    width="100%" height="400" style="border:0;" allowfullscreen="true" loading="lazy"></iframe>
+                                    width="100%" style="border:0;height: 50vh;" allowfullscreen="true" loading="lazy"></iframe>
                             </div>
                         </div>
-                        <div class="order-1 order-lg-2 col-md-5 mb-4 mb-md-0">
+                        <!-- <div class="order-1 order-lg-2 col-md-5 mb-4 mb-md-0">
                             <div class="d-flex justify-content-start align-items-center">
                                 <img src="./images/attachment/vector_2.png" width="30px" class="text-center">
                                 <h5 style="font-weight: 600;" class="text-dark-theme font-italic mb-0 ml-3">Jadilah Saksi<br>di Hari Bahagia Kami</h5>
@@ -122,27 +126,27 @@
                                     </div>
                                 </button>
                             </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="d-block bg-secondary-theme w-100" style="margin-top: 5rem;">
+                    <div class="container px-md-5 py-5">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <p class="mb-3 mb-md-0">Dalam upaya mengurangi penyebaran Covid 19 pada masa pandemi. Kami harapkan kedatangan para tamu undangan agar menjalankan protokol yang berlaku.</p>
+                            </div>
+                            <div class="col-md-6">
+                                <ol style="font-weight: 600;" class="pl-3 mb-0">
+                                    <li class="text-theme">Wajib Menggunakan Masker</li>
+                                    <li class="text-theme">Saling Menjaga Jarak di dalam Acara</li>
+                                    <li class="text-theme">Jaga Kebersihan dengan Mencuci Tangan atau Handsanitizer</li>
+                                </ol>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <div class="d-block bg-secondary-theme w-100" style="margin-top: 7rem;">
-                <div class="container px-md-5 py-5">
-                    <div class="row align-items-center">
-                        <div class="col-md-6">
-                            <p class="mb-3 mb-md-0">Dalam upaya mengurangi penyebaran Covid 19 pada masa pandemi. Kami harapkan kedatangan para tamu undangan agar menjalankan protokol yang berlaku.</p>
-                        </div>
-                        <div class="col-md-6">
-                            <ol style="font-weight: 600;" class="pl-3 mb-0">
-                                <li class="text-theme">Wajib Menggunakan Masker</li>
-                                <li class="text-theme">Saling Menjaga Jarak di dalam Acara</li>
-                                <li class="text-theme">Jaga Kebersihan dengan Mencuci Tangan atau Handsanitizer</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <section id="story-section" class="full-height justify-content-start">
+            <section data-anchor="story-section" id="story-section" class="full-height justify-content-start">
                 <img :src="changeImgURL(client.banner[3], 1500, 1500)" alt="" class="img-bg-radius">
                 <div class="container px-md-5 mt-5 pt-5" style="z-index: 3;">
                     <div class="swiper swiper-normal">
@@ -159,7 +163,7 @@
                     </div>
                 </div>
             </section>
-            <section id="gallery-section" class="bg-set-1 py-2 py-lg-5">
+            <section data-anchor="gallery-section" id="gallery-section" class="bg-set-1 py-2 py-lg-5">
                 <div class="container px-md-5">
                     <div class="mx-lg-big">
                         <div class="opening-hero text-center mt-5 mt-md-0">
@@ -174,7 +178,7 @@
                     </div>
                 </div>
             </section>
-            <section id="profile-section" class="bg-set-1 full-height">
+            <section data-anchor="guestbook-section" id="guestbook-section" class="bg-set-1 full-height">
                 <div class="container px-md-5">
                     <div class="opening-hero text-center mt-5 mt-md-0">
                         <h5 style="font-weight: 500;" class="text-dark-theme font-italic my-4">Kirim Ucapan &amp; Amplop Digital</h5>
@@ -199,9 +203,18 @@
                     </div>
                     <div class="comment-list">
                         <div class="comment mb-3" v-for="(gb, i) in guestBook" :key="i+'-guestbooklist'">
-                            <div class="comment-img text-dark-theme">{{ gb.alias }}</div>
+                            <div class="comment-img text-dark-theme position-relative">{{ gb.alias }}
+                                <template v-if="gb.confirmation">
+                                    <span v-if="gb.confirmation === 'akan_hadir'" class="bg-success-theme mr-2 status-code"></span>
+                                    <span v-if="gb.confirmation === 'tidak_hadir'" class="bg-danger-theme mr-2 status-code"></span>
+                                    <span v-if="gb.confirmation === 'ragu_hadir'" class="bg-gray-theme mr-2 status-code"></span>
+                               </template>
+                            </div>
                             <div class="comment-text">
-                                <span class="comment-name text-dark-theme text-capitalize">{{ gb.guestName }}</span>
+                                <div class="d-flex align-items-center">
+                                    <span class="comment-name text-dark-theme text-capitalize mr-2">{{ gb.guestName }}</span>
+                                    <div v-if="gb.gift" class="comment-badge d-flex justify-content-center align-items-center mr-2" ><span class="mr-1">sent</span> <img src="./images/attachment/gift.png" width="10px" alt=""></div>
+                                </div>
                                 <p class="mb-0 comment-desc text-dark-theme">{{ gb.comment }}</p>
                             </div>
                         </div>
@@ -228,7 +241,7 @@
                     </div>
                 </div>
             </div>
-            <div class="modal bd-example-modal-lg animate__animated animate__slideInUp" id="modalComment" data-backdrop="true" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal bd-example-modal-lg animate__animated animate__slideInUp animate__faster" id="modalComment" data-backdrop="true" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-body text-center">
@@ -257,6 +270,13 @@
                                         <textarea v-model="guestBookForm.comment" name="wishes" id="wishes" rows="5" class="form-control" placeholder="Tulis Doa dan pesan untuk mempelai"></textarea>
                                     </div>
                                 </div>
+                                <div class="row px-2 mb-2">
+                                    <div class="col-4 px-1" v-for="(c,i) in confirmationList" :key="i+'-confirm-form-card'">
+                                        <div @click="chooseConfirmation(c.val)" class="px-2 py-3 text-center pointer" style="border-radius:8px;transition: all 0.5s ease;" :class="guestBookForm.confirmation === c.val ? 'text-white ' +c.class : 'bg-secondary-theme text-dark-theme border-theme'">
+                                            Saya <span class="d-block" style="font-weight: 800;">{{ c.name }}</span>
+                                        </div>
+                                    </div>
+                                </div>
                                 <button :disabled="!guestBookForm.comment || !guestBookForm.guestName" @click="addComment()" data-dismiss="modal" aria-label="Close" style="font-size: 1.2rem;" class="btn btn-primary btn-block py-2 px-4 mt-3 mr-3"> 
                                     <div class="d-flex justify-content-center align-items-center">
                                         <i data-feather="map" width="15px" height="15px"></i> <span style="font-weight: 600;" class="ml-2">Send Wishes</span> 
@@ -272,7 +292,7 @@
                 </div>
             </div>
         </div>
-        <div v-show="!isOpenInvitation" class="opening animate__animated animate__fadeIn animate__slower">
+        <div v-show="!isOpenInvitation" key="outerContent" class="opening animate__animated animate__fadeIn animate__slower">
             <div class="card-opening position-relative">
                 <div class="greeting text-center">
                     <h5 style="font-weight: 300;" class="text-capitalize mb-1">Hello, <span style="font-weight: 500;">{{ guestName }}</span></h5>
@@ -321,11 +341,11 @@
                 <a href="#gallery-section" class="nav-link">
                     <img src="images/menu-6.png" alt="" srcset="">
                 </a>
-                <!-- <a id="audio-control" class="nav-link pointer">
-                    <img id="img-audio-icon" alt="" srcset="">
-                </a> -->
             </div>
         </nav>
+        <a v-show="isOpenInvitation" @click="isAudioPlay = !isAudioPlay" id="audio-control" class="nav-link pointer" :class="isMobile ? 'mobile-audio' : 'web-audio'">
+            <img refs="img-audio-icon" :src="isAudioPlay? './images/on.png' : './images/off.png'" >
+        </a>
     </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -334,6 +354,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+<script src="https://unpkg.com/scrollreveal"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <!-- =========================== -->
 <!-- vue import -->
@@ -342,5 +363,7 @@
 <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script> -->
 <script src="js/master-data.js"></script>
 <script type="module" src="js/vue.js"></script>
-
+<script>
+        ScrollReveal({ reset: true }).reveal('.opening-hero')
+</script>
 </html>

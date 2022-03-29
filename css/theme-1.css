@@ -54,6 +54,18 @@ body {
     background-color: var(--gray);
 }
 
+.border-theme {
+    border: 1px solid var(--primary);
+}
+
+.border-light-theme {
+    border: 1px solid var(--light-primary);
+}
+
+.border-dark-theme {
+    border: 1px solid var(--dark-primary);
+}
+
 #invitation {
     background-color: #fff;
 }
@@ -437,6 +449,16 @@ body {
     height: 50px;
 }
 
+.comment .comment-img .status-code {
+    width: 15px;
+    height: 15px;
+    border-radius: 13px;
+    position: absolute;
+    bottom: 0;
+    right: -8px;
+    border: 2px solid #fff;
+}
+
 .comment .comment-text {
     padding-left: 1rem;
 }
@@ -445,6 +467,16 @@ body {
     display: block;
     font-size: 1.2em;
     font-weight: 700;
+}
+
+.comment .comment-text .comment-badge {
+    display: block;
+    font-size: .8em;
+    font-weight: 400;
+    color: #E86581;
+    background-color: var(--secondary);
+    border-radius: 13px;
+    padding: .25rem .75rem;
 }
 
 .modal-dialog {
@@ -464,6 +496,7 @@ body {
     border-bottom-right-radius: 0;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
 }
+
 .modal-vector {
     display: block;
     margin: 0 auto;
@@ -488,7 +521,6 @@ body {
     border-bottom-right-radius: 8px;
     border-left: 0;
     position: relative;
-    
 }
 
 .custom-input input,
@@ -497,6 +529,7 @@ body {
     font-weight: 800;
     box-shadow: -5px 0px 0px -4px #DDD1BC !important;
 }
+
 .custom-input input::-webkit-input-placeholder {
     color: var(--dark-primary);
     font-weight: 500;
@@ -508,6 +541,7 @@ body {
     font-weight: 800;
     box-shadow: -5px 0px 0px -4px #DDD1BC !important;
 }
+
 .custom-input textarea::-webkit-input-placeholder {
     color: var(--dark-primary);
     font-weight: 500;
