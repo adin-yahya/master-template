@@ -57,7 +57,7 @@
                     </div>
                 </section>
                 <section data-anchor="profile-section" id="profile-section" class="bg-set-1 full-height">
-                    <div  data-aos="zoom-in" data-aos-duration="1500" class="container px-md-5">
+                    <div data-aos="zoom-in" data-aos-duration="1500" class="container px-md-5">
                         <div class="mx-lg-big">
                             <div class="opening-hero text-center mt-5 mt-md-0">
                                 <img src="./images/attachment/ornament_4.png" width="80px">
@@ -86,7 +86,7 @@
                         </div>
                     </div>
                 </section>
-                <section data-anchor="event-section" id="event-section" class="bg-set-1 py-2 py-lg-5">
+                <section data-anchor="event-section" id="event-section" class="bg-set-2 py-2 py-lg-5">
                     <div class="container px-0 px-lg-5">
                         <div class="mx-lg-big px-5 px-sm-0 px-lg-5">
                             <div class="opening-hero text-center mt-5 mt-md-0">
@@ -94,7 +94,7 @@
                                 <h5 style="font-weight: 500;" class="text-dark-theme font-italic mt-4 mb-5">Rangkaian Acara</h5>
                             </div>
                             <div class="row">
-                                <div class="col-sm-6 text-center" v-for="(a,i) in client.event" :key="i+'-acara'">
+                                <div class="col-sm-6 text-center" v-for="(a,i) in client.event" :key="i+'-acara'"  data-aos="zoom-in" data-aos-duration="1500">
                                     <h2 style="font-weight: 400;" class="font-theme mt-4 mb-3">{{ a.title }}</h2>
                                     <div class="event-wrapper">
                                         <h5 style="font-weight: 800;" class="text-dark-theme">{{ a.startDateTime | dayOnly }},<br>{{ a.startDateTime | dateOnly }}</h5>
@@ -106,7 +106,7 @@
                         </div>
                     </div>
                 </section>
-                <section data-anchor="maps-section" id="maps-section" class="bg-set-1 full-height">
+                <section  data-aos="zoom-in" data-aos-duration="1500" data-anchor="maps-section" id="maps-section" class="full-height bg-set-3">
                     <div class="container px-md-5 py-5">
                         <div class="row align-items-center">
                             <div class="order-2 order-lg-1 col-md-12">
@@ -154,7 +154,7 @@
                     </div>
                 </section>
                 <section data-anchor="story-section" id="story-section" class="full-height justify-content-start">
-                    <img :src="changeImgURL(client.banner[3], 1500, 1500)" alt="" class="img-bg-radius">
+                    <img :src="changeImgURL(client.banner[3], 1500, 1500)" alt="" class="img-bg-radius" style="z-index: 3;">
                     <div class="container px-md-5 mt-5 pt-5" style="z-index: 3;">
                         <div class="swiper swiper-normal">
                             <div class="swiper-wrapper">
@@ -170,7 +170,7 @@
                         </div>
                     </div>
                 </section>
-                <section data-anchor="gallery-section" id="gallery-section" class="bg-set-1 py-2 py-lg-5">
+                <section data-anchor="gallery-section" id="gallery-section" class="bg-set-4 py-2 py-lg-5">
                     <div class="container px-md-5">
                         <div class="mx-lg-big">
                             <div class="opening-hero text-center mt-5 mt-md-0">
@@ -179,28 +179,28 @@
                             </div>
                             <div class="row">
                                 <div class="col-12 col-sm-4 col-md-4 text-center p-2" v-for="(a,i) in client.gallery" :key="i+'-gallery'">
-                                    <img :src="changeImgURL(a, 500, 500)" alt="" class="img-gallery">
+                                    <img :src="changeImgURL(a, 500, 500)" alt="" class="img-gallery" data-aos="zoom-in" v-bind:data-aos-duration="1000 + (i*50)">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
-                <section data-anchor="guestbook-section" id="guestbook-section" class="bg-set-1 full-height">
+                <section data-anchor="guestbook-section" id="guestbook-section" class="bg-set-5 full-height">
                     <div class="container px-md-5">
                         <div class="opening-hero text-center mt-5 mt-md-0">
                             <h5 style="font-weight: 500;" class="text-dark-theme font-italic my-4">Kirim Ucapan &amp; Amplop Digital</h5>
                             <h6 style="font-weight: 500;" class="text-dark-theme font-italic my-4"><b>{{ guestResume.total }}</b> teman mempelai sudah mengirimkan doa &amp; virtual gift</h6>
                         </div>
                         <div class="d-flex justify-content-center align-items-center">
-                            <div class="arrival text-center bg-success-theme">
+                            <div data-aos="zoom-in" data-aos-duration="1000" class="arrival text-center bg-success-theme">
                                 <span class="number-arrival">{{ guestResume.akan }}</span>
                                 <span class="text-arrival mb-2">Akan Hadir</span>
                             </div>
-                            <div class="arrival text-center bg-danger-theme">
+                            <div data-aos="zoom-in" data-aos-duration="1500" class="arrival text-center bg-danger-theme">
                                 <span class="number-arrival">{{ guestResume.tidak }}</span>
                                 <span class="text-arrival mb-2">Tidak Hadir</span>
                             </div>
-                            <div class="arrival text-center bg-gray-theme">
+                            <div data-aos="zoom-in" data-aos-duration="2000" class="arrival text-center bg-gray-theme">
                                 <span class="number-arrival">{{ guestResume.ragu }}</span>
                                 <span class="text-arrival mb-2">Masih Ragu</span>
                             </div>
@@ -314,10 +314,13 @@
                         <img src="images/menu-4.png" alt="" srcset="">
                     </a>
                     <a href="#story-section" class="nav-link">
-                        <img src="images/menu-5.png" alt="" srcset="">
+                        <img src="images/menu-7.png" alt="" srcset="">
                     </a>
                     <a href="#gallery-section" class="nav-link">
                         <img src="images/menu-6.png" alt="" srcset="">
+                    </a>
+                    <a href="#guestbook-section" class="nav-link">
+                        <img src="images/menu-5.png" alt="" srcset="">
                     </a>
                 </div>
             </nav>
@@ -325,7 +328,7 @@
                 <img refs="img-audio-icon" :src="isAudioPlay? './images/on.png' : './images/off.png'">
             </a>
         </template>
-        <div v-else key="outerContent" class="opening animate__animated animate__fadeIn animate__slower">
+        <div v-else key="outerContent" class="opening animate__animated animate__fadeIn animate__slower animate__delay-2s">
             <div class="card-opening position-relative">
                 <div class="greeting text-center">
                     <h5 style="font-weight: 300;" class="text-capitalize mb-1">Hello, <span style="font-weight: 500;">{{ guestName }}</span></h5>
@@ -335,7 +338,7 @@
                         <h4 class="text-theme" style="font-weight: 300;">WEDDING</h4>
                     </div>
                 </div>
-                <div class="position-relative animate__animated animate__fadeIn animate__slower animate__delay-2s">
+                <div class="position-relative animate__animated animate__fadeIn animate__slower animate__delay-3s">
                     <div class="d-flex justify-content-between">
                         <img :src="changeImgURL(client.banner[1])" class="img-opening-left">
                         <img :src="changeImgURL(client.banner[2])" class="img-opening-right" alt="lalala">
@@ -344,7 +347,7 @@
                     <img src="./images/attachment/ornament_3.png" class="opening-ornament-3">
                     <img src="./images/attachment/ornament_5.png" class="opening-ornament-5">
                 </div>
-                <div class="text-center mt-5  animate__animated animate__fadeIn animate__slower animate__delay-2s">
+                <div class="text-center mt-5  animate__animated animate__fadeIn animate__slower animate__delay-3s">
                     <button @click="isOpenInvitation = true" style="font-size: 1.25rem;" class="btn btn-primary animate__animated animate__pulse animate__infinite animate__slower py-2 px-5"> 
                         <div class="d-flex justify-content-center align-items-center">
                             <i data-feather="mail"></i> <span style="font-weight: 600;" class="ml-2">Buka Undangan</span> 

@@ -113,6 +113,7 @@ new Vue({
         }
     },
     created () {
+        globalInit()
         document.getElementById('htmlTitle').innerHTML = this.eventTitle
     },
     beforeMount () {
@@ -126,8 +127,8 @@ new Vue({
                 this.countdown = this.countEndTime(event.startDateTime)
             }.bind(this), 1000)
         }
-        globalInit()
         this.getComment()
+        this.isOpenInvitation = true
     },
     methods: {
         getGuestName: function (e) {

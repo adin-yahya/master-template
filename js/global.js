@@ -17,7 +17,10 @@ function swiperInit () {
 export default function (refresh = false) {
     feather.replace()
     $(document).ready(function () {
-        $(".preloader").hide()
+        setTimeout((e)=> {
+            $(".preloader").hide()
+        }, 2000)
+       
     })
     if (refresh) {
         window.scrollTo(0,0); 
@@ -32,7 +35,7 @@ export default function (refresh = false) {
             })
         })
         $(window).scroll(function () {
-            if ($(this).scrollTop() + 100 < $('section[data-anchor="hero-section"]').offset().top) {
+            if ($(this).scrollTop() < $('section[data-anchor="hero-section"]').offset().top) {
                 $('nav div a').removeClass('active')
             }
             if ($(this).scrollTop() + 100 >= $('section[data-anchor="hero-section"]').offset().top) {

@@ -186,9 +186,10 @@ body {
 }
 
 .btn-primary,
+.btn-primary:active,
 .btn-primary:hover,
 .btn-primary:focus {
-    background-color: var(--primary);
+    background-color: var(--primary) !important; 
     border: none;
     border-radius: 23px;
 }
@@ -200,6 +201,7 @@ body {
 }
 
 .btn-dark-primary,
+.btn-dark-primary:active,
 .btn-dark-primary:hover,
 .btn-dark-primary:focus {
     background-color: var(--dark-primary);
@@ -277,6 +279,72 @@ body {
     background-position: left top;
     z-index: 2;
 }
+
+.bg-set-3::after {
+    content: '';
+    position: absolute;
+    top: -20vh;
+    right: 0;
+    width: 125%;
+    height: 125vh;
+    background-image: url('../images/attachment/linebg_4.png');
+    background-repeat: no-repeat;
+    background-clip: content-box;
+    background-size: cover;
+    background-position: center center;
+    /* transform: rotate(10deg); */
+    z-index: 1;
+}
+
+.bg-set-4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: rotate(270deg);
+    width: 350px;
+    height: 350px;
+    background-image: url('../images/bg-flowers-left-top.png');
+    background-repeat: no-repeat;
+    background-clip: content-box;
+    background-size: contain;
+    background-position: left top;
+    z-index: 2;
+}
+
+.bg-set-4::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: rotate(90deg);
+    width: 350px;
+    height: 350px;
+    background-image: url('../images/bg-flowers-left-top.png');
+    background-repeat: no-repeat;
+    background-clip: content-box;
+    background-size: contain;
+    background-position: left top;
+    z-index: 2;
+}
+
+.bg-set-5::after {
+    content: '';
+    position: absolute;
+    top: -20vh;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url('../images/attachment/linebg_4.png');
+    background-repeat: no-repeat;
+    background-clip: content-box;
+    background-size: cover;
+    background-position: center center;
+    /* transform: rotate(10deg); */
+    z-index: 1;
+}
+
+
 
 .couple-pict {
     width: 150px;
@@ -420,19 +488,22 @@ body {
 
 .comment-list {
     max-height: 60vh;
-    padding: 2rem;
+    padding: 1.5rem;
     overflow-y: auto;
     max-width: 650px;
     margin: 0 auto;
     border-radius: 13px;
     background-color: #FBFBFB;
+    /* background-color: var(--secondary); */
     display: flex;
     flex-direction: column-reverse;
+    /* box-sizing: border-box; */
 }
 
 .comment {
     display: flex;
     position: relative;
+    /* transition: all 1s ease-in; */
 }
 
 .comment .comment-img {
