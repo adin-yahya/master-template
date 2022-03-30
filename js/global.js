@@ -11,19 +11,19 @@ function swiperInit () {
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
-        },
+        }
     })
 }
 export default function (refresh = false) {
     feather.replace()
     $(document).ready(function () {
-        setTimeout((e)=> {
+        setTimeout((e) => {
             $(".preloader").hide()
         }, 2000)
-       
+
     })
     if (refresh) {
-        window.scrollTo(0,0); 
+        window.scrollTo(0, 0)
         AOS.init()
         swiperInit()
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {

@@ -209,17 +209,6 @@ body {
     border-radius: 23px;
 }
 
-@media (max-width: 450px) {
-    .opening::before {
-        opacity: .35;
-        height: 50%;
-    }
-    .opening::after {
-        opacity: .35;
-        height: 50%;
-    }
-}
-
 .bg-set-1::after {
     content: '';
     position: absolute;
@@ -292,7 +281,6 @@ body {
     background-clip: content-box;
     background-size: cover;
     background-position: center center;
-    /* transform: rotate(10deg); */
     z-index: 1;
 }
 
@@ -340,11 +328,25 @@ body {
     background-clip: content-box;
     background-size: cover;
     background-position: center center;
-    /* transform: rotate(10deg); */
     z-index: 1;
 }
 
+@media (max-width: 450px) {
+    .opening::before {
+        opacity: .35;
+        height: 50%;
+    }
+    .opening::after {
+        opacity: .35;
+        height: 50%;
+    }
 
+    .bg-set-2::before,
+    .bg-set-4::before,
+    .bg-set-4::after {
+        opacity: .25;
+    }
+}
 
 .couple-pict {
     width: 150px;
@@ -397,15 +399,15 @@ body {
 
 @media (max-width: 450px) {
     .countdown .timer {
-        min-width: 95px;
-        padding: 0 1.25rem .5rem;
-        margin: .25rem;
+        min-width: 80px;
+        padding: 0 .5rem .25rem;
+        margin: .15rem;
     }
     .countdown .timer .timer-number {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
     .countdown .timer .timer-name {
-        font-size: 1.25rem;
+        font-size: 1rem;
     }
 }
 
@@ -618,4 +620,7 @@ body {
 .custom-input textarea::-webkit-input-placeholder {
     color: var(--dark-primary);
     font-weight: 500;
+}
+.swiper-pagination-bullet-active {
+    background: var(--dark-primary) !important;
 }

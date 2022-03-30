@@ -32,7 +32,7 @@ html {
 
 #invitation {
     min-height: 100vh;
-    /* overflow: hidden; */
+    overflow: hidden;
     position: relative;
 }
 /* ================================= */
@@ -140,6 +140,10 @@ nav.web-nav-wrapper {
     position: fixed;
     right: 0;
     top: 0;
+}
+
+#audio-control{
+    z-index: 9999;
 }
 
 #audio-control img {

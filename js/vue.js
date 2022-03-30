@@ -74,7 +74,7 @@ new Vue({
             handler (val) {
                 if (val) {
                     this.audioComp = new Audio(this.changeAudioURL(this.client.sound))
-                    this.isAudioPlay = val
+                    this.isAudioPlay = true
                     this.$nextTick(e => {
                         globalInit(val)
                     })
@@ -128,7 +128,6 @@ new Vue({
             }.bind(this), 1000)
         }
         this.getComment()
-        this.isOpenInvitation = true
     },
     methods: {
         getGuestName: function (e) {
