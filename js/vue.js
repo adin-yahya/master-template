@@ -4,7 +4,7 @@ import * as fs from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestor
 import globalInit from "./global.js"
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDnqwPka66yVnulZjKLi4-EctA3gWtSbZs",
+    apiKey: "AIzaSyC6MteJqGc1N3eIugRCNWH5j_wdDe_0xk8",
     authDomain: "hazel-phoenix-343515.firebaseapp.com",
     projectId: "hazel-phoenix-343515",
     storageBucket: "hazel-phoenix-343515.appspot.com",

@@ -77,5 +77,5 @@ const clientData = {
             text: 'Belom ada kontennya ini gess'
         }
     ],
-    sound: 'https://drive.google.com/file/d/16LSL5oy3wVX5t1u4zreefczzazBxjZ6N/view?usp=sharing'
-}
+    sound: 'https://drive.google.com/file/d/1Dn_XEqjzFQkT2VyRJzhh15YWeqkWZnAA/view?usp=sharing'
+};
