@@ -80,6 +80,7 @@ body {
 }
 
 .inner-content section.full-height {
+    padding: 3rem 0;
     min-height: 100vh;
 }
 
@@ -317,6 +318,7 @@ body {
     display: block;
     font-size: 3rem;
     color: var(--light);
+    transition: all .5s ease;
 }
 
 .countdown .timer .timer-name {

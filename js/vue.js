@@ -74,7 +74,10 @@ new Vue({
             handler (val) {
                 if (val) {
                     this.audioComp = new Audio(this.changeAudioURL(this.client.sound))
-                    this.isAudioPlay = true
+                    this.isAudioPlay = val
+                    this.$nextTick(e => {
+                        globalInit(val)
+                    })
                 }
             }
         },
@@ -125,7 +128,6 @@ new Vue({
         }
         globalInit()
         this.getComment()
-
     },
     methods: {
         getGuestName: function (e) {
