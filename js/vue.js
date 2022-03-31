@@ -37,7 +37,6 @@ new Vue({
             ]
         }
     },
-    meta: [{ title: 'utf=8' }],
     data: function () {
         return {
             guestName: null,
