@@ -62,19 +62,28 @@ const clientData = {
     story: [
         {
             title: '15 Agustus 2020',
-            text: 'Kami pertama bertemu di Pantai Bandengan'
+            text: 'Kami pertama bertemu di Pantai Binangun, Rembang',
+            background: ''
         },
         {
-            title: '16 Agustus 2020',
-            text: 'Kami bertemu kembali di Gunung Kidul'
+            title: '29 Agustus 2020',
+            text: 'Saya meminta izin ke orang tuanya, untuk menjalani sisa hidup dengannya',
+            background: ''
         },
         {
-            title: '17 Agustus 2020',
-            text: 'Kami ketemu terus karena kami semobil'
+            title: '24 Oktober 2020',
+            text: 'Saya menunjukkan keseriusan dengan meminangnya',
+            background: ''
         },
         {
-            title: 'Hehe, bercanda',
-            text: 'Belom ada kontennya ini gess'
+            title: '04 Februari 2022',
+            text: 'Kami mengabadikan momen pre-wedding kami di Kota Lama, Semarang',
+            background: ''
+        },
+        {
+            title: '08 Mei 2022',
+            text: 'Kami berencana mengikat janji suci sehidup semati',
+            background: ''
         }
     ],
     sound: 'https://drive.google.com/file/d/1Dn_XEqjzFQkT2VyRJzhh15YWeqkWZnAA/view?usp=sharing'

@@ -1,6 +1,7 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"
 import * as fs from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js"
+import * as Meta from 'https://unpkg.com/vue-meta@2.4.0/dist/vue-meta.min.js'
 import globalInit from "./global.js"
 
 const firebaseConfig = {
@@ -23,37 +24,53 @@ const _moment = moment().locale('id')
 
 new Vue({
     el: '#invitation',
-    data: {
-        guestName: null,
-        isOpenInvitation: false,
-        isAudioPlay: false,
-        audioComp: null,
-        client: clientData,
-        countdown: [],
-        guestResume: {
-            total: 0,
-            akan: 0,
-            tidak: 0,
-            ragu: 0,
-        },
-        confirmationList: [
-            { name: 'Hadir', val: 'akan_hadir', class: 'bg-success-theme' },
-            { name: 'Tidak Hadir', val: 'tidak_hadir', class: 'bg-danger-theme' },
-            { name: 'Masih Ragu', val: 'ragu_hadir', class: 'bg-gray-theme' },
-        ],
-        guestBook: [],
-        guestBookForm: {
-            guestName: '',
-            alias: '',
-            comment: '',
-            confirmation: 'akan_hadir',
-            amount: '',
-            phone: '',
-            gift: '',
-            trxID: '',
-            trxStats: false
-        },
-        loveeLogo: 'https://drive.google.com/file/d/1RFtFh92iedY1YC__2o6qO26ZPj2Ar6d-/view?usp=sharing',
+    metaInfo: function () {
+        return {
+            title: this.eventTitle,
+            titleTemplate: '%s | Lovee.id',
+            meta: [
+                { property: 'og:url', content: window.location.origin },
+                { property: 'og:title', content: this.eventTitle },
+                { property: 'og:description', content: this.eventTitle + ' Wedding. Online Wedding Invitation, created with heart by Lovee.id'},
+                { property: 'og:image', content: this.changeImgURL(this.client.banner[0], 200, 200) },
+                { property: 'og:image:alt', content: this.eventTitle },
+            ]
+        }
+    },
+    meta: [{ title: 'utf=8' }],
+    data: function () {
+        return {
+            guestName: null,
+            isOpenInvitation: false,
+            isAudioPlay: false,
+            audioComp: null,
+            client: clientData,
+            countdown: [],
+            guestResume: {
+                total: 0,
+                akan: 0,
+                tidak: 0,
+                ragu: 0,
+            },
+            confirmationList: [
+                { name: 'Hadir', val: 'akan_hadir', class: 'bg-success-theme' },
+                { name: 'Tidak Hadir', val: 'tidak_hadir', class: 'bg-danger-theme' },
+                { name: 'Masih Ragu', val: 'ragu_hadir', class: 'bg-gray-theme' },
+            ],
+            guestBook: [],
+            guestBookForm: {
+                guestName: '',
+                alias: '',
+                comment: '',
+                confirmation: 'akan_hadir',
+                amount: '',
+                phone: '',
+                gift: '',
+                trxID: '',
+                trxStats: false
+            },
+            loveeLogo: 'https://drive.google.com/file/d/1RFtFh92iedY1YC__2o6qO26ZPj2Ar6d-/view?usp=sharing',
+        }
     },
     computed: {
         isMobile: function () {
@@ -114,7 +131,7 @@ new Vue({
     },
     created () {
         globalInit()
-        document.getElementById('htmlTitle').innerHTML = this.eventTitle
+        // document.getElementById('htmlTitle').innerHTML = this.eventTitle
     },
     beforeMount () {
         this.getGuestName()
