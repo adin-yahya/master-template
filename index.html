@@ -20,6 +20,12 @@
     <meta name="twitter:site" content="@lovee.invitation">
     <meta name="twitter:creator" content="@lovee.invitation">
 
+    <meta property="og:url" content="https://muisrisa.koopastudio.id">
+    <meta property="og:title" content="Muis Risa Wedding">
+    <meta property="og:description" content="Muis Risa Wedding Wedding. Online Wedding Invitation, created with heart by Lovee.id">
+    <meta property="og:image" content="https://drive.google.com/thumbnail?id=1CW0S2bYQYk2opoXnWRftpdyNZF8awUPo&amp;sz=w200-h200">
+    <meta property="og:image:alt" content="Muis Risa Wedding">
+
     <title>Lovee invitation</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -228,147 +234,147 @@
                                         <span v-if="gb.confirmation === 'tidak_hadir'" class="bg-danger-theme mr-2 status-code"></span>
                                         <span v-if="gb.confirmation === 'ragu_hadir'" class="bg-gray-theme mr-2 status-code"></span>
                                    </template>
-                                </div>
-                                <div class="comment-text">
-                                    <div class="d-flex align-items-center">
-                                        <span class="comment-name text-dark-theme text-capitalize mr-2">{{ gb.guestName }}</span>
-                                        <div v-if="gb.gift" class="comment-badge d-flex justify-content-center align-items-center mr-2"><span class="mr-1">sent</span> <img src="./images/attachment/gift.png" width="10px" alt=""></div>
-                                    </div>
-                                    <p class="mb-0 comment-desc text-dark-theme">{{ gb.comment }}</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-center my-2 my-lg-3">
-                            <button data-toggle="modal" data-target="#modalComment" style="font-size: .9rem;" class="btn btn-primary animate__animated animate__pulse animate__infinite animate__slower py-2 px-4 mt-3 mr-0 mr-md-3"> 
+    </div>
+    <div class="comment-text">
+        <div class="d-flex align-items-center">
+            <span class="comment-name text-dark-theme text-capitalize mr-2">{{ gb.guestName }}</span>
+            <div v-if="gb.gift" class="comment-badge d-flex justify-content-center align-items-center mr-2"><span class="mr-1">sent</span> <img src="./images/attachment/gift.png" width="10px" alt=""></div>
+        </div>
+        <p class="mb-0 comment-desc text-dark-theme">{{ gb.comment }}</p>
+    </div>
+    </div>
+    </div>
+    <div class="text-center my-2 my-lg-3">
+        <button data-toggle="modal" data-target="#modalComment" style="font-size: .9rem;" class="btn btn-primary animate__animated animate__pulse animate__infinite animate__slower py-2 px-4 mt-3 mr-0 mr-md-3"> 
                                 <div class="d-flex justify-content-center align-items-center">
                                     <i data-feather="map" width="15px" height="15px"></i> <span style="font-weight: 600;" class="ml-2">Send Wishes</span> 
                                 </div>
                             </button>
-                            <button data-toggle="modal" data-target="#exampleModal" style="font-size: .9rem;" class="btn btn-dark-primary text-white animate__animated animate__pulse animate__infinite animate__slower py-2 px-4 mt-3"> 
+        <button data-toggle="modal" data-target="#exampleModal" style="font-size: .9rem;" class="btn btn-dark-primary text-white animate__animated animate__pulse animate__infinite animate__slower py-2 px-4 mt-3"> 
                                 <div class="d-flex justify-content-center align-items-center">
                                     <i data-feather="gift" width="15px" height="15px"></i> <span style="font-weight: 600;" class="ml-2">Send Wishes & Gift</span> 
                                 </div>
                             </button>
+    </div>
+    </div>
+    </section>
+    <div class="d-block bg-secondary-theme w-100" style="margin-top: 7rem;">
+        <div class="container pt-5 pb-4">
+            <div class="d-flex align-items-center justify-content-center">
+                <span class="mr-2">created with heart by</span>
+                <img src="./images/logo/lovee-id.svg" height="20px" width="auto">
+            </div>
+        </div>
+    </div>
+    <div class="modal bd-example-modal-lg animate__animated animate__slideInUp animate__faster" id="modalComment" data-backdrop="true" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <span class="modal-vector"></span>
+                    <h5 style="font-weight: 600;" class="text-dark-theme mt-5 mb-4">Send Wishes</h5>
+                    <div class="px-4">
+                        <div class="form-group custom-input">
+                            <label class="sr-only" for="username">Username</label>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i data-feather="user" width="15px" height="15px" stroke-width="3"></i>
+                                    </div>
+                                </div>
+                                <input v-model="guestBookForm.guestName" type="text" class="form-control" id="username" name="username" placeholder="Nama Panggilanmu">
+                            </div>
                         </div>
-                    </div>
-                </section>
-                <div class="d-block bg-secondary-theme w-100" style="margin-top: 7rem;">
-                    <div class="container pt-5 pb-4">
-                        <div class="d-flex align-items-center justify-content-center">
-                            <span class="mr-2">created with heart by</span>
-                            <img src="./images/logo/lovee-id.svg" height="20px" width="auto">
+                        <div class="form-group custom-input">
+                            <label class="sr-only" for="wishes">Wishes</label>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text align-items-start pt-2">
+                                        <i data-feather="message-circle" width="15px" height="15px" stroke-width="3"></i>
+                                    </div>
+                                </div>
+                                <textarea v-model="guestBookForm.comment" name="wishes" id="wishes" rows="5" class="form-control" placeholder="Tulis Doa dan pesan untuk mempelai"></textarea>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="modal bd-example-modal-lg animate__animated animate__slideInUp animate__faster" id="modalComment" data-backdrop="true" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-body text-center">
-                                <span class="modal-vector"></span>
-                                <h5 style="font-weight: 600;" class="text-dark-theme mt-5 mb-4">Send Wishes</h5>
-                                <div class="px-4">
-                                    <div class="form-group custom-input">
-                                        <label class="sr-only" for="username">Username</label>
-                                        <div class="input-group mb-2">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">
-                                                    <i data-feather="user" width="15px" height="15px" stroke-width="3"></i>
-                                                </div>
-                                            </div>
-                                            <input v-model="guestBookForm.guestName" type="text" class="form-control" id="username" name="username" placeholder="Nama Panggilanmu">
-                                        </div>
-                                    </div>
-                                    <div class="form-group custom-input">
-                                        <label class="sr-only" for="wishes">Wishes</label>
-                                        <div class="input-group mb-2">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text align-items-start pt-2">
-                                                    <i data-feather="message-circle" width="15px" height="15px" stroke-width="3"></i>
-                                                </div>
-                                            </div>
-                                            <textarea v-model="guestBookForm.comment" name="wishes" id="wishes" rows="5" class="form-control" placeholder="Tulis Doa dan pesan untuk mempelai"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="row px-2 mb-2">
-                                        <div class="col-4 px-1" v-for="(c,i) in confirmationList" :key="i+'-confirm-form-card'">
-                                            <div @click="chooseConfirmation(c.val)" class="px-2 py-3 text-center pointer" style="border-radius:8px;transition: all 0.5s ease;" :class="guestBookForm.confirmation === c.val ? 'text-white ' +c.class : 'bg-secondary-theme text-dark-theme border-theme'">
-                                                Saya <span class="d-block" style="font-weight: 800;">{{ c.name }}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button :disabled="!guestBookForm.comment || !guestBookForm.guestName" @click="addComment()" data-dismiss="modal" aria-label="Close" style="font-size: 1.2rem;" class="btn btn-primary btn-block py-2 px-4 mt-3 mr-3"> 
+                        <div class="row px-2 mb-2">
+                            <div class="col-4 px-1" v-for="(c,i) in confirmationList" :key="i+'-confirm-form-card'">
+                                <div @click="chooseConfirmation(c.val)" class="px-2 py-3 text-center pointer" style="border-radius:8px;transition: all 0.5s ease;" :class="guestBookForm.confirmation === c.val ? 'text-white ' +c.class : 'bg-secondary-theme text-dark-theme border-theme'">
+                                    Saya <span class="d-block" style="font-weight: 800;">{{ c.name }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button :disabled="!guestBookForm.comment || !guestBookForm.guestName" @click="addComment()" data-dismiss="modal" aria-label="Close" style="font-size: 1.2rem;" class="btn btn-primary btn-block py-2 px-4 mt-3 mr-3"> 
                                                     <div class="d-flex justify-content-center align-items-center">
                                                         <i data-feather="map" width="15px" height="15px"></i> <span style="font-weight: 600;" class="ml-2">Send Wishes</span> 
                                                     </div>
                                                 </button>
-                                    <div class="pt-5 pb-2 d-flex align-items-center justify-content-center text-center">
-                                        <span style="font-size: 10px;font-weight: 400;" class="mr-2">created with heart by</span>
-                                        <img src="./images/logo/lovee-id.svg" height="20px" width="auto">
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="pt-5 pb-2 d-flex align-items-center justify-content-center text-center">
+                            <span style="font-size: 10px;font-weight: 400;" class="mr-2">created with heart by</span>
+                            <img src="./images/logo/lovee-id.svg" height="20px" width="auto">
                         </div>
                     </div>
                 </div>
             </div>
-            <nav :class="isMobile ? 'mobile-nav-wrapper' : 'web-nav-wrapper'">
-                <div :class="isMobile ? 'mobile-nav' : 'web-nav'" class="animate__animated animate__zoomIn">
-                    <a href="#hero-section" class="nav-link">
-                        <img src="images/menu-3.png" alt="" srcset="">
-                    </a>
-                    <a href="#profile-section" class="nav-link">
-                        <img src="images/menu-1.png" alt="" srcset="">
-                    </a>
-                    <a href="#event-section" class="nav-link">
-                        <img src="images/menu-2.png" alt="" srcset="">
-                    </a>
-                    <a href="#maps-section" class="nav-link">
-                        <img src="images/menu-4.png" alt="" srcset="">
-                    </a>
-                    <a href="#story-section" class="nav-link">
-                        <img src="images/menu-7.png" alt="" srcset="">
-                    </a>
-                    <a href="#gallery-section" class="nav-link">
-                        <img src="images/menu-6.png" alt="" srcset="">
-                    </a>
-                    <a href="#guestbook-section" class="nav-link">
-                        <img src="images/menu-5.png" alt="" srcset="">
-                    </a>
-                </div>
-            </nav>
-            <a @click="isAudioPlay = !isAudioPlay" id="audio-control" class="pointer" :class="isMobile ? 'mobile-audio' : 'web-audio'">
-                <img v-if="isAudioPlay" src="./images/On.png">
-                <img v-else src="./images/Off.png">
+        </div>
+    </div>
+    </div>
+    <nav :class="isMobile ? 'mobile-nav-wrapper' : 'web-nav-wrapper'">
+        <div :class="isMobile ? 'mobile-nav' : 'web-nav'" class="animate__animated animate__zoomIn">
+            <a href="#hero-section" class="nav-link">
+                <img src="images/menu-3.png" alt="" srcset="">
             </a>
-        </template>
-        <div v-else key="outerContent" class="opening animate__animated animate__fadeIn animate__slower animate__delay-2s">
-            <div class="card-opening position-relative">
-                <div class="greeting text-center">
-                    <h5 style="font-weight: 300;" class="text-capitalize mb-1">Hello, <span style="font-weight: 500;">{{ guestName }}</span></h5>
-                    <h5 style="font-weight: 300;" class="mb-0">You're invited to </h5>
-                    <div class="mb-5 mt-4">
-                        <h1 style="font-size:3.5rem;" class="font-theme mb-0">{{ client.owner[0].nickname }} &amp; {{ client.owner[1].nickname }}</h1>
-                        <h4 class="text-theme" style="font-weight: 300;">WEDDING</h4>
-                    </div>
+            <a href="#profile-section" class="nav-link">
+                <img src="images/menu-1.png" alt="" srcset="">
+            </a>
+            <a href="#event-section" class="nav-link">
+                <img src="images/menu-2.png" alt="" srcset="">
+            </a>
+            <a href="#maps-section" class="nav-link">
+                <img src="images/menu-4.png" alt="" srcset="">
+            </a>
+            <a href="#story-section" class="nav-link">
+                <img src="images/menu-7.png" alt="" srcset="">
+            </a>
+            <a href="#gallery-section" class="nav-link">
+                <img src="images/menu-6.png" alt="" srcset="">
+            </a>
+            <a href="#guestbook-section" class="nav-link">
+                <img src="images/menu-5.png" alt="" srcset="">
+            </a>
+        </div>
+    </nav>
+    <a @click="isAudioPlay = !isAudioPlay" id="audio-control" class="pointer" :class="isMobile ? 'mobile-audio' : 'web-audio'">
+        <img v-if="isAudioPlay" src="./images/On.png">
+        <img v-else src="./images/Off.png">
+    </a>
+    </template>
+    <div v-else key="outerContent" class="opening animate__animated animate__fadeIn animate__slower animate__delay-2s">
+        <div class="card-opening position-relative">
+            <div class="greeting text-center">
+                <h5 style="font-weight: 300;" class="text-capitalize mb-1">Hello, <span style="font-weight: 500;">{{ guestName }}</span></h5>
+                <h5 style="font-weight: 300;" class="mb-0">You're invited to </h5>
+                <div class="mb-5 mt-4">
+                    <h1 style="font-size:3.5rem;" class="font-theme mb-0">{{ client.owner[0].nickname }} &amp; {{ client.owner[1].nickname }}</h1>
+                    <h4 class="text-theme" style="font-weight: 300;">WEDDING</h4>
                 </div>
-                <div class="position-relative animate__animated animate__fadeIn animate__slower animate__delay-3s">
-                    <div class="d-flex justify-content-between">
-                        <img :src="changeImgURL(client.banner[1])" class="img-opening-left">
-                        <img :src="changeImgURL(client.banner[2])" class="img-opening-right" alt="lalala">
-                    </div>
-                    <img src="./images/attachment/ornament_2.png" class="opening-ornament-2">
-                    <img src="./images/attachment/ornament_3.png" class="opening-ornament-3">
-                    <img src="./images/attachment/ornament_5.png" class="opening-ornament-5">
+            </div>
+            <div class="position-relative animate__animated animate__fadeIn animate__slower animate__delay-3s">
+                <div class="d-flex justify-content-between">
+                    <img :src="changeImgURL(client.banner[1])" class="img-opening-left">
+                    <img :src="changeImgURL(client.banner[2])" class="img-opening-right" alt="lalala">
                 </div>
-                <div class="text-center mt-5  animate__animated animate__fadeIn animate__slower animate__delay-3s">
-                    <button @click="isOpenInvitation = true" style="font-size: 1.25rem;" class="btn btn-primary animate__animated animate__pulse animate__infinite animate__slower py-2 px-5"> 
+                <img src="./images/attachment/ornament_2.png" class="opening-ornament-2">
+                <img src="./images/attachment/ornament_3.png" class="opening-ornament-3">
+                <img src="./images/attachment/ornament_5.png" class="opening-ornament-5">
+            </div>
+            <div class="text-center mt-5  animate__animated animate__fadeIn animate__slower animate__delay-3s">
+                <button @click="isOpenInvitation = true" style="font-size: 1.25rem;" class="btn btn-primary animate__animated animate__pulse animate__infinite animate__slower py-2 px-5"> 
                             <div class="d-flex justify-content-center align-items-center">
                                 <i data-feather="mail"></i> <span style="font-weight: 600;" class="ml-2">Buka Undangan</span> 
                             </div>
                         </button>
-                </div>
             </div>
         </div>
+    </div>
     </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -384,4 +390,5 @@
 <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
 <script type="module" src="js/vue.js"></script>
+
 </html>
