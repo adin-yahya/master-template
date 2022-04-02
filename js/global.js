@@ -16,6 +16,7 @@ function swiperInit () {
 }
 export default function (refresh = false) {
     feather.replace()
+    $("#wishesEmoji").emojioneArea()
     $(document).ready(function () {
         setTimeout((e) => {
             $(".preloader").hide()

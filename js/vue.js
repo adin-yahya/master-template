@@ -21,7 +21,6 @@ const firestore = fs.getFirestore(firebaseApp)
 const _api = axios.create()
 const _moment = moment().locale('id')
 
-
 new Vue({
     el: '#invitation',
     metaInfo: function () {
@@ -31,7 +30,7 @@ new Vue({
             meta: [
                 { property: 'og:url', content: window.location.origin },
                 { property: 'og:title', content: this.eventTitle },
-                { property: 'og:description', content: this.eventTitle + ' Wedding. Online Wedding Invitation, created with heart by Lovee.id'},
+                { property: 'og:description', content: this.eventTitle + ' Wedding. Online Wedding Invitation, created with heart by Lovee.id' },
                 { property: 'og:image', content: this.changeImgURL(this.client.banner[0], 200, 200) },
                 { property: 'og:image:alt', content: this.eventTitle },
             ]
@@ -62,13 +61,21 @@ new Vue({
                 alias: '',
                 comment: '',
                 confirmation: 'akan_hadir',
-                amount: '',
-                phone: '',
+                amount: 'Rp. 0',
+                phone: '+62 ',
                 gift: '',
                 trxID: '',
                 trxStats: false
             },
+            maskInput: {
+                amount: '',
+                phone: '',
+            },
             loveeLogo: 'https://drive.google.com/file/d/1RFtFh92iedY1YC__2o6qO26ZPj2Ar6d-/view?usp=sharing',
+            endpoint: {
+                payChannel: '/v1/guest/event/payment-chanel/'
+            },
+            dataList: {}
         }
     },
     computed: {
@@ -89,7 +96,7 @@ new Vue({
             deep: false,
             handler (val) {
                 if (val) {
-                    this.audioComp = new Audio(this.changeAudioURL(this.client.sound))
+
                     this.isAudioPlay = true
                     this.$nextTick(e => {
                         globalInit(val)
@@ -101,8 +108,8 @@ new Vue({
             immediate: false,
             deep: false,
             handler (val) {
-                if (val) this.audioComp.play()
-                else this.audioComp.pause()
+                // if (val) this.audioComp.play()
+                // else this.audioComp.pause()
             }
         }
     },
@@ -130,6 +137,7 @@ new Vue({
     },
     created () {
         globalInit()
+        this.audioComp = new Audio(this.changeAudioURL(this.client.sound))
         // document.getElementById('htmlTitle').innerHTML = this.eventTitle
     },
     beforeMount () {
@@ -231,6 +239,14 @@ new Vue({
         },
         chooseConfirmation: function (e) {
             this.$set(this.guestBookForm, 'confirmation', e)
-        }
+        },
+        onlyNumber (e, prop, prefix, defVal = null, tranform = true) {
+            let val = e.target.value.split(' ')
+            if (val.length == 1) this.$set(this.guestBookForm, prop, prefix + ' ' + defVal)
+            else {
+                const result = tranform ? Number(val[1].replace(/[^\d]/g, '')).toLocaleString('id-ID') : Number(val[1].replace(/[^\d]/g, ''))
+                this.$set(this.guestBookForm, prop, prefix + ' ' + result)
+            }
+        },
     }
 })

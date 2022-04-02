@@ -1,142 +1,142 @@
 <!DOCTYPE html>
 <html lang="id">
 
-<head>
-    <meta charset=UTF-8>
-    <meta name=viewport content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="images/favicon.png">
+    <head>
+        <meta charset=UTF-8>
+        <meta name=viewport content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="shortcut icon" href="images/favicon.png">
 
-    <meta name=title content="Lovee invitation">
-    <meta name=author content="Lovee.id">
-    <meta name=language content="Indonesia">
-    <meta name="description" content="Online Wedding Invitation, created with heart by Lovee.id">
-    <meta name="googlebot-news" content="noindex">
-    <meta name="googlebot" content="noindex">
-    <meta name="robots" content="noindex">
-    <meta name="keywords" content="lovee,lovee.id,undangan,pernikahan,online,website,wedding,invitation">
+        <meta name=title content="Lovee invitation">
+        <meta name=author content="Lovee.id">
+        <meta name=language content="Indonesia">
+        <meta name="description" content="Online Wedding Invitation, created with heart by Lovee.id">
+        <meta name="googlebot-news" content="noindex">
+        <meta name="googlebot" content="noindex">
+        <meta name="robots" content="noindex">
+        <meta name="keywords" content="lovee,lovee.id,undangan,pernikahan,online,website,wedding,invitation">
 
-    <meta name="twitter:card" content="Online Wedding Invitation, created with heart by Lovee.id">
-    <meta name="twitter:site" content="@lovee.invitation">
-    <meta name="twitter:creator" content="@lovee.invitation">
+        <meta name="twitter:card" content="Online Wedding Invitation, created with heart by Lovee.id">
+        <meta name="twitter:site" content="@lovee.invitation">
+        <meta name="twitter:creator" content="@lovee.invitation">
 
-    <meta property="og:url" content="https://muisrisa.koopastudio.id">
-    <meta property="og:title" content="Muis Risa Wedding">
-    <meta property="og:description" content="Muis Risa Wedding Wedding. Online Wedding Invitation, created with heart by Lovee.id">
-    <meta property="og:image" content="https://drive.google.com/thumbnail?id=1CW0S2bYQYk2opoXnWRftpdyNZF8awUPo&amp;sz=w200-h200">
-    <meta property="og:image:alt" content="Muis Risa Wedding">
+        <meta property="og:url" content="https://muisrisa.koopastudio.id">
+        <meta property="og:title" content="Muis Risa Wedding">
+        <meta property="og:description" content="Muis Risa Wedding. Online Wedding Invitation, created with heart by Lovee.id">
+        <meta property="og:image" content="https://drive.google.com/thumbnail?id=1CW0S2bYQYk2opoXnWRftpdyNZF8awUPo&amp;sz=w200-h200">
+        <meta property="og:image:alt" content="Muis Risa Wedding">
 
-    <title>Lovee invitation</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/theme-1.css">
-</head>
+        <title>Lovee invitation</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.css" integrity="sha512-vEia6TQGr3FqC6h55/NdU3QSM5XR6HSl5fW71QTKrgeER98LIMGwymBVM867C1XHIkYD9nMTfWK2A0xcodKHNA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="css/global.css">
+        <link rel="stylesheet" href="css/theme-1.css">
+    </head>
 
-<body class="position-relative">
-    <div class="preloader">
-        <div class="loading">
-            <img src="./images/logo/lovee-id.svg" class="animate__animated animate__zoomIn" width="150">
+    <body class="position-relative">
+        <div class="preloader">
+            <div class="loading">
+                <img src="./images/logo/lovee-id.svg" class="animate__animated animate__zoomIn" width="150">
+            </div>
         </div>
-    </div>
-    <div id="invitation">
-        <template v-if="isOpenInvitation">
-            <div key="innerContent" id="innerContent" class="inner-content">
-                <section data-anchor="hero-section" id="hero-section" class="bg-full-img full-height" id="saveDate" :style="{background: 'url(' + changeImgURL(client.banner[0], 1500, 1500) + ') center center/cover no-repeat' }">
-                    <div class="container">
-                        <div class="d-flex flex-column justify-content-between align-items-center text-center" style="min-height: 80vh;">
-                            <div class="text-center animate__animated animate__fadeIn animate__slow">
-                                <h3 style="font-weight: 500;" class="mb-4 text-white">Mohon Doa Restu<br>atas pernikahan Kami</h3>
-                                <div class="primary-date">
-                                    {{ client.event[0].startDateTime | longDate }}
-                                </div>
-                                <div class="countdown mt-3">
-                                    <div class="timer" v-for="(x,i) in countdown" :key="i+'-countdown'">
-                                        <span class="timer-number">{{ x.res }}</span>
-                                        <span class="timer-name">{{ x.name }}</span>
+        <div id="invitation">
+            <template v-if="isOpenInvitation">
+                <div key="innerContent" id="innerContent" class="inner-content">
+                    <section data-anchor="hero-section" id="hero-section" class="bg-full-img full-height" id="saveDate" :style="{background: 'url(' + changeImgURL(client.banner[0], 1500, 1500) + ') center center/cover no-repeat' }">
+                        <div class="container">
+                            <div class="d-flex flex-column justify-content-between align-items-center text-center" style="min-height: 80vh;">
+                                <div class="text-center animate__animated animate__fadeIn animate__slow">
+                                    <h3 style="font-weight: 500;" class="mb-4 text-white">Mohon Doa Restu<br>atas pernikahan Kami</h3>
+                                    <div class="primary-date">
+                                        {{ client.event[0].startDateTime | longDate }}
+                                    </div>
+                                    <div class="countdown mt-3">
+                                        <div class="timer" v-for="(x,i) in countdown" :key="i+'-countdown'">
+                                            <span class="timer-number">{{ x.res }}</span>
+                                            <span class="timer-name">{{ x.name }}</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="text-center animate__animated animate__fadeIn animate__slow animate__delay-1s">
-                                <button @click="isOpenInvitation = true" style="font-size: 1.25rem;" class="btn btn-primary animate__animated animate__pulse animate__infinite animate__slower py-2 px-5 mb-3"> 
-                                    <div class="d-flex justify-content-center align-items-center">
-                                        <i data-feather="calendar"></i> <span style="font-weight: 600;" class="ml-2">Save The Date</span> 
-                                    </div>
-                                </button>
-                                <span class="d-block text-white my-3">
-                                    <i data-feather="chevron-down" class="animate__animated animate__slideInDown animate__infinite animate__slower" width="30px" height="30px"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section data-anchor="profile-section" id="profile-section" class="bg-set-1 full-height">
-                    <div data-aos="zoom-in" data-aos-duration="1500" class="container px-md-5">
-                        <div class="mx-lg-big">
-                            <div class="opening-hero text-center mt-5 mt-md-0">
-                                <img src="./images/attachment/ornament_4.png" width="80px">
-                                <h5 style="font-weight: 300;" class="font-italic text-capitalize my-4">Assalamu’alaikum Warahmatullahi Wabarakatuh</h5>
-                                <p style="font-weight: 400;" class="mb-0">Maha suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan. Ya Allah, pekenankanlah kami merangkai kasih sayang yang Kau ciptakan di antara kami</p>
-                            </div>
-                            <div class="row justify-content-center align-items-center my-5 py-5">
-                                <div class="col couple text-center">
-                                    <img :src="changeImgURL(client.owner[0].imgProfile)" alt="couple-1" class="couple-pict animate__animated animate__pulse animate__infinite animate__slower">
-                                    <h2 style="font-weight: 300;" class="font-theme text-capitalize mb-1">{{ client.owner[0].fullname }}</h2>
-                                    <p style="font-weight: 400;" class="mb-0">{{ client.owner[0].desc }}</p>
-                                </div>
-                                <div class="col-12 col-sm-auto text-center">
-                                    <img src="./images/attachment/and_.png" width="100px" class="px-2 px-md-0 mb-5 mt-5 mt-sm-0">
-                                </div>
-                                <div class="col couple text-center">
-                                    <img :src="changeImgURL(client.owner[1].imgProfile)" alt="couple-1" class="couple-pict animate__animated animate__pulse animate__infinite animate__slower">
-                                    <h2 style="font-weight: 300;" class="font-theme text-capitalize mb-1">{{ client.owner[1].fullname }}</h2>
-                                    <p style="font-weight: 400;" class="mb-0">{{ client.owner[1].desc }}</p>
-                                </div>
-                            </div>
-                            <div class="text-center mt-5 mt-md-0">
-                                <p style="font-weight: 400;" class="mb-2 font-italic">{{ client.quotes.text }}</p>
-                                <p style="font-weight: 400;" class="mb-0 font-italic"> - {{ client.quotes.title }} -</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section data-anchor="event-section" id="event-section" class="bg-set-2 py-2 py-lg-5">
-                    <div class="container px-0 px-lg-5">
-                        <div class="mx-lg-big px-5 px-sm-0 px-lg-5">
-                            <div class="opening-hero text-center mt-5 mt-md-0">
-                                <img src="./images/attachment/vector_1.png" width="30px" class="text-center">
-                                <h5 style="font-weight: 500;" class="text-dark-theme font-italic mt-4 mb-5">Rangkaian Acara</h5>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6 text-center" v-for="(a,i) in client.event" :key="i+'-acara'"  data-aos="zoom-in" data-aos-duration="1500">
-                                    <h2 style="font-weight: 400;" class="font-theme mt-4 mb-3">{{ a.title }}</h2>
-                                    <div class="event-wrapper">
-                                        <h5 style="font-weight: 800;" class="text-dark-theme">{{ a.startDateTime | dayOnly }},<br>{{ a.startDateTime | dateOnly }}</h5>
-                                        <h5 style="font-weight: 800;" class="my-3">{{ a.timeText }}</h5>
-                                        <p class="mb-0">di {{ a.location }},<br>{{ a.address }}</p>
-                                    </div>
+                                <div class="text-center animate__animated animate__fadeIn animate__slow animate__delay-1s">
+                                    <button @click="isOpenInvitation = true" style="font-size: 1.25rem;" class="btn btn-primary animate__animated animate__pulse animate__infinite animate__slower py-2 px-5 mb-3">
+                                        <div class="d-flex justify-content-center align-items-center">
+                                            <i data-feather="calendar"></i> <span style="font-weight: 600;" class="ml-2">Save The Date</span>
+                                        </div>
+                                    </button>
+                                    <span class="d-block text-white my-3">
+                                        <i data-feather="chevron-down" class="animate__animated animate__slideInDown animate__infinite animate__slower" width="30px" height="30px"></i>
+                                    </span>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-                <section  data-aos="zoom-in" data-aos-duration="1500" data-anchor="maps-section" id="maps-section" class="full-height bg-set-3">
-                    <div class="container px-md-5 py-5">
-                        <div class="row align-items-center">
-                            <div class="order-2 order-lg-1 col-md-12">
-                                <div class="d-flex justify-content-center align-items-center mb-3">
-                                    <img src="./images/attachment/vector_2.png" width="30px" class="text-center">
-                                    <h5 style="font-weight: 600;" class="text-dark-theme font-italic mb-0 ml-3">Jadilah Saksi <br>di Hari Bahagia Kami</h5>
+                    </section>
+                    <section data-anchor="profile-section" id="profile-section" class="bg-set-1 full-height">
+                        <div data-aos="zoom-in" data-aos-duration="1500" class="container px-md-5">
+                            <div class="mx-lg-big">
+                                <div class="opening-hero text-center mt-5 mt-md-0">
+                                    <img src="./images/attachment/ornament_4.png" width="80px">
+                                    <h5 style="font-weight: 300;" class="font-italic text-capitalize my-4">Assalamu’alaikum Warahmatullahi Wabarakatuh</h5>
+                                    <p style="font-weight: 400;" class="mb-0">Maha suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan. Ya Allah, pekenankanlah kami merangkai kasih sayang yang Kau ciptakan di antara kami</p>
                                 </div>
-                                <div style="border-radius:23px;overflow: hidden;display: flex;">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.741075480206!2d111.14410261477221!3d-6.801321895084145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd9f060c5541007c8!2zNsKwNDgnMDQuOCJTIDExMcKwMDgnNDYuNyJF!5e0!3m2!1sen!2sid!4v1646938148878!5m2!1sen!2sid"
-                                        width="100%" style="border:0;height: 50vh;" allowfullscreen="true" loading="lazy"></iframe>
+                                <div class="row justify-content-center align-items-center my-5 py-5">
+                                    <div class="col couple text-center">
+                                        <img :src="changeImgURL(client.owner[0].imgProfile)" alt="couple-1" class="couple-pict animate__animated animate__pulse animate__infinite animate__slower">
+                                        <h2 style="font-weight: 300;" class="font-theme text-capitalize mb-1">{{ client.owner[0].fullname }}</h2>
+                                        <p style="font-weight: 400;" class="mb-0">{{ client.owner[0].desc }}</p>
+                                    </div>
+                                    <div class="col-12 col-sm-auto text-center">
+                                        <img src="./images/attachment/and_.png" width="100px" class="px-2 px-md-0 mb-5 mt-5 mt-sm-0">
+                                    </div>
+                                    <div class="col couple text-center">
+                                        <img :src="changeImgURL(client.owner[1].imgProfile)" alt="couple-1" class="couple-pict animate__animated animate__pulse animate__infinite animate__slower">
+                                        <h2 style="font-weight: 300;" class="font-theme text-capitalize mb-1">{{ client.owner[1].fullname }}</h2>
+                                        <p style="font-weight: 400;" class="mb-0">{{ client.owner[1].desc }}</p>
+                                    </div>
+                                </div>
+                                <div class="text-center mt-5 mt-md-0">
+                                    <p style="font-weight: 400;" class="mb-2 font-italic">{{ client.quotes.text }}</p>
+                                    <p style="font-weight: 400;" class="mb-0 font-italic"> - {{ client.quotes.title }} -</p>
                                 </div>
                             </div>
-                            <!-- <div class="order-1 order-lg-2 col-md-5 mb-4 mb-md-0">
+                        </div>
+                    </section>
+                    <section data-anchor="event-section" id="event-section" class="bg-set-2 py-2 py-lg-5">
+                        <div class="container px-0 px-lg-5">
+                            <div class="mx-lg-big px-5 px-sm-0 px-lg-5">
+                                <div class="opening-hero text-center mt-5 mt-md-0">
+                                    <img src="./images/attachment/vector_1.png" width="30px" class="text-center">
+                                    <h5 style="font-weight: 500;" class="text-dark-theme font-italic mt-4 mb-5">Rangkaian Acara</h5>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 text-center" v-for="(a,i) in client.event" :key="i+'-acara'" data-aos="zoom-in" data-aos-duration="1500">
+                                        <h2 style="font-weight: 400;" class="font-theme mt-4 mb-3">{{ a.title }}</h2>
+                                        <div class="event-wrapper">
+                                            <h5 style="font-weight: 800;" class="text-dark-theme">{{ a.startDateTime | dayOnly }},<br>{{ a.startDateTime | dateOnly }}</h5>
+                                            <h5 style="font-weight: 800;" class="my-3">{{ a.timeText }}</h5>
+                                            <p class="mb-0">di {{ a.location }},<br>{{ a.address }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section data-aos="zoom-in" data-aos-duration="1500" data-anchor="maps-section" id="maps-section" class="full-height bg-set-3">
+                        <div class="container px-md-5 py-5">
+                            <div class="row align-items-center">
+                                <div class="order-2 order-lg-1 col-md-12">
+                                    <div class="d-flex justify-content-center align-items-center mb-3">
+                                        <img src="./images/attachment/vector_2.png" width="30px" class="text-center">
+                                        <h5 style="font-weight: 600;" class="text-dark-theme font-italic mb-0 ml-3">Jadilah Saksi <br>di Hari Bahagia Kami</h5>
+                                    </div>
+                                    <div style="border-radius:23px;overflow: hidden;display: flex;">
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.741075480206!2d111.14410261477221!3d-6.801321895084145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd9f060c5541007c8!2zNsKwNDgnMDQuOCJTIDExMcKwMDgnNDYuNyJF!5e0!3m2!1sen!2sid!4v1646938148878!5m2!1sen!2sid" width="100%" style="border:0;height: 50vh;" allowfullscreen="true" loading="lazy"></iframe>
+                                    </div>
+                                </div>
+                                <!-- <div class="order-1 order-lg-2 col-md-5 mb-4 mb-md-0">
                                 <div class="d-flex justify-content-start align-items-center">
                                     <img src="./images/attachment/vector_2.png" width="30px" class="text-center">
                                     <h5 style="font-weight: 600;" class="text-dark-theme font-italic mb-0 ml-3">Jadilah Saksi<br>di Hari Bahagia Kami</h5>
@@ -151,244 +151,334 @@
                                     </button>
                                 </div>
                             </div> -->
-                        </div>
-                    </div>
-                    <div class="d-block bg-secondary-theme w-100" style="margin-top: 5rem;">
-                        <div class="container px-md-5 py-5">
-                            <div class="row align-items-center">
-                                <div class="col-md-6">
-                                    <p class="mb-3 mb-md-0">Dalam upaya mengurangi penyebaran Covid 19 pada masa pandemi. Kami harapkan kedatangan para tamu undangan agar menjalankan protokol yang berlaku.</p>
-                                </div>
-                                <div class="col-md-6">
-                                    <ol style="font-weight: 600;" class="pl-3 mb-0">
-                                        <li class="text-theme">Wajib Menggunakan Masker</li>
-                                        <li class="text-theme">Saling Menjaga Jarak di dalam Acara</li>
-                                        <li class="text-theme">Jaga Kebersihan dengan Mencuci Tangan atau Handsanitizer</li>
-                                    </ol>
-                                </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-                <section data-anchor="story-section" id="story-section" class="full-height justify-content-start">
-                    <img :src="changeImgURL(client.banner[3], 1500, 1500)" alt="" class="img-bg-radius" style="z-index: 3;">
-                    <div class="container px-md-5 mt-5 pt-5" style="z-index: 3;">
-                        <div class="swiper swiper-normal">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide" v-for="(s,i) in client.story" :key="i+'-storyline'">
-                                    <div class="story-wrapper text-center">
-                                        <h3 style="font-weight: 600;" class="text-dark-theme font-italic mb-0 ml-3">{{ s.title }}</h3>
-                                        <p style="font-size: 1rem;" class="mb-0 mt-3">{{ s.text }}</p>
+                        <div class="d-block bg-secondary-theme w-100" style="margin-top: 5rem;">
+                            <div class="container px-md-5 py-5">
+                                <div class="row align-items-center">
+                                    <div class="col-md-6">
+                                        <p class="mb-3 mb-md-0">Dalam upaya mengurangi penyebaran Covid 19 pada masa pandemi. Kami harapkan kedatangan para tamu undangan agar menjalankan protokol yang berlaku.</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ol style="font-weight: 600;" class="pl-3 mb-0">
+                                            <li class="text-theme">Wajib Menggunakan Masker</li>
+                                            <li class="text-theme">Saling Menjaga Jarak di dalam Acara</li>
+                                            <li class="text-theme">Jaga Kebersihan dengan Mencuci Tangan atau Handsanitizer</li>
+                                        </ol>
                                     </div>
                                 </div>
                             </div>
-                            <div class="d-none d-md-flex swiper-button-prev"></div>
-                            <div class="d-none d-md-flex swiper-button-next"></div>
-                            <div class="d-block d-md-none swiper-pagination"></div>
                         </div>
-                    </div>
-                </section>
-                <section data-anchor="gallery-section" id="gallery-section" class="bg-set-4 py-2 py-lg-5">
-                    <div class="container px-md-5">
-                        <div class="mx-lg-big">
+                    </section>
+                    <section data-anchor="story-section" id="story-section" class="full-height justify-content-start">
+                        <img :src="changeImgURL(client.banner[3], 1500, 1500)" alt="" class="img-bg-radius" style="z-index: 3;">
+                        <div class="container px-md-5 mt-5 pt-5" style="z-index: 3;">
+                            <div class="swiper swiper-normal">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide" v-for="(s,i) in client.story" :key="i+'-storyline'">
+                                        <div class="story-wrapper text-center">
+                                            <h3 style="font-weight: 600;" class="text-dark-theme font-italic mb-0 ml-3">{{ s.title }}</h3>
+                                            <p style="font-size: 1rem;" class="mb-0 mt-3">{{ s.text }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-none d-md-flex swiper-button-prev"></div>
+                                <div class="d-none d-md-flex swiper-button-next"></div>
+                                <div class="d-block d-md-none swiper-pagination"></div>
+                            </div>
+                        </div>
+                    </section>
+                    <section data-anchor="gallery-section" id="gallery-section" class="bg-set-4 py-2 py-lg-5">
+                        <div class="container px-md-5">
+                            <div class="mx-lg-big">
+                                <div class="opening-hero text-center mt-5 mt-md-0">
+                                    <img src="./images/attachment/vector_3.png" width="80px" class="text-center">
+                                    <h4 style="font-weight: 500;" class="text-dark-theme font-italic my-4">Kenangan yang akan Kami lanjutkan</h4>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-sm-4 col-md-4 text-center p-2" v-for="(a,i) in client.gallery" :key="i+'-gallery'">
+                                        <img :src="changeImgURL(a, 500, 500)" alt="" class="img-gallery" data-aos="zoom-in" v-bind:data-aos-duration="1000 + (i*50)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section data-anchor="guestbook-section" id="guestbook-section" class="bg-set-5 full-height">
+                        <div class="container px-md-5">
                             <div class="opening-hero text-center mt-5 mt-md-0">
-                                <img src="./images/attachment/vector_3.png" width="80px" class="text-center">
-                                <h4 style="font-weight: 500;" class="text-dark-theme font-italic my-4">Kenangan yang akan Kami lanjutkan</h4>
+                                <h5 style="font-weight: 500;" class="text-dark-theme font-italic my-4">Kirim Ucapan &amp; Amplop Digital</h5>
+                                <h6 style="font-weight: 500;" class="text-dark-theme font-italic my-4"><b>{{ guestResume.total }}</b> teman mempelai sudah mengirimkan doa &amp; virtual gift</h6>
                             </div>
-                            <div class="row">
-                                <div class="col-12 col-sm-4 col-md-4 text-center p-2" v-for="(a,i) in client.gallery" :key="i+'-gallery'">
-                                    <img :src="changeImgURL(a, 500, 500)" alt="" class="img-gallery" data-aos="zoom-in" v-bind:data-aos-duration="1000 + (i*50)">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section data-anchor="guestbook-section" id="guestbook-section" class="bg-set-5 full-height">
-                    <div class="container px-md-5">
-                        <div class="opening-hero text-center mt-5 mt-md-0">
-                            <h5 style="font-weight: 500;" class="text-dark-theme font-italic my-4">Kirim Ucapan &amp; Amplop Digital</h5>
-                            <h6 style="font-weight: 500;" class="text-dark-theme font-italic my-4"><b>{{ guestResume.total }}</b> teman mempelai sudah mengirimkan doa &amp; virtual gift</h6>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center">
-                            <div data-aos="zoom-in" data-aos-duration="1000" class="arrival text-center bg-success-theme">
-                                <span class="number-arrival">{{ guestResume.akan }}</span>
-                                <span class="text-arrival mb-2">Akan Hadir</span>
-                            </div>
-                            <div data-aos="zoom-in" data-aos-duration="1500" class="arrival text-center bg-danger-theme">
-                                <span class="number-arrival">{{ guestResume.tidak }}</span>
-                                <span class="text-arrival mb-2">Tidak Hadir</span>
-                            </div>
-                            <div data-aos="zoom-in" data-aos-duration="2000" class="arrival text-center bg-gray-theme">
-                                <span class="number-arrival">{{ guestResume.ragu }}</span>
-                                <span class="text-arrival mb-2">Masih Ragu</span>
-                            </div>
-                        </div>
-                        <div class="text-center my-5">
-                            <h1 class="font-theme text-dark-theme">guestbook</h1>
-                        </div>
-                        <div class="comment-list">
-                            <div class="comment mb-3" v-for="(gb, i) in guestBook" :key="i+'-guestbooklist'">
-                                <div class="comment-img text-dark-theme position-relative">{{ gb.alias }}
-                                    <template v-if="gb.confirmation">
-                                        <span v-if="gb.confirmation === 'akan_hadir'" class="bg-success-theme mr-2 status-code"></span>
-                                        <span v-if="gb.confirmation === 'tidak_hadir'" class="bg-danger-theme mr-2 status-code"></span>
-                                        <span v-if="gb.confirmation === 'ragu_hadir'" class="bg-gray-theme mr-2 status-code"></span>
-                                   </template>
-    </div>
-    <div class="comment-text">
-        <div class="d-flex align-items-center">
-            <span class="comment-name text-dark-theme text-capitalize mr-2">{{ gb.guestName }}</span>
-            <div v-if="gb.gift" class="comment-badge d-flex justify-content-center align-items-center mr-2"><span class="mr-1">sent</span> <img src="./images/attachment/gift.png" width="10px" alt=""></div>
-        </div>
-        <p class="mb-0 comment-desc text-dark-theme">{{ gb.comment }}</p>
-    </div>
-    </div>
-    </div>
-    <div class="text-center my-2 my-lg-3">
-        <button data-toggle="modal" data-target="#modalComment" style="font-size: .9rem;" class="btn btn-primary animate__animated animate__pulse animate__infinite animate__slower py-2 px-4 mt-3 mr-0 mr-md-3"> 
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <i data-feather="map" width="15px" height="15px"></i> <span style="font-weight: 600;" class="ml-2">Send Wishes</span> 
-                                </div>
-                            </button>
-        <button data-toggle="modal" data-target="#exampleModal" style="font-size: .9rem;" class="btn btn-dark-primary text-white animate__animated animate__pulse animate__infinite animate__slower py-2 px-4 mt-3"> 
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <i data-feather="gift" width="15px" height="15px"></i> <span style="font-weight: 600;" class="ml-2">Send Wishes & Gift</span> 
-                                </div>
-                            </button>
-    </div>
-    </div>
-    </section>
-    <div class="d-block bg-secondary-theme w-100" style="margin-top: 7rem;">
-        <div class="container pt-5 pb-4">
-            <div class="d-flex align-items-center justify-content-center">
-                <span class="mr-2">created with heart by</span>
-                <img src="./images/logo/lovee-id.svg" height="20px" width="auto">
-            </div>
-        </div>
-    </div>
-    <div class="modal bd-example-modal-lg animate__animated animate__slideInUp animate__faster" id="modalComment" data-backdrop="true" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body text-center">
-                    <span class="modal-vector"></span>
-                    <h5 style="font-weight: 600;" class="text-dark-theme mt-5 mb-4">Send Wishes</h5>
-                    <div class="px-4">
-                        <div class="form-group custom-input">
-                            <label class="sr-only" for="username">Username</label>
-                            <div class="input-group mb-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <i data-feather="user" width="15px" height="15px" stroke-width="3"></i>
-                                    </div>
-                                </div>
-                                <input v-model="guestBookForm.guestName" type="text" class="form-control" id="username" name="username" placeholder="Nama Panggilanmu">
-                            </div>
-                        </div>
-                        <div class="form-group custom-input">
-                            <label class="sr-only" for="wishes">Wishes</label>
-                            <div class="input-group mb-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text align-items-start pt-2">
-                                        <i data-feather="message-circle" width="15px" height="15px" stroke-width="3"></i>
-                                    </div>
-                                </div>
-                                <textarea v-model="guestBookForm.comment" name="wishes" id="wishes" rows="5" class="form-control" placeholder="Tulis Doa dan pesan untuk mempelai"></textarea>
-                            </div>
-                        </div>
-                        <div class="row px-2 mb-2">
-                            <div class="col-4 px-1" v-for="(c,i) in confirmationList" :key="i+'-confirm-form-card'">
-                                <div @click="chooseConfirmation(c.val)" class="px-2 py-3 text-center pointer" style="border-radius:8px;transition: all 0.5s ease;" :class="guestBookForm.confirmation === c.val ? 'text-white ' +c.class : 'bg-secondary-theme text-dark-theme border-theme'">
-                                    Saya <span class="d-block" style="font-weight: 800;">{{ c.name }}</span>
-                                </div>
-                            </div>
-                        </div>
-                        <button :disabled="!guestBookForm.comment || !guestBookForm.guestName" @click="addComment()" data-dismiss="modal" aria-label="Close" style="font-size: 1.2rem;" class="btn btn-primary btn-block py-2 px-4 mt-3 mr-3"> 
-                                                    <div class="d-flex justify-content-center align-items-center">
-                                                        <i data-feather="map" width="15px" height="15px"></i> <span style="font-weight: 600;" class="ml-2">Send Wishes</span> 
-                                                    </div>
-                                                </button>
-                        <div class="pt-5 pb-2 d-flex align-items-center justify-content-center text-center">
-                            <span style="font-size: 10px;font-weight: 400;" class="mr-2">created with heart by</span>
-                            <img src="./images/logo/lovee-id.svg" height="20px" width="auto">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-    <nav :class="isMobile ? 'mobile-nav-wrapper' : 'web-nav-wrapper'">
-        <div :class="isMobile ? 'mobile-nav' : 'web-nav'" class="animate__animated animate__zoomIn">
-            <a href="#hero-section" class="nav-link">
-                <img src="images/menu-3.png" alt="" srcset="">
-            </a>
-            <a href="#profile-section" class="nav-link">
-                <img src="images/menu-1.png" alt="" srcset="">
-            </a>
-            <a href="#event-section" class="nav-link">
-                <img src="images/menu-2.png" alt="" srcset="">
-            </a>
-            <a href="#maps-section" class="nav-link">
-                <img src="images/menu-4.png" alt="" srcset="">
-            </a>
-            <a href="#story-section" class="nav-link">
-                <img src="images/menu-7.png" alt="" srcset="">
-            </a>
-            <a href="#gallery-section" class="nav-link">
-                <img src="images/menu-6.png" alt="" srcset="">
-            </a>
-            <a href="#guestbook-section" class="nav-link">
-                <img src="images/menu-5.png" alt="" srcset="">
-            </a>
-        </div>
-    </nav>
-    <a @click="isAudioPlay = !isAudioPlay" id="audio-control" class="pointer" :class="isMobile ? 'mobile-audio' : 'web-audio'">
-        <img v-if="isAudioPlay" src="./images/On.png">
-        <img v-else src="./images/Off.png">
-    </a>
-    </template>
-    <div v-else key="outerContent" class="opening animate__animated animate__fadeIn animate__slower animate__delay-2s">
-        <div class="card-opening position-relative">
-            <div class="greeting text-center">
-                <h5 style="font-weight: 300;" class="text-capitalize mb-1">Hello, <span style="font-weight: 500;">{{ guestName }}</span></h5>
-                <h5 style="font-weight: 300;" class="mb-0">You're invited to </h5>
-                <div class="mb-5 mt-4">
-                    <h1 style="font-size:3.5rem;" class="font-theme mb-0">{{ client.owner[0].nickname }} &amp; {{ client.owner[1].nickname }}</h1>
-                    <h4 class="text-theme" style="font-weight: 300;">WEDDING</h4>
-                </div>
-            </div>
-            <div class="position-relative animate__animated animate__fadeIn animate__slower animate__delay-3s">
-                <div class="d-flex justify-content-between">
-                    <img :src="changeImgURL(client.banner[1])" class="img-opening-left">
-                    <img :src="changeImgURL(client.banner[2])" class="img-opening-right" alt="lalala">
-                </div>
-                <img src="./images/attachment/ornament_2.png" class="opening-ornament-2">
-                <img src="./images/attachment/ornament_3.png" class="opening-ornament-3">
-                <img src="./images/attachment/ornament_5.png" class="opening-ornament-5">
-            </div>
-            <div class="text-center mt-5  animate__animated animate__fadeIn animate__slower animate__delay-3s">
-                <button @click="isOpenInvitation = true" style="font-size: 1.25rem;" class="btn btn-primary animate__animated animate__pulse animate__infinite animate__slower py-2 px-5"> 
                             <div class="d-flex justify-content-center align-items-center">
-                                <i data-feather="mail"></i> <span style="font-weight: 600;" class="ml-2">Buka Undangan</span> 
+                                <div data-aos="zoom-in" data-aos-duration="1000" class="arrival text-center bg-success-theme">
+                                    <span class="number-arrival">{{ guestResume.akan }}</span>
+                                    <span class="text-arrival mb-2">Akan Hadir</span>
+                                </div>
+                                <div data-aos="zoom-in" data-aos-duration="1500" class="arrival text-center bg-danger-theme">
+                                    <span class="number-arrival">{{ guestResume.tidak }}</span>
+                                    <span class="text-arrival mb-2">Tidak Hadir</span>
+                                </div>
+                                <div data-aos="zoom-in" data-aos-duration="2000" class="arrival text-center bg-gray-theme">
+                                    <span class="number-arrival">{{ guestResume.ragu }}</span>
+                                    <span class="text-arrival mb-2">Masih Ragu</span>
+                                </div>
+                            </div>
+                            <div class="text-center my-5">
+                                <h1 class="font-theme text-dark-theme">guestbook</h1>
+                            </div>
+                            <div class="comment-list">
+                                <div class="comment mb-3" v-for="(gb, i) in guestBook" :key="i+'-guestbooklist'">
+                                    <div class="comment-img text-dark-theme position-relative">{{ gb.alias }}
+                                        <template v-if="gb.confirmation">
+                                            <span v-if="gb.confirmation === 'akan_hadir'" class="bg-success-theme mr-2 status-code"></span>
+                                            <span v-if="gb.confirmation === 'tidak_hadir'" class="bg-danger-theme mr-2 status-code"></span>
+                                            <span v-if="gb.confirmation === 'ragu_hadir'" class="bg-gray-theme mr-2 status-code"></span>
+                                        </template>
+                                    </div>
+                                    <div class="comment-text">
+                                        <div class="d-flex align-items-center">
+                                            <span class="comment-name text-dark-theme text-capitalize mr-2">{{ gb.guestName }}</span>
+                                            <div v-if="gb.gift" class="comment-badge d-flex justify-content-center align-items-center mr-2"><span class="mr-1">sent</span> <img src="./images/attachment/gift.png" width="10px" alt=""></div>
+                                        </div>
+                                        <p class="mb-0 comment-desc text-dark-theme">{{ gb.comment }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center my-2 my-lg-3">
+                                <button data-toggle="modal" data-target="#modalComment" style="font-size: .9rem;" class="btn btn-primary animate__animated animate__pulse animate__infinite animate__slower py-2 px-4 mt-3 mr-0 mr-md-3">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <i data-feather="map" width="15px" height="15px"></i> <span style="font-weight: 600;" class="ml-2">Send Wishes</span>
+                                    </div>
+                                </button>
+                                <button data-toggle="modal" data-target="#modalGift" style="font-size: .9rem;" class="btn btn-dark-primary text-white animate__animated animate__pulse animate__infinite animate__slower py-2 px-4 mt-3">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <i data-feather="gift" width="15px" height="15px"></i> <span style="font-weight: 600;" class="ml-2">Send Wishes & Gift</span>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="d-block bg-secondary-theme w-100" style="margin-top: 7rem;">
+                        <div class="container pt-5 pb-4">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <span class="mr-2">created with heart by</span>
+                                <img src="./images/logo/lovee-id.svg" height="20px" width="auto">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal bd-example-modal-lg animate__animated animate__slideInUp animate__faster" id="modalComment" data-backdrop="true" tabindex="-1" role="dialog" aria-labelledby="commentModal" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-body text-center">
+                                    <span class="modal-vector"></span>
+                                    <h5 style="font-weight: 600;" class="text-dark-theme mt-5 mb-4">Send Wishes</h5>
+                                    <div class="px-4">
+                                        <div class="form-group custom-input">
+                                            <label class="sr-only" for="username">Username</label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <i data-feather="user" width="15px" height="15px" stroke-width="3"></i>
+                                                    </div>
+                                                </div>
+                                                <input v-model="guestBookForm.guestName" type="text" class="form-control" id="username" name="username" placeholder="Nama Panggilanmu">
+                                            </div>
+                                        </div>
+                                        <div class="form-group custom-input">
+                                            <label class="sr-only" for="wishes">Wishes</label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text align-items-start pt-2">
+                                                        <i data-feather="message-circle" width="15px" height="15px" stroke-width="3"></i>
+                                                    </div>
+                                                </div>
+                                                <textarea v-model="guestBookForm.comment" name="wishes" id="wishes" rows="5" class="form-control" placeholder="Tulis Doa dan pesan untuk mempelai"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="row px-2 mb-2">
+                                            <div class="col-4 px-1" v-for="(c,i) in confirmationList" :key="i+'-confirm-form-card'">
+                                                <div @click="chooseConfirmation(c.val)" class="px-2 py-3 text-center pointer" style="border-radius:8px;transition: all 0.5s ease;" :class="guestBookForm.confirmation === c.val ? 'text-white ' +c.class : 'bg-secondary-theme text-dark-theme border-theme'">
+                                                    Saya <span class="d-block" style="font-weight: 800;">{{ c.name }}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button :disabled="!guestBookForm.comment || !guestBookForm.guestName" @click="addComment()" data-dismiss="modal" aria-label="Close" style="font-size: 1.2rem;" class="btn btn-primary btn-block py-2 px-4 mt-5 mr-3">
+                                            <div class="d-flex justify-content-center align-items-center">
+                                                <i data-feather="map" width="15px" height="15px"></i> <span style="font-weight: 600;" class="ml-2">Send Wishes</span>
+                                            </div>
+                                        </button>
+                                        <div class="pt-5 pb-2 d-flex align-items-center justify-content-center text-center">
+                                            <span style="font-size: 10px;font-weight: 400;" class="mr-2">created with heart by</span>
+                                            <img src="./images/logo/lovee-id.svg" height="20px" width="auto">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal bd-example-modal-lg animate__animated animate__slideInUp animate__faster" id="modalGift" data-backdrop="true" tabindex="-1" role="dialog" aria-labelledby="giftModal" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-body text-center">
+                                    <span class="modal-vector"></span>
+                                    <h5 style="font-weight: 600;" class="text-dark-theme mt-5 mb-4">Send Wishes &amp; Virtual Gift</h5>
+                                    <div class="px-4">
+                                        <div class="separator-form">
+                                            <span>Tulis doa dan pesan untuk mempelai</span>
+                                        </div>
+                                        <div class="form-group custom-input">
+                                            <label class="sr-only" for="username">Username</label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <svg width="15" height="17" viewBox="0 0 25 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M15.0833 24.125L12.5 26.7083L9.91667 24.125H3.45187C2.76845 24.125 2.11301 23.8535 1.62975 23.3703C1.14649 22.887 0.875 22.2316 0.875 21.5481V3.45187C0.875 2.02846 2.02846 0.875 3.45187 0.875H21.5481C22.9715 0.875 24.125 2.02846 24.125 3.45187V21.5481C24.125 22.2316 23.8535 22.887 23.3703 23.3703C22.887 23.8535 22.2316 24.125 21.5481 24.125H15.0833ZM5.21112 20.25H20.0524C19.2201 19.0532 18.1104 18.0756 16.8182 17.4008C15.5259 16.726 14.0896 16.374 12.6318 16.375C11.1739 16.374 9.73757 16.726 8.44534 17.4008C7.15311 18.0756 6.04344 19.0532 5.21112 20.25ZM12.5 13.7917C13.0937 13.7917 13.6816 13.6747 14.23 13.4475C14.7785 13.2203 15.2769 12.8873 15.6967 12.4675C16.1165 12.0477 16.4495 11.5494 16.6767 11.0009C16.9039 10.4524 17.0208 9.86452 17.0208 9.27083C17.0208 8.67715 16.9039 8.08928 16.6767 7.54079C16.4495 6.99229 16.1165 6.49392 15.6967 6.07412C15.2769 5.65432 14.7785 5.32132 14.23 5.09413C13.6816 4.86693 13.0937 4.75 12.5 4.75C11.301 4.75 10.1511 5.2263 9.30329 6.07412C8.45547 6.92194 7.97917 8.07183 7.97917 9.27083C7.97917 10.4698 8.45547 11.6197 9.30329 12.4675C10.1511 13.3154 11.301 13.7917 12.5 13.7917Z" fill="#964E3A" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <input v-model="guestBookForm.guestName" type="text" class="form-control" id="username" name="username" placeholder="Nama Panggilanmu">
+                                            </div>
+                                        </div>
+                                        <div class="form-group custom-input text-left">
+                                            <label class="sr-only" for="wishes">Wishes</label>
+                                            <!-- <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text align-items-start pt-2">
+                                                        <svg width="15" height="15" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M24.988 7.96252C24.3356 6.40869 23.3864 4.99636 22.1935 3.80426C21.0041 2.61009 19.5912 1.66065 18.0351 1.00985C16.4411 0.339917 14.7283 -0.00348896 12.9986 2.67235e-05H12.9405C11.1812 0.00873207 9.48006 0.356946 7.8778 1.04177C6.33507 1.69924 4.93548 2.65037 3.75728 3.84199C2.57589 5.03141 1.63762 6.4388 0.994765 7.98573C0.327442 9.59437 -0.0106933 11.32 0.000257733 13.061C0.00898148 15.0748 0.491695 17.0741 1.39315 18.8616V23.2723C1.39315 24.0094 1.99218 24.6071 2.72788 24.6071H7.1421C8.94173 25.5133 10.9276 25.9901 12.9434 26H13.0045C14.7434 26 16.4271 25.6634 18.0148 25.0047C19.563 24.3617 20.9706 23.4233 22.1586 22.2422C23.3566 21.0554 24.2988 19.6683 24.9589 18.1217C25.6423 16.5199 25.9912 14.8165 25.9999 13.058C26.0057 11.2909 25.6626 9.57591 24.988 7.96252ZM7.19444 14.3929C6.42675 14.3929 5.80155 13.769 5.80155 13C5.80155 12.231 6.42675 11.6072 7.19444 11.6072C7.96213 11.6072 8.58733 12.231 8.58733 13C8.58733 13.769 7.96504 14.3929 7.19444 14.3929ZM12.9986 14.3929C12.2309 14.3929 11.6057 13.769 11.6057 13C11.6057 12.231 12.2309 11.6072 12.9986 11.6072C13.7663 11.6072 14.3915 12.231 14.3915 13C14.3915 13.769 13.7663 14.3929 12.9986 14.3929ZM18.8028 14.3929C18.0351 14.3929 17.4099 13.769 17.4099 13C17.4099 12.231 18.0351 11.6072 18.8028 11.6072C19.5705 11.6072 20.1957 12.231 20.1957 13C20.1957 13.769 19.5705 14.3929 18.8028 14.3929Z" fill="#964E3A" />
+                                                        </svg>
+                                                    </div>
+                                                    <textarea v-model="guestBookForm.comment" name="wishes" id="wishesEmoji" rows="5" class="form-control" placeholder="Tulis Doa dan pesan untuk mempelai"></textarea>
+                                                </div>
+                                            </div> -->
+                                            <textarea v-model="guestBookForm.comment" name="wishes" id="wishesEmoji" rows="5" class="form-control" placeholder="Tulis Doa dan pesan untuk mempelai"></textarea>
+                                        </div>
+                                        <div class="row no-gutters mb-4">
+                                            <div class="col-4" v-for="(c,i) in confirmationList" :class="[i===0? 'pr-1': '', i===1? 'px-1': '', i===2? 'pl-1': '']" :key="i+'-confirm-form-card'">
+                                                <div @click="chooseConfirmation(c.val)" class="px-2 py-3 text-center pointer" style="border-radius:8px;transition: all 0.5s ease;" :class="guestBookForm.confirmation === c.val ? 'text-white ' +c.class : 'bg-secondary-theme text-dark-theme border-dark-theme-opacity '">
+                                                    Saya <span class="d-block" style="font-weight: 800;">{{ c.name }}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="separator-form">
+                                            <span>Kirim virtual gift</span>
+                                        </div>
+                                        <div class="form-group custom-input">
+                                            <label class="sr-only" for="amount">Amount</label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <svg width="15" height="13" viewBox="0 0 26 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M25.2346 1.23371C23.6588 0.566387 22.0817 0.3125 20.5055 0.3125C15.5017 0.31209 10.4983 2.86941 5.49453 2.86941C4.23962 2.86941 2.98553 2.70863 1.73062 2.30668C1.58966 2.26156 1.44828 2.24023 1.31016 2.24023C0.611 2.24023 0 2.78656 0 3.54494V16.5576C0 17.0756 0.293719 17.5665 0.765375 17.7659C2.34122 18.4336 3.91828 18.6875 5.49453 18.6875C10.4983 18.6875 15.5021 16.1302 20.5059 16.1302C21.7608 16.1302 23.0149 16.291 24.2698 16.6929C24.4107 16.738 24.5521 16.7594 24.6902 16.7594C25.3894 16.7594 26.0004 16.213 26.0004 15.4546V2.44244C26 1.924 25.7063 1.43346 25.2346 1.23371V1.23371ZM13 13.4375C11.2048 13.4375 9.75 11.6742 9.75 9.5C9.75 7.32535 11.2052 5.5625 13 5.5625C14.7948 5.5625 16.25 7.32535 16.25 9.5C16.25 11.6751 14.7944 13.4375 13 13.4375Z" fill="#964E3A" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <input pattern="[0-9]*" inputmode="numeric" @input="onlyNumber($event, 'amount', 'Rp.', 0)" style="padding-left: .75rem;" v-model.number="guestBookForm.amount" type="text" class="form-control form-control-lg" id="Amount" name="Amount" placeholder="Nominal Virtual Gift">
+                                            </div>
+                                        </div>
+                                        <div class="form-group custom-input">
+                                            <label class="sr-only" for="phone">Phone</label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <svg width="15" height="15" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M2.17085 23.8337L3.63552 18.4517C2.67042 16.7973 2.16337 14.9157 2.16652 13.0003C2.16652 7.01708 7.0166 2.16699 12.9999 2.16699C18.9831 2.16699 23.8332 7.01708 23.8332 13.0003C23.8332 18.9836 18.9831 23.8337 12.9999 23.8337C11.0854 23.8368 9.20456 23.3301 7.55069 22.3657L2.17085 23.8337ZM9.0901 7.91733C8.9502 7.92601 8.8135 7.96286 8.68819 8.02566C8.57067 8.09221 8.46339 8.1754 8.36969 8.27266C8.23969 8.39508 8.16602 8.50124 8.08694 8.60416C7.68655 9.12524 7.47118 9.76486 7.47485 10.422C7.47702 10.9528 7.61569 11.4696 7.83235 11.9527C8.27544 12.9299 9.00452 13.9645 9.9676 14.9232C10.1994 15.154 10.4259 15.3858 10.6696 15.6014C11.8649 16.6538 13.2894 17.4128 14.8296 17.8179L15.446 17.9122C15.6464 17.923 15.8469 17.9078 16.0484 17.8981C16.3639 17.8818 16.6719 17.7964 16.9508 17.6478C17.0926 17.5748 17.2311 17.4952 17.3657 17.4095C17.3657 17.4095 17.4123 17.3792 17.5011 17.312C17.6474 17.2037 17.7373 17.1267 17.8586 17C17.9485 16.9068 18.0265 16.7974 18.0861 16.6728C18.1706 16.4962 18.2551 16.1593 18.2898 15.8787C18.3158 15.6642 18.3082 15.5472 18.3049 15.4747C18.3006 15.3587 18.2042 15.2385 18.0991 15.1876L17.4686 14.9048C17.4686 14.9048 16.5261 14.4942 15.9509 14.2321C15.8902 14.2056 15.8252 14.1906 15.7591 14.1877C15.685 14.18 15.6101 14.1884 15.5395 14.2121C15.4688 14.2358 15.4041 14.2744 15.3496 14.3252V14.3231C15.3442 14.3231 15.2716 14.3848 14.4884 15.3338C14.4434 15.3942 14.3815 15.4399 14.3105 15.465C14.2395 15.4901 14.1626 15.4934 14.0897 15.4747C14.0191 15.4558 13.95 15.4319 13.8828 15.4032C13.7484 15.3468 13.7019 15.3252 13.6098 15.2851L13.6044 15.2829C12.9846 15.0123 12.4108 14.6468 11.9035 14.1996C11.767 14.0804 11.6403 13.9504 11.5103 13.8247C11.0841 13.4166 10.7126 12.9548 10.4053 12.4511L10.3414 12.3482C10.2954 12.279 10.2583 12.2044 10.2309 12.1261C10.1897 11.9668 10.2969 11.839 10.2969 11.839C10.2969 11.839 10.5602 11.5508 10.6826 11.3948C10.7845 11.2652 10.8796 11.1303 10.9675 10.9907C11.0954 10.7849 11.1354 10.5737 11.0683 10.4101C10.7649 9.66908 10.4508 8.93133 10.1279 8.19899C10.064 8.05383 9.87444 7.94983 9.70219 7.92924C9.64369 7.92274 9.58519 7.91624 9.52669 7.91191C9.3812 7.90468 9.23541 7.90613 9.0901 7.91624V7.91733Z" fill="#964E3A" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <input pattern="[0-9]*" inputmode="numeric" @input="onlyNumber($event, 'phone', '+62', null, false)" v-model.number="guestBookForm.phone" type="text" class="form-control" id="phone" name="phone" placeholder="Nomor Whatsapp">
+                                            </div>
+                                        </div>
+                                        <button :disabled="!guestBookForm.comment || !guestBookForm.guestName" @click="addComment()" data-dismiss="modal" aria-label="Close" style="font-size: 1.2rem;" class="btn btn-primary btn-block py-2 px-4 mt-5 mr-3">
+                                            <div class="d-flex justify-content-center align-items-center">
+                                                <svg width="15" height="15" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M24.988 7.96252C24.3356 6.40869 23.3864 4.99636 22.1935 3.80426C21.0041 2.61009 19.5912 1.66065 18.0351 1.00985C16.4411 0.339917 14.7283 -0.00348896 12.9986 2.67235e-05H12.9405C11.1812 0.00873207 9.48006 0.356946 7.8778 1.04177C6.33507 1.69924 4.93548 2.65037 3.75728 3.84199C2.57589 5.03141 1.63762 6.4388 0.994765 7.98573C0.327442 9.59437 -0.0106933 11.32 0.000257733 13.061C0.00898148 15.0748 0.491695 17.0741 1.39315 18.8616V23.2723C1.39315 24.0094 1.99218 24.6071 2.72788 24.6071H7.1421C8.94173 25.5133 10.9276 25.9901 12.9434 26H13.0045C14.7434 26 16.4271 25.6634 18.0148 25.0047C19.563 24.3617 20.9706 23.4233 22.1586 22.2422C23.3566 21.0554 24.2988 19.6683 24.9589 18.1217C25.6423 16.5199 25.9912 14.8165 25.9999 13.058C26.0057 11.2909 25.6626 9.57591 24.988 7.96252ZM7.19444 14.3929C6.42675 14.3929 5.80155 13.769 5.80155 13C5.80155 12.231 6.42675 11.6072 7.19444 11.6072C7.96213 11.6072 8.58733 12.231 8.58733 13C8.58733 13.769 7.96504 14.3929 7.19444 14.3929ZM12.9986 14.3929C12.2309 14.3929 11.6057 13.769 11.6057 13C11.6057 12.231 12.2309 11.6072 12.9986 11.6072C13.7663 11.6072 14.3915 12.231 14.3915 13C14.3915 13.769 13.7663 14.3929 12.9986 14.3929ZM18.8028 14.3929C18.0351 14.3929 17.4099 13.769 17.4099 13C17.4099 12.231 18.0351 11.6072 18.8028 11.6072C19.5705 11.6072 20.1957 12.231 20.1957 13C20.1957 13.769 19.5705 14.3929 18.8028 14.3929Z" fill="#fff" />
+                                                </svg> <span style="font-weight: 600;" class="ml-2">Send Wishes</span>
+                                            </div>
+                                        </button>
+                                        <div class="pt-5 pb-2 d-flex align-items-center justify-content-center text-center">
+                                            <span style="font-size: 10px;font-weight: 400;" class="mr-2">created with heart by</span>
+                                            <img src="./images/logo/lovee-id.svg" height="20px" width="auto">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <nav :class="isMobile ? 'mobile-nav-wrapper' : 'web-nav-wrapper'">
+                    <div :class="isMobile ? 'mobile-nav' : 'web-nav'" class="animate__animated animate__zoomIn">
+                        <a href="#hero-section" class="nav-link">
+                            <img src="images/menu-3.png" alt="" srcset="">
+                        </a>
+                        <a href="#profile-section" class="nav-link">
+                            <img src="images/menu-1.png" alt="" srcset="">
+                        </a>
+                        <a href="#event-section" class="nav-link">
+                            <img src="images/menu-2.png" alt="" srcset="">
+                        </a>
+                        <a href="#maps-section" class="nav-link">
+                            <img src="images/menu-4.png" alt="" srcset="">
+                        </a>
+                        <a href="#story-section" class="nav-link">
+                            <img src="images/menu-7.png" alt="" srcset="">
+                        </a>
+                        <a href="#gallery-section" class="nav-link">
+                            <img src="images/menu-6.png" alt="" srcset="">
+                        </a>
+                        <a href="#guestbook-section" class="nav-link">
+                            <img src="images/menu-5.png" alt="" srcset="">
+                        </a>
+                    </div>
+                </nav>
+                <a @click="isAudioPlay = !isAudioPlay" id="audio-control" class="pointer" :class="isMobile ? 'mobile-audio' : 'web-audio'">
+                    <img v-if="isAudioPlay" src="./images/On.png">
+                    <img v-else src="./images/Off.png">
+                </a>
+            </template>
+            <div v-else key="outerContent" class="opening animate__animated animate__fadeIn animate__slower animate__delay-2s">
+                <div class="card-opening position-relative">
+                    <div class="greeting text-center">
+                        <h5 style="font-weight: 300;" class="text-capitalize mb-1">Hello, <span style="font-weight: 500;">{{ guestName }}</span></h5>
+                        <h5 style="font-weight: 300;" class="mb-0">You're invited to </h5>
+                        <div class="mb-5 mt-4">
+                            <h1 style="font-size:3.5rem;" class="font-theme mb-0">{{ client.owner[0].nickname }} &amp; {{ client.owner[1].nickname }}</h1>
+                            <h4 class="text-theme" style="font-weight: 300;">WEDDING</h4>
+                        </div>
+                    </div>
+                    <div class="position-relative animate__animated animate__fadeIn animate__slower animate__delay-3s">
+                        <div class="d-flex justify-content-between">
+                            <img :src="changeImgURL(client.banner[1])" class="img-opening-left">
+                            <img :src="changeImgURL(client.banner[2])" class="img-opening-right" alt="lalala">
+                        </div>
+                        <img src="./images/attachment/ornament_2.png" class="opening-ornament-2">
+                        <img src="./images/attachment/ornament_3.png" class="opening-ornament-3">
+                        <img src="./images/attachment/ornament_5.png" class="opening-ornament-5">
+                    </div>
+                    <div class="text-center mt-5  animate__animated animate__fadeIn animate__slower animate__delay-3s">
+                        <button @click="isOpenInvitation = true" style="font-size: 1.25rem;" class="btn btn-primary animate__animated animate__pulse animate__infinite animate__slower py-2 px-5">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <i data-feather="mail"></i> <span style="font-weight: 600;" class="ml-2">Buka Undangan</span>
                             </div>
                         </button>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    </div>
-</body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/locale/id.min.js" integrity="sha512-he8U4ic6kf3kustvJfiERUpojM8barHoz0WYpAUDWQVn61efpm3aVAD8RWL8OloaDDzMZ1gZiubF9OSdYBqHfQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script src="https://unpkg.com/vue-meta@2.4.0/dist/vue-meta.min.js"></script>
-<script src="js/master-data.js"></script>
-<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script> -->
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
-<script type="module" src="js/vue.js"></script>
+    </body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/locale/id.min.js" integrity="sha512-he8U4ic6kf3kustvJfiERUpojM8barHoz0WYpAUDWQVn61efpm3aVAD8RWL8OloaDDzMZ1gZiubF9OSdYBqHfQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://unpkg.com/vue-meta@2.4.0/dist/vue-meta.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.js" integrity="sha512-aGWPnmdBhJ0leVHhQaRASgb0InV/Z2BWsscdj1Vwt29Oic91wECPixuXsWESpFfCcYPLfOlBZzN2nqQdMxlGTQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="js/master-data.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script type="module" src="js/vue.js"></script>
 
 </html>

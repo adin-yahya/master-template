@@ -86,5 +86,6 @@ const clientData = {
             background: ''
         }
     ],
-    sound: 'https://drive.google.com/file/d/1Dn_XEqjzFQkT2VyRJzhh15YWeqkWZnAA/view?usp=sharing'
+    sound: 'https://drive.google.com/file/d/1Dn_XEqjzFQkT2VyRJzhh15YWeqkWZnAA/view?usp=sharing',
+    code: ''
 };

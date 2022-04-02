@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
 :root {
     --dark-primary: #A3624F;
+    --dark-transparent-primary: #c6a093;
+    --dark-transparent-primarys: #e1cec4;
     --primary: #CEA151;
     --light-primary: #D2BE9B;
     --secondary: #F6F2EB;
@@ -56,6 +58,10 @@ body {
 
 .border-theme {
     border: 1px solid var(--primary);
+}
+
+.border-dark-theme-opacity {
+    border: 1px solid var(--dark-transparent-primarys);
 }
 
 .border-light-theme {
@@ -584,17 +590,17 @@ body {
 .custom-input .input-group-text {
     color: var(--dark-primary);
     background-color: var(--secondary);
-    border: 1.25px solid var(--primary);
+    border: 1.25px solid var(--dark-transparent-primarys);
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
 }
 
 .custom-input .form-control {
-    border: 1.25px solid var(--primary);
+    border: 1.25px solid var(--dark-transparent-primarys);
     background-color: var(--secondary);
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
-    border-left: 0;
+    border-left: none;
     position: relative;
 }
 
@@ -602,11 +608,11 @@ body {
 .custom-input input:focus {
     color: var(--dark-primary);
     font-weight: 800;
-    box-shadow: -5px 0px 0px -4px #DDD1BC !important;
+    box-shadow: -5px 0px 0px -3.5px #DDD1BC !important;
 }
 
 .custom-input input::-webkit-input-placeholder {
-    color: var(--dark-primary);
+    color: var(--dark-transparent-primary);
     font-weight: 500;
 }
 
@@ -614,13 +620,35 @@ body {
 .custom-input textarea:focus {
     color: var(--dark-primary);
     font-weight: 800;
-    box-shadow: -5px 0px 0px -4px #DDD1BC !important;
+    box-shadow: -5px 0px 0px -3.5px #DDD1BC !important;
 }
 
 .custom-input textarea::-webkit-input-placeholder {
-    color: var(--dark-primary);
+    color: var(--dark-transparent-primary);
     font-weight: 500;
 }
 .swiper-pagination-bullet-active {
     background: var(--dark-primary) !important;
+}
+
+.separator-form{
+    position: relative;
+    margin: 1rem auto;
+}
+.separator-form:after{
+    content: '';
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    top: .75em;
+    left: 0;
+    border: 1px solid var(--dark-transparent-primary);
+    opacity: .5;
+}
+.separator-form span{
+    position: relative;
+    color: var(--dark-transparent-primary);
+    background-color: var(--light);
+    padding: 0 .5rem;
+    z-index: 2;
 }
