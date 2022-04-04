@@ -457,12 +457,12 @@ body {
 
 .swiper {
     width: 90%;
-    height: fit-content;
+    height: 90vh;
 }
 
 .swiper-button-prev,
 .swiper-button-next {
-    color: var(--dark);
+    color: var(--dark-primary);
 }
 
 .img-gallery {

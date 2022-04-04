@@ -3,28 +3,31 @@
 
     <head>
         <meta charset=UTF-8>
-        <meta name=viewport content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="shortcut icon" href="images/favicon.png">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
 
         <meta name=title content="Lovee invitation">
         <meta name=author content="Lovee.id">
         <meta name=language content="Indonesia">
-        <meta name="description" content="Online Wedding Invitation, created with heart by Lovee.id">
+        <meta name="description" content="Lovee.id | Undangan Website Online - Bikin website undangan online anti pasaran untuk moment special nikahanmu bareng ayang">
         <meta name="googlebot-news" content="noindex">
         <meta name="googlebot" content="noindex">
         <meta name="robots" content="noindex">
         <meta name="keywords" content="lovee,lovee.id,undangan,pernikahan,online,website,wedding,invitation">
 
-        <meta name="twitter:card" content="Online Wedding Invitation, created with heart by Lovee.id">
+        <meta name="twitter:card" content="Lovee.id | Undangan Website Online - Bikin website undangan online anti pasaran untuk moment special nikahanmu bareng ayang">
         <meta name="twitter:site" content="@lovee.invitation">
         <meta name="twitter:creator" content="@lovee.invitation">
 
         <meta property="og:url" content="https://muisrisa.koopastudio.id">
         <meta property="og:title" content="Muis Risa Wedding">
-        <meta property="og:description" content="Muis Risa Wedding. Online Wedding Invitation, created with heart by Lovee.id">
-        <meta property="og:image" content="https://drive.google.com/thumbnail?id=1CW0S2bYQYk2opoXnWRftpdyNZF8awUPo&amp;sz=w200-h200">
-        <meta property="og:image:alt" content="Muis Risa Wedding">
+        <meta property="og:description" content="Lovee.id | Undangan Website Online - Bikin website undangan online anti pasaran untuk moment special nikahanmu bareng ayang">
+        <meta property="og:image" content="https://drive.google.com/thumbnail?id=1hHQIEBaWDeFSbRbxVejADZ4y6daEXae6&sz=w500-h500">
+        <meta property="og:image:alt" content="Lovee.id | Undangan Website Online">
 
         <title>Lovee invitation</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
@@ -64,7 +67,10 @@
                                 <div class="text-center animate__animated animate__fadeIn animate__slow animate__delay-1s">
                                     <button @click="isOpenInvitation = true" style="font-size: 1.25rem;" class="btn btn-primary animate__animated animate__pulse animate__infinite animate__slower py-2 px-5 mb-3">
                                         <div class="d-flex justify-content-center align-items-center">
-                                            <i data-feather="calendar"></i> <span style="font-weight: 600;" class="ml-2">Save The Date</span>
+                                            <svg class="mb-1" width="17" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M16.75 2.3V2.8H17.25H21.85C22.0224 2.8 22.1877 2.86848 22.3096 2.99038C22.4315 3.11228 22.5 3.27761 22.5 3.45V21.85C22.5 22.0224 22.4315 22.1877 22.3096 22.3096C22.1877 22.4315 22.0224 22.5 21.85 22.5H1.15C0.977608 22.5 0.812278 22.4315 0.690381 22.3096C0.568482 22.1877 0.5 22.0224 0.5 21.85V3.45C0.5 3.27761 0.568482 3.11228 0.690381 2.99038C0.812279 2.86848 0.977609 2.8 1.15 2.8H5.75H6.25V2.3V0.5H7.55V2.3V2.8H8.05H14.95H15.45V2.3V0.5H16.75V2.3ZM2.3 8.7H1.8V9.2V20.7V21.2H2.3H20.7H21.2V20.7V9.2V8.7H20.7H2.3ZM5.1 14.3H9.85V17.9H5.1V14.3Z" fill="white" stroke="white" />
+                                            </svg>
+                                            <span style="font-weight: 600;" class="ml-2">Save The Date</span>
                                         </div>
                                     </button>
                                     <span class="d-block text-white my-3">
@@ -171,21 +177,21 @@
                         </div>
                     </section>
                     <section data-anchor="story-section" id="story-section" class="full-height justify-content-start">
-                        <img :src="changeImgURL(client.banner[3], 1500, 1500)" alt="" class="img-bg-radius" style="z-index: 3;">
-                        <div class="container px-md-5 mt-5 pt-5" style="z-index: 3;">
-                            <div class="swiper swiper-normal">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide" v-for="(s,i) in client.story" :key="i+'-storyline'">
+                        <div class="swiper swiper-normal" style="border-radius:32px;">
+                            <div class="swiper-wrapper" style="border-radius:32px;">
+                                <div class="swiper-slide" v-for="(s,i) in client.story" :key="i+'-storyline'" style="border-radius:32px;" :style="{background: 'url(' + changeImgURL(s.background, 1500, 1500) + ') center center/cover no-repeat'}">
+                                    <div class="container px-md-5 pt-5" style="z-index: 5;">
                                         <div class="story-wrapper text-center">
-                                            <h3 style="font-weight: 600;" class="text-dark-theme font-italic mb-0 ml-3">{{ s.title }}</h3>
-                                            <p style="font-size: 1rem;" class="mb-0 mt-3">{{ s.text }}</p>
+                                            <h2 style="font-weight: 600;" class="text-dark-theme font-italic mb-0 ml-3">{{ s.title }}</h2>
+                                            <p style="font-size: 1.5rem;" class="mb-0 mt-3">{{ s.text }}</p>
                                         </div>
                                     </div>
+                                    <!-- <img :src="changeImgURL(s.background, 1500, 1500)" alt="" class="img-bg-radius" style="z-index: 1;"> -->
                                 </div>
-                                <div class="d-none d-md-flex swiper-button-prev"></div>
-                                <div class="d-none d-md-flex swiper-button-next"></div>
-                                <div class="d-block d-md-none swiper-pagination"></div>
                             </div>
+                            <div class="d-none d-md-flex swiper-button-prev"></div>
+                            <div class="d-none d-md-flex swiper-button-next"></div>
+                            <div class="d-block d-md-none swiper-pagination"></div>
                         </div>
                     </section>
                     <section data-anchor="gallery-section" id="gallery-section" class="bg-set-4 py-2 py-lg-5">
@@ -206,6 +212,7 @@
                     <section data-anchor="guestbook-section" id="guestbook-section" class="bg-set-5 full-height">
                         <div class="container px-md-5">
                             <div class="opening-hero text-center mt-5 mt-md-0">
+                                <img src="./images/attachment/vector_4.png" width="50px" class="text-center">
                                 <h5 style="font-weight: 500;" class="text-dark-theme font-italic my-4">Kirim Ucapan &amp; Amplop Digital</h5>
                                 <h6 style="font-weight: 500;" class="text-dark-theme font-italic my-4"><b>{{ guestResume.total }}</b> teman mempelai sudah mengirimkan doa &amp; virtual gift</h6>
                             </div>
@@ -247,12 +254,18 @@
                             <div class="text-center my-2 my-lg-3">
                                 <button data-toggle="modal" data-target="#modalComment" style="font-size: .9rem;" class="btn btn-primary animate__animated animate__pulse animate__infinite animate__slower py-2 px-4 mt-3 mr-0 mr-md-3">
                                     <div class="d-flex justify-content-center align-items-center">
-                                        <i data-feather="map" width="15px" height="15px"></i> <span style="font-weight: 600;" class="ml-2">Send Wishes</span>
+                                        <svg width="17" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M24.988 7.96252C24.3356 6.40869 23.3864 4.99636 22.1935 3.80426C21.0041 2.61009 19.5912 1.66065 18.0351 1.00985C16.4411 0.339917 14.7283 -0.00348896 12.9986 2.67235e-05H12.9405C11.1812 0.00873207 9.48006 0.356946 7.8778 1.04177C6.33507 1.69924 4.93548 2.65037 3.75728 3.84199C2.57589 5.03141 1.63762 6.4388 0.994765 7.98573C0.327442 9.59437 -0.0106933 11.32 0.000257733 13.061C0.00898148 15.0748 0.491695 17.0741 1.39315 18.8616V23.2723C1.39315 24.0094 1.99218 24.6071 2.72788 24.6071H7.1421C8.94173 25.5133 10.9276 25.9901 12.9434 26H13.0045C14.7434 26 16.4271 25.6634 18.0148 25.0047C19.563 24.3617 20.9706 23.4233 22.1586 22.2422C23.3566 21.0554 24.2988 19.6683 24.9589 18.1217C25.6423 16.5199 25.9912 14.8165 25.9999 13.058C26.0057 11.2909 25.6626 9.57591 24.988 7.96252ZM7.19444 14.3929C6.42675 14.3929 5.80155 13.769 5.80155 13C5.80155 12.231 6.42675 11.6072 7.19444 11.6072C7.96213 11.6072 8.58733 12.231 8.58733 13C8.58733 13.769 7.96504 14.3929 7.19444 14.3929ZM12.9986 14.3929C12.2309 14.3929 11.6057 13.769 11.6057 13C11.6057 12.231 12.2309 11.6072 12.9986 11.6072C13.7663 11.6072 14.3915 12.231 14.3915 13C14.3915 13.769 13.7663 14.3929 12.9986 14.3929ZM18.8028 14.3929C18.0351 14.3929 17.4099 13.769 17.4099 13C17.4099 12.231 18.0351 11.6072 18.8028 11.6072C19.5705 11.6072 20.1957 12.231 20.1957 13C20.1957 13.769 19.5705 14.3929 18.8028 14.3929Z" fill="white" />
+                                        </svg>
+                                        <span style="font-weight: 600;" class="ml-2">Send Wishes</span>
                                     </div>
                                 </button>
                                 <button data-toggle="modal" data-target="#modalGift" style="font-size: .9rem;" class="btn btn-dark-primary text-white animate__animated animate__pulse animate__infinite animate__slower py-2 px-4 mt-3">
                                     <div class="d-flex justify-content-center align-items-center">
-                                        <i data-feather="gift" width="15px" height="15px"></i> <span style="font-weight: 600;" class="ml-2">Send Wishes & Gift</span>
+                                        <svg width="17" height="27" viewBox="0 0 33 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5.67187 0H10.3125V4.71046C9.52611 4.25334 8.61192 4.07027 7.71168 4.18965C6.81145 4.30903 5.97549 4.72418 5.33343 5.37073C4.69138 6.01728 4.27911 6.85909 4.16056 7.76561C4.04201 8.67214 4.2238 9.59273 4.67775 10.3846H0V5.71154C0 4.19674 0.597571 2.74399 1.66125 1.67287C2.72494 0.601749 4.1676 0 5.67187 0ZM0 17.1346V12.4615H8.85431L5.45737 15.8802C5.26373 16.0751 5.15495 16.3396 5.15495 16.6154C5.15495 16.8911 5.26373 17.1556 5.45737 17.3506C5.65102 17.5456 5.91365 17.6552 6.1875 17.6552C6.46135 17.6552 6.72398 17.5456 6.91762 17.3506L10.3125 13.9299V22.8462H5.67187C4.1676 22.8462 2.72494 22.2444 1.66125 21.1733C0.597571 20.1022 0 18.6494 0 17.1346ZM12.375 22.8462H23.2031C24.7074 22.8462 26.1501 22.2444 27.2137 21.1733C28.2774 20.1022 28.875 18.6494 28.875 17.1346V12.4615H13.8332L17.2301 15.8802C17.4238 16.0751 17.5326 16.3396 17.5326 16.6154C17.5326 16.8911 17.4238 17.1556 17.2301 17.3506C17.0365 17.5456 16.7738 17.6552 16.5 17.6552C16.2261 17.6552 15.9635 17.5456 15.7699 17.3506L12.375 13.9299V22.8462ZM18.0097 10.3846H28.875V5.71154C28.875 4.19674 28.2774 2.74399 27.2137 1.67287C26.1501 0.601749 24.7074 0 23.2031 0H12.375V4.71046C13.1614 4.25334 14.0756 4.07027 14.9758 4.18965C15.876 4.30903 16.712 4.72418 17.3541 5.37073C17.9961 6.01728 18.4084 6.85909 18.5269 7.76561C18.6455 8.67214 18.4637 9.59273 18.0097 10.3846ZM12.375 10.3846V8.30769C12.375 7.89692 12.496 7.49536 12.7226 7.15382C12.9492 6.81227 13.2713 6.54606 13.6482 6.38887C14.0251 6.23167 14.4398 6.19054 14.8399 6.27068C15.24 6.35082 15.6075 6.54862 15.8959 6.83909C16.1844 7.12955 16.3808 7.49962 16.4604 7.9025C16.5399 8.30539 16.4991 8.72299 16.343 9.1025C16.1869 9.48201 15.9225 9.80638 15.5834 10.0346C15.2442 10.2628 14.8454 10.3846 14.4375 10.3846H12.375ZM8.25 10.3846H10.3125V8.30769C10.3125 7.89692 10.1915 7.49536 9.9649 7.15382C9.73827 6.81227 9.41616 6.54606 9.03928 6.38887C8.66241 6.23167 8.24771 6.19054 7.84763 6.27068C7.44754 6.35082 7.08004 6.54862 6.79159 6.83909C6.50315 7.12955 6.30671 7.49962 6.22713 7.9025C6.14755 8.30539 6.18839 8.72299 6.3445 9.1025C6.5006 9.48201 6.76496 9.80638 7.10414 10.0346C7.44331 10.2628 7.84208 10.3846 8.25 10.3846ZM9.79687 27C8.03344 27 6.45769 26.19 5.41819 24.9189L5.67187 24.9231H23.2031C25.2544 24.9231 27.2217 24.1025 28.6722 22.6419C30.1226 21.1813 30.9375 19.2002 30.9375 17.1346V5.71154C30.9375 5.62638 30.9375 5.54123 30.9334 5.45608C31.5803 5.99133 32.1012 6.66446 32.4586 7.42694C32.816 8.18942 33.0009 9.02225 33 9.86539V17.1346C33 19.7511 31.9678 22.2604 30.1306 24.1105C28.2933 25.9606 25.8014 27 23.2031 27H9.79687Z" fill="white" />
+                                        </svg>
+                                        <span style="font-weight: 600;" class="ml-2">Send Wishes & Gift</span>
                                     </div>
                                 </button>
                             </div>
@@ -386,7 +399,7 @@
                                                         </svg>
                                                     </div>
                                                 </div>
-                                                <input pattern="[0-9]*" inputmode="numeric" @input="onlyNumber($event, 'phone', '+62', null, false)" v-model.number="guestBookForm.phone" type="text" class="form-control" id="phone" name="phone" placeholder="Nomor Whatsapp">
+                                                <input pattern="[0-9]*" inputmode="numeric" @input="onlyNumber($event, 'phone', '+62', '', false)" v-model.number="guestBookForm.phone" type="text" class="form-control" id="phone" name="phone" placeholder="Nomor Whatsapp">
                                             </div>
                                         </div>
                                         <button :disabled="!guestBookForm.comment || !guestBookForm.guestName" @click="addComment()" data-dismiss="modal" aria-label="Close" style="font-size: 1.2rem;" class="btn btn-primary btn-block py-2 px-4 mt-5 mr-3">
@@ -458,7 +471,10 @@
                     <div class="text-center mt-5  animate__animated animate__fadeIn animate__slower animate__delay-3s">
                         <button @click="isOpenInvitation = true" style="font-size: 1.25rem;" class="btn btn-primary animate__animated animate__pulse animate__infinite animate__slower py-2 px-5">
                             <div class="d-flex justify-content-center align-items-center">
-                                <i data-feather="mail"></i> <span style="font-weight: 600;" class="ml-2">Buka Undangan</span>
+                                <svg class="mb-1" width="17" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0.616752 6.99632L11.4049 0.528322C11.5862 0.419529 11.7937 0.362061 12.0052 0.362061C12.2166 0.362061 12.4241 0.419529 12.6054 0.528322L23.3831 6.99749C23.4696 7.0493 23.5411 7.12265 23.5908 7.21036C23.6405 7.29808 23.6666 7.39718 23.6666 7.49799V22.3333C23.6666 22.6427 23.5437 22.9395 23.3249 23.1583C23.1061 23.3771 22.8093 23.5 22.4999 23.5H1.49992C1.1905 23.5 0.893753 23.3771 0.674961 23.1583C0.456168 22.9395 0.333252 22.6427 0.333252 22.3333V7.49682C0.333231 7.39601 0.359336 7.29691 0.409022 7.2092C0.458707 7.12148 0.530277 7.04814 0.616752 6.99632ZM19.4036 8.61799L12.0711 14.9635L4.58809 8.61099L3.07842 10.389L12.0851 18.0365L20.9296 10.3832L19.4036 8.61799Z" fill="white" />
+                                </svg>
+                                <span style="font-weight: 600;" class="ml-2">Buka Undangan</span>
                             </div>
                         </button>
                     </div>

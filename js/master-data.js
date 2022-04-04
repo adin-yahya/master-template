@@ -11,7 +11,7 @@ const clientData = {
             nickname: 'Risa',
             fullname: 'Aji Susanti kharisa',
             desc: 'Putri dari Bapak H. Sumari & Ibu Hj. Suharti',
-            imgProfile: 'https://drive.google.com/file/d/1mHdV7j4QlOOqv64B9k98CplwhPoQksLJ/view?usp=sharing',
+            imgProfile: 'https://drive.google.com/file/d/1yt6VddT7sQkvQxW1LWqsrklFbA0sKK72/view?usp=sharing',
             address: 'Ds. Plosorejo RT 01 RW 02, kec. Pucakwangi, kab. Pati'
         }
     ],
@@ -43,47 +43,53 @@ const clientData = {
         { code: 'zm', link: 'https://www.youtube.com/watch?v=r00ikilDxW4&list=RDk36efi9StIY&index=21' }
     ],
     banner: [
-        'https://drive.google.com/file/d/1CW0S2bYQYk2opoXnWRftpdyNZF8awUPo/view?usp=sharing',
+        'https://drive.google.com/file/d/1hHQIEBaWDeFSbRbxVejADZ4y6daEXae6/view?usp=sharing',
         'https://drive.google.com/file/d/1Wt5PDsrSVMhNSof0fyARTKoAdh49HZ-2/view?usp=sharing',
         'https://drive.google.com/file/d/1R6V3lcKRrk90wtsAwmKSMg2oG1UduiGs/view?usp=sharing',
         'https://drive.google.com/file/d/1v299XjhC54MsiBvQgRdWD1Z-QmMXhPZs/view?usp=sharing'
     ],
     gallery: [
-        'https://drive.google.com/file/d/1n_TONqXOYyz4962vaNRcg3zMYiTLVHc1/view?usp=sharing',
-        'https://drive.google.com/file/d/1FA1NCSeP4n8e3pEp41mt2nwE-V8kTZRX/view?usp=sharing',
-        'https://drive.google.com/file/d/1hLAssn_rPvWdLgf9kS6w_h68BUieoIB1/view?usp=sharing',
-        'https://drive.google.com/file/d/1gQwwifCc0y9fHKO_nZpRtREbVsrxrezx/view?usp=sharing',
-        'https://drive.google.com/file/d/1VkhwAHbcV1cGZr5F_mPXSIgxDnxNfdW5/view?usp=sharing',
-        'https://drive.google.com/file/d/1uWz5y_Gjek1S35uDoD_AIO3NTzdbrWOS/view?usp=sharing',
-        'https://drive.google.com/file/d/1icaXyi3chMxLd33Vxx0Nkv0d5L6KebJG/view?usp=sharing',
-        'https://drive.google.com/file/d/1yfDnpAhZ_lszhg_FP4CicI_OkBonlwy8/view?usp=sharing',
-        'https://drive.google.com/file/d/1wASdrvSge2vRjAknm8Pw5BvRjii8Q5R6/view?usp=sharing',
+        'https://drive.google.com/file/d/1_mZm-NfVnOjx97iIXfqNDMP3aEtNk0ac/view?usp=sharing',
+        'https://drive.google.com/file/d/1U3tfMEerBH62kHyMN5Q7H_Ja7hsOVvOQ/view?usp=sharing',
+        'https://drive.google.com/file/d/1XojyTcHu19dDcJcBmXDkuN3TePe2d8LN/view?usp=sharing',
+        'https://drive.google.com/file/d/1NDST9eJgmDA488NfwgAlQeQqla_xx64V/view?usp=sharing',
+        'https://drive.google.com/file/d/13eKVqKJgtukP0lOfnIoQe4F5pldgZknZ/view?usp=sharing',
+        'https://drive.google.com/file/d/1SQStYfeWm7x9hQ2E_Z_vdwQzMR2HoJEZ/view?usp=sharing',
+        'https://drive.google.com/file/d/1oVgXgjKyMUTZTlWbUUxpav4MrBkm8YmX/view?usp=sharing',
+        'https://drive.google.com/file/d/1kegI98ioTZ475smPILHCvilBsm0CB_iA/view?usp=sharing',
+        'https://drive.google.com/file/d/1gfbJ6HM_3JYV6aJBDJINNQcqBMb3AL7x/view?usp=sharing',
+        'https://drive.google.com/file/d/1lYPr1wcoGjKLwt_mf2yzIXMstNGup6AN/view?usp=sharing',
+        'https://drive.google.com/file/d/1gie-sgEyix96C3bAEAEEFEU6KXg3oFMj/view?usp=sharing',
+        'https://drive.google.com/file/d/1SmqgxLiIi5Mk33_hbPijHmzOR43XOYV3/view?usp=sharing',
+        'https://drive.google.com/file/d/18fQZMG0WCm16Nmz40yQ9lU0oAhjVRPDG/view?usp=sharing',
+        'https://drive.google.com/file/d/1AcgmpVYzSb5cjGDqsAJNQ7DRtsydjDwu/view?usp=sharing',
+        'https://drive.google.com/file/d/1HHzIZAQaAAb0JogKOHNmkWwRz5OaV1Ve/view?usp=sharing',
     ],
     story: [
         {
             title: '15 Agustus 2020',
             text: 'Kami pertama bertemu di Pantai Binangun, Rembang',
-            background: ''
+            background: 'https://drive.google.com/file/d/1z4xyjdQutkmZNo0VUv-ZF80o9YtJ43zC/view?usp=sharing'
         },
         {
             title: '29 Agustus 2020',
             text: 'Saya meminta izin ke orang tuanya, untuk menjalani sisa hidup dengannya',
-            background: ''
+            background: 'https://drive.google.com/file/d/1_dAPwF-_VMgkP_db1g6HSzi1c-Mp8ZYz/view?usp=sharing'
         },
         {
             title: '24 Oktober 2020',
             text: 'Saya menunjukkan keseriusan dengan meminangnya',
-            background: ''
+            background: 'https://drive.google.com/file/d/1sBPdhfhiTsilwoDjad1QSNrCwozZRrX7/view?usp=sharing'
         },
         {
             title: '04 Februari 2022',
             text: 'Kami mengabadikan momen pre-wedding kami di Kota Lama, Semarang',
-            background: ''
+            background: 'https://drive.google.com/file/d/1FGNgDG8EHeGqrhZFEsvsusZxNIf-HWPa/view?usp=sharing'
         },
         {
             title: '08 Mei 2022',
             text: 'Kami berencana mengikat janji suci sehidup semati',
-            background: ''
+            background: 'https://drive.google.com/file/d/111esaMsbMfZ5TyBmFQHJ3r-aCj9Y1GhA/view?usp=sharing'
         }
     ],
     sound: 'https://drive.google.com/file/d/1Dn_XEqjzFQkT2VyRJzhh15YWeqkWZnAA/view?usp=sharing',

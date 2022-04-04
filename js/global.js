@@ -14,14 +14,24 @@ function swiperInit () {
         }
     })
 }
+function openFullscreen () {
+    var elem = document.documentElement
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen()
+    } else if (elem.webkitRequestFullscreen) { /* Safari */
+        elem.webkitRequestFullscreen()
+    } else if (elem.msRequestFullscreen) { /* IE11 */
+        elem.msRequestFullscreen()
+    }
+}
 export default function (refresh = false) {
     feather.replace()
-    $("#wishesEmoji").emojioneArea()
+    // $("#wishesEmoji").emojioneArea()
     $(document).ready(function () {
         setTimeout((e) => {
             $(".preloader").hide()
         }, 2000)
-
+        // openFullscreen()
     })
     if (refresh) {
         window.scrollTo(0, 0)

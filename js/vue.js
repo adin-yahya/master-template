@@ -96,7 +96,6 @@ new Vue({
             deep: false,
             handler (val) {
                 if (val) {
-
                     this.isAudioPlay = true
                     this.$nextTick(e => {
                         globalInit(val)
@@ -108,8 +107,8 @@ new Vue({
             immediate: false,
             deep: false,
             handler (val) {
-                // if (val) this.audioComp.play()
-                // else this.audioComp.pause()
+                if (val) this.audioComp.play()
+                else this.audioComp.pause()
             }
         }
     },
@@ -138,7 +137,6 @@ new Vue({
     created () {
         globalInit()
         this.audioComp = new Audio(this.changeAudioURL(this.client.sound))
-        // document.getElementById('htmlTitle').innerHTML = this.eventTitle
     },
     beforeMount () {
         this.getGuestName()
@@ -224,7 +222,8 @@ new Vue({
             })
         },
         countEndTime: function (e) {
-            const total = Date.parse(e) - Date.parse(new Date())
+            // const total = Date.parse(e) - Date.parse(new Date())
+            const total = moment(e).valueOf() - moment(new Date().valueOf())
             const seconds = Math.floor((total / 1000) % 60)
             const minutes = Math.floor((total / 1000 / 60) % 60)
             const hours = Math.floor((total / (1000 * 60 * 60)) % 24)
@@ -240,7 +239,7 @@ new Vue({
         chooseConfirmation: function (e) {
             this.$set(this.guestBookForm, 'confirmation', e)
         },
-        onlyNumber (e, prop, prefix, defVal = null, tranform = true) {
+        onlyNumber (e, prop, prefix, defVal = '', tranform = true) {
             let val = e.target.value.split(' ')
             if (val.length == 1) this.$set(this.guestBookForm, prop, prefix + ' ' + defVal)
             else {
