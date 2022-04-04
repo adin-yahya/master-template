@@ -43,10 +43,10 @@ const clientData = {
         { code: 'zm', link: 'https://www.youtube.com/watch?v=r00ikilDxW4&list=RDk36efi9StIY&index=21' }
     ],
     banner: [
-        'https://drive.google.com/file/d/1hHQIEBaWDeFSbRbxVejADZ4y6daEXae6/view?usp=sharing',
-        'https://drive.google.com/file/d/1Wt5PDsrSVMhNSof0fyARTKoAdh49HZ-2/view?usp=sharing',
-        'https://drive.google.com/file/d/1R6V3lcKRrk90wtsAwmKSMg2oG1UduiGs/view?usp=sharing',
-        'https://drive.google.com/file/d/1v299XjhC54MsiBvQgRdWD1Z-QmMXhPZs/view?usp=sharing'
+        'https://drive.google.com/file/d/1hHQIEBaWDeFSbRbxVejADZ4y6daEXae6/view?usp=sharing', // Hero Countdown
+        'https://drive.google.com/file/d/1Wt5PDsrSVMhNSof0fyARTKoAdh49HZ-2/view?usp=sharing', // Profile Opening 1
+        'https://drive.google.com/file/d/1R6V3lcKRrk90wtsAwmKSMg2oG1UduiGs/view?usp=sharing', // Profile Opening 2
+        'https://drive.google.com/file/d/1v299XjhC54MsiBvQgRdWD1Z-QmMXhPZs/view?usp=sharing'  // Static Story
     ],
     gallery: [
         'https://drive.google.com/file/d/1_mZm-NfVnOjx97iIXfqNDMP3aEtNk0ac/view?usp=sharing',
@@ -92,6 +92,8 @@ const clientData = {
             background: 'https://drive.google.com/file/d/111esaMsbMfZ5TyBmFQHJ3r-aCj9Y1GhA/view?usp=sharing'
         }
     ],
-    sound: 'https://drive.google.com/file/d/1Dn_XEqjzFQkT2VyRJzhh15YWeqkWZnAA/view?usp=sharing',
-    code: ''
+    sound: 'https://drive.google.com/file/d/1BQ1oECQN_vnjEEjamZBsy22tH7nwRwOq/view?usp=sharing',
+    code: {
+        payce: '456aabc2-03d3-4586-b144-8beb7c4aae8f'
+    }
 };

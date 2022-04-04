@@ -18,9 +18,21 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig)
 const firestore = fs.getFirestore(firebaseApp)
 
-const _api = axios.create()
+const _payceAPI = axios.create({
+    baseURL: 'https://apigate.payment-space.com/v1/',
+    headers: {
+        'X-Requested-With': 'XMLHttpRequest',
+        'Content-type': 'application/json'
+    }
+})
+const _api = axios.create({
+    baseURL: 'http://192.168.88.91:3000/',
+    headers: {
+        'X-Requested-With': 'XMLHttpRequest',
+        'Content-type': 'application/json'
+    }
+})
 const _moment = moment().locale('id')
-
 new Vue({
     el: '#invitation',
     metaInfo: function () {
@@ -64,16 +76,16 @@ new Vue({
                 amount: 'Rp. 0',
                 phone: '+62 ',
                 gift: '',
-                trxID: '',
-                trxStats: false
-            },
-            maskInput: {
-                amount: '',
-                phone: '',
+                trxID: null,
+                trxStats: false,
+                chanel_type: null,
+                chanel_code: null
             },
             loveeLogo: 'https://drive.google.com/file/d/1RFtFh92iedY1YC__2o6qO26ZPj2Ar6d-/view?usp=sharing',
             endpoint: {
-                payChannel: '/v1/guest/event/payment-chanel/'
+                payceChannelList: 'guest/event/payment-chanel/',
+                payceTrx: 'guest/event/payment',
+                payceSandbox: 'simulate/payment/event'
             },
             dataList: {}
         }
@@ -150,6 +162,7 @@ new Vue({
             }.bind(this), 1000)
         }
         this.getComment()
+        this.addGift()
     },
     methods: {
         getGuestName: function (e) {
@@ -160,7 +173,6 @@ new Vue({
             }
         },
         getComment: async function () {
-            // const q = fs.query(fs.collection(firestore, window.location.hostname), fs.orderBy("sendtime", "desc"))
             const a = fs.query(fs.collection(firestore, window.location.hostname), fs.orderBy("sendtime", "desc"))
             const unsubscribe = fs.onSnapshot(a, (querySnapshot) => {
                 const data = []
@@ -188,8 +200,33 @@ new Vue({
             const formdata = this.guestBookForm
             formdata.alias = this.getAlias(formdata.guestName)
             formdata.sendtime = new fs.serverTimestamp()
+            formdata.amount = 0
+            formdata.phone = ''
             await fs.addDoc(fs.collection(firestore, window.location.hostname), formdata)
             this.$set(this.guestBookForm, 'comment', '')
+        },
+        addGift: async function () {
+            const formdata = this.guestBookForm
+            formdata.alias = this.getAlias(formdata.guestName + 'demo account')
+            formdata.sendtime = new fs.serverTimestamp()
+            // creating payce data
+            const payceBody = {
+                "event_code": this.client.code.payce,
+                "chanel_type": 'BANK',
+                "chanel_code": formdata.chanel_code,
+                "guest_name": formdata.guestName,
+                "guest_phone": formdata.phone.replace('+62 ', '0'),
+                "guest_email": "nomail.client@mail.com",
+                "guest_notes": formdata.comment,
+                "amount": Number(formdata.amount.replace('Rp. ', ''))
+            }
+            _payceAPI.post(this.endpoint.payceTrx, payceBody).then(async res => {
+                formdata.trxID = res.transaction_code
+                await fs.addDoc(fs.collection(firestore, window.location.hostname), formdata)
+                this.$set(this.guestBookForm, 'comment', '')
+            }).catch(err => {
+                console.log(err)
+            })
         },
         countUnique: function (iterable) {
             return new Set(iterable)
@@ -213,13 +250,13 @@ new Vue({
             const res = baseURL + 'id=' + urls
             return res
         },
-        generateCalendarLink:function(){
-            var title = this.eventTitle.replace(/ /g, "+");
-            var desc = this.client.event[0].title+'+'+title+ '%0ALokasi+Acara+%3A%0A'+this.client.event[0].location+'%0A'+this.client.event[0].address
-            var dates = ''
-            return 'https://www.google.com/calendar/render?action=TEMPLATE&text='+title+'&details='+desc+'&location='+this.client.event[0].address+'&dates=20220508T013000Z%2F20220508T170000Z'
+        generateCalendarLink: function () {
+            var title = this.eventTitle.replace(/ /g, "+")
+            var desc = this.client.event[0].title + '+' + title + '%0ALokasi+Acara+%3A%0A' + this.client.event[0].location + '%0A' + this.client.event[0].address
+            var dates = moment(this.client.event[0].startDateTime).utcOffset("+07:00").toISOString()
+            return 'https://www.google.com/calendar/render?action=TEMPLATE&text=' + title + '&details=' + desc + '&location=' + this.client.event[0].address + dates
         },
-        getAPI: function (methods, endpoint, params) {
+        sendAPI: function (methods, endpoint, params) {
             return _api[methods](endpoint, params).then(res => {
                 return res
             }).catch(err => {
