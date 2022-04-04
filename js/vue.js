@@ -213,6 +213,12 @@ new Vue({
             const res = baseURL + 'id=' + urls
             return res
         },
+        generateCalendarLink:function(){
+            var title = this.eventTitle.replace(/ /g, "+");
+            var desc = this.client.event[0].title+'+'+title+ '%0ALokasi+Acara+%3A%0A'+this.client.event[0].location+'%0A'+this.client.event[0].address
+            var dates = ''
+            return 'https://www.google.com/calendar/render?action=TEMPLATE&text='+title+'&details='+desc+'&location='+this.client.event[0].address+'&dates=20220508T013000Z%2F20220508T170000Z'
+        },
         getAPI: function (methods, endpoint, params) {
             return _api[methods](endpoint, params).then(res => {
                 return res
