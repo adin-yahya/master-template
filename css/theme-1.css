@@ -498,7 +498,7 @@ body {
 }
 
 .comment-list {
-    max-height: 60vh;
+    max-height: 45vh;
     padding: 1.5rem;
     overflow-y: auto;
     max-width: 650px;
@@ -738,4 +738,9 @@ body {
 }
 .gift-preview.active {
     border: 3px solid var(--dark-primary);
+}
+.gift-chat{
+    width: 100px;
+    height: auto;
+    object-fit: cover;
 }

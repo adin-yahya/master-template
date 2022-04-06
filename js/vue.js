@@ -72,7 +72,21 @@ new Vue({
                 { name: 'Masih Ragu', val: 'ragu_hadir', class: 'bg-gray-theme' },
             ],
             guestBook: [],
-            guestBookForm: {
+            giftForm: {
+                guestName: '',
+                alias: '',
+                comment: '',
+                confirmation: 'akan_hadir',
+                amount: 'Rp. 0',
+                phone: '+62 ',
+                email: '',
+                gift: '',
+                trxID: null,
+                trxStats: 'UNDEFINED',
+                chanel_type: null,
+                chanel_code: null
+            },
+            commentForm: {
                 guestName: '',
                 alias: '',
                 comment: '',
@@ -121,16 +135,18 @@ new Vue({
             return this.client.owner[0].nickname + ' ' + this.client.owner[1].nickname + ' Wedding'
         },
         checkAmount: function () {
-            const amount = Number(this.guestBookForm.amount.replace('Rp. ', '').replace(/\./g, ''))
+            const amount = Number(this.giftForm.amount.replace('Rp. ', '').replace(/\./g, ''))
             return amount < 10000
         },
         disableNextGift: function () {
             if (this.giftStep === 1) {
-                return !this.guestBookForm.guestName || !this.guestBookForm.email || this.guestBookForm.phone === '+62 ' || this.guestBookForm.amount === 'Rp. 0' || this.checkAmount
+                return !this.giftForm.guestName || !this.giftForm.email || this.giftForm.phone === '+62 ' || this.giftForm.amount === 'Rp. 0' || this.checkAmount
             } else if (this.giftStep === 2) {
-                return !this.guestBookForm.chanel_code || !this.guestBookForm.chanel_type
+                return !this.giftForm.chanel_code || !this.giftForm.chanel_type
             } else if (this.giftStep === 3) {
-                return !this.guestBookForm.comment || !this.guestBookForm.confirmation
+                return !this.giftForm.gift
+            } else if (this.giftStep === 4) {
+                return !this.giftForm.comment || !this.giftForm.confirmation
             } else return false
         }
     },
@@ -184,7 +200,7 @@ new Vue({
     },
     beforeMount () {
         this.getGuestName()
-        this.$set(this.guestBookForm, 'guestName', this.guestName)
+        this.$set(this.giftForm, 'guestName', this.guestName)
         this.getPaycePaymentMethod()
     },
     mounted () {
@@ -232,41 +248,44 @@ new Vue({
             })
         },
         addComment: async function () {
-            const formdata = this.guestBookForm
+            const formdata = JSON.parse(JSON.stringify(this.commentForm))
             formdata.alias = this.getAlias(formdata.guestName)
             formdata.sendtime = new fs.serverTimestamp()
             formdata.amount = 0
             formdata.phone = ''
             await fs.addDoc(fs.collection(firestore, window.location.hostname), formdata)
-            this.$set(this.guestBookForm, 'comment', '')
+            this.$set(this.commentForm, 'comment', '')
         },
-        selectGift: function (name){
-            this.$set(this.guestBookForm, 'gift', name)
+        selectGift: function (name) {
+            this.$set(this.giftForm, 'gift', name)
         },
         setPayment: function (type, channel) {
-            this.$set(this.guestBookForm, 'chanel_code', channel)
-            this.$set(this.guestBookForm, 'chanel_type', type)
+            this.$set(this.giftForm, 'chanel_code', channel)
+            this.$set(this.giftForm, 'chanel_type', type)
         },
         sendGift: async function () {
-            const formdata = this.guestBookForm
-            formdata.alias = this.getAlias(formdata.guestName + 'demo account')
+            const formdata = JSON.parse(JSON.stringify(this.giftForm))
+            formdata.alias = this.getAlias(formdata.guestName)
             formdata.sendtime = new fs.serverTimestamp()
             // creating payce data
             const payceBody = {
                 "url_callback": apiBase + 'payce-callback',
                 "event_code": this.client.code.payce,
-                "chanel_type": 'BANK',
+                "chanel_type": formdata.chanel_type,
                 "chanel_code": formdata.chanel_code,
                 "guest_name": formdata.guestName,
                 "guest_phone": formdata.phone.replace('+62 ', '0'),
-                "guest_email": "nomail.client@mail.com",
+                "guest_email": formdata.email,
                 "guest_notes": formdata.comment,
                 "amount": Number(formdata.amount.replace('Rp. ', '').replace(/\./g, ''))
             }
             _payceAPI.post(this.endpoint.payceTrx, payceBody).then(async res => {
-                formdata.trxID = res.transaction_code
+                const payceResponse = res.data.data
+                formdata.trxID = payceResponse.data.transaction_id
+                formdata.trxStats = payceResponse.data.status
                 await fs.addDoc(fs.collection(firestore, window.location.hostname), formdata)
-                this.$set(this.guestBookForm, 'comment', '')
+                this.$set(this.giftForm, 'comment', '')
+                this.giftStep++
             }).catch(err => {
                 console.log(err)
             })
@@ -342,14 +361,14 @@ new Vue({
             return result
         },
         chooseConfirmation: function (e) {
-            this.$set(this.guestBookForm, 'confirmation', e)
+            this.$set(this.giftForm, 'confirmation', e)
         },
         onlyNumber (e, prop, prefix, defVal = '', tranform = true) {
             let val = e.target.value.split(' ')
-            if (val.length == 1) this.$set(this.guestBookForm, prop, prefix + ' ' + defVal)
+            if (val.length == 1) this.$set(this.giftForm, prop, prefix + ' ' + defVal)
             else {
                 const result = tranform ? Number(val[1].replace(/[^\d]/g, '')).toLocaleString('id-ID') : Number(val[1].replace(/[^\d]/g, ''))
-                this.$set(this.guestBookForm, prop, prefix + ' ' + result)
+                this.$set(this.giftForm, prop, prefix + ' ' + result)
             }
         },
     }
