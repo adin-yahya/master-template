@@ -18,15 +18,18 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig)
 const firestore = fs.getFirestore(firebaseApp)
 
+const apiBase = 'http://192.168.88.60:3000/'
+const paycebase = 'https://apigate.payment-space.com/v1/'
+
 const _payceAPI = axios.create({
-    baseURL: 'https://apigate.payment-space.com/v1/',
+    baseURL: paycebase,
     headers: {
         'X-Requested-With': 'XMLHttpRequest',
         'Content-type': 'application/json'
     }
 })
 const _api = axios.create({
-    baseURL: 'http://192.168.88.91:3000/',
+    baseURL: apiBase,
     headers: {
         'X-Requested-With': 'XMLHttpRequest',
         'Content-type': 'application/json'
@@ -50,6 +53,7 @@ new Vue({
     },
     data: function () {
         return {
+            giftStep: 2,
             guestName: null,
             isOpenInvitation: false,
             isAudioPlay: false,
@@ -75,9 +79,10 @@ new Vue({
                 confirmation: 'akan_hadir',
                 amount: 'Rp. 0',
                 phone: '+62 ',
+                email: '',
                 gift: '',
                 trxID: null,
-                trxStats: false,
+                trxStats: 'UNDEFINED',
                 chanel_type: null,
                 chanel_code: null
             },
@@ -87,7 +92,8 @@ new Vue({
                 payceTrx: 'guest/event/payment',
                 payceSandbox: 'simulate/payment/event'
             },
-            dataList: {}
+            dataList: {},
+            paymentMethod: []
         }
     },
     computed: {
@@ -100,6 +106,10 @@ new Vue({
         },
         eventTitle: function () {
             return this.client.owner[0].nickname + ' ' + this.client.owner[1].nickname + ' Wedding'
+        },
+        checkAmount: function () {
+            const amount = Number(this.guestBookForm.amount.replace('Rp. ', '').replace(/\./g, ''))
+            return amount < 10000
         }
     },
     watch: {
@@ -119,8 +129,8 @@ new Vue({
             immediate: false,
             deep: false,
             handler (val) {
-                if (val) this.audioComp.play()
-                else this.audioComp.pause()
+                // if (val) this.audioComp.play()
+                // else this.audioComp.pause()
             }
         }
     },
@@ -153,6 +163,7 @@ new Vue({
     beforeMount () {
         this.getGuestName()
         this.$set(this.guestBookForm, 'guestName', this.guestName)
+        this.getPaycePaymentMethod()
     },
     mounted () {
         for (let i = 0; i < this.client.event.length; i++) {
@@ -162,7 +173,7 @@ new Vue({
             }.bind(this), 1000)
         }
         this.getComment()
-        this.addGift()
+        // this.tryNerror()
     },
     methods: {
         getGuestName: function (e) {
@@ -178,7 +189,9 @@ new Vue({
                 const data = []
                 const unique = []
                 querySnapshot.forEach((doc) => {
-                    data.push(doc.data())
+                    const filteredData = doc.data()
+                    const arrFilter = ['UNDEFINED', 'SUCCESS']
+                    if(arrFilter.includes(filteredData.trxStats)) data.push(doc.data())
                 })
                 // confirmation
                 const uniqueData = this.countUnique(data.map(x => x.guestName.trim()))
@@ -205,12 +218,13 @@ new Vue({
             await fs.addDoc(fs.collection(firestore, window.location.hostname), formdata)
             this.$set(this.guestBookForm, 'comment', '')
         },
-        addGift: async function () {
+        sendGift: async function () {
             const formdata = this.guestBookForm
             formdata.alias = this.getAlias(formdata.guestName + 'demo account')
             formdata.sendtime = new fs.serverTimestamp()
             // creating payce data
             const payceBody = {
+                "url_callback": apiBase + 'payce-callback',
                 "event_code": this.client.code.payce,
                 "chanel_type": 'BANK',
                 "chanel_code": formdata.chanel_code,
@@ -218,12 +232,31 @@ new Vue({
                 "guest_phone": formdata.phone.replace('+62 ', '0'),
                 "guest_email": "nomail.client@mail.com",
                 "guest_notes": formdata.comment,
-                "amount": Number(formdata.amount.replace('Rp. ', ''))
+                "amount": Number(formdata.amount.replace('Rp. ', '').replace(/\./g, ''))
             }
             _payceAPI.post(this.endpoint.payceTrx, payceBody).then(async res => {
                 formdata.trxID = res.transaction_code
                 await fs.addDoc(fs.collection(firestore, window.location.hostname), formdata)
                 this.$set(this.guestBookForm, 'comment', '')
+            }).catch(err => {
+                console.log(err)
+            })
+        },
+        getPaycePaymentMethod: function () {
+            _payceAPI.get(this.endpoint.payceChannelList + '/' +this.client.code.payce).then(async res => {
+                this.paymentMethod = res.data.data
+            }).catch(err => {
+                console.log(err)
+            })
+        },
+        tryNerror(){
+            const payload = {
+                event_code: this.client.code.payce,
+                transaction_code: this.client.code.payce,
+                status: 'SUCCESS'
+            }
+            _api.post(apiBase + 'payce-callback', payload).then(async res => {
+                console.log(res)
             }).catch(err => {
                 console.log(err)
             })
