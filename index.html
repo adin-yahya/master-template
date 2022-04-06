@@ -347,30 +347,28 @@
                                     <h5 style="font-weight: 600;" class="text-dark-theme mt-5 mb-4">Send Wishes &amp; Virtual Gift</h5>
                                     <div class="px-4">
                                         <div class="separator-icon mb-5">
-                                            <span class="">
+                                            <span @click="giftStep=1" class="pointer" :class="giftStep === 1? 'active': ''">
                                                 <i data-feather="credit-card"></i>
                                             </span>
-                                            <span class="active">
+                                            <span @click="giftStep=2" class="pointer" :class="giftStep === 2? 'active': ''">
                                                 <i data-feather="grid"></i>
                                             </span>
-                                            <span class="">
+                                            <span @click="giftStep=3" class="pointer" :class="giftStep === 3? 'active': ''">
+                                                <i data-feather="gift"></i>
+                                            </span>
+                                            <span @click="giftStep=4" class="pointer" :class="giftStep === 4? 'active': ''">
+                                                <i data-feather="gift"></i>
+                                            </span>
+                                            <span @click="giftStep=5" class="pointer" :class="giftStep === 5? 'active': ''">
                                                 <i data-feather="gift"></i>
                                             </span>
                                         </div>
                                     </div>
-                                    <div class="px-4" style="max-height: 70vh;overflow-y: auto;overflow-x: hidden;">
-                                        <template v-if="giftStep === 1">
-                                            <form autocomplete="off">
-                                                <div class="separator-icon mb-5">
-                                                    <span class="active">
-                                                        <i data-feather="credit-card"></i>
-                                                    </span>
-                                                    <span>
-                                                        <i data-feather="grid"></i>
-                                                    </span>
-                                                    <span>
-                                                        <i data-feather="gift"></i>
-                                                    </span>
+                                    <div class="px-4" style="overflow-x: hidden;">
+                                        <transition enter-active-class="animate__animated animate__fadeInRight animate__faster" leave-active-class="animate__animated animate__fadeOutLeft animate__faster" mode="out-in">
+                                            <form autocomplete="off" key="step-1" v-if="giftStep === 1">
+                                                <div class="separator-form">
+                                                    <span>Informasi kontak pengirim</span>
                                                 </div>
                                                 <div class="form-group custom-input">
                                                     <label class="sr-only" for="username">Username</label>
@@ -426,49 +424,44 @@
                                                         </div>
                                                         <input pattern="[0-9]*" inputmode="numeric" @input="onlyNumber($event, 'amount', 'Rp.', 0)" style="padding-left: .75rem;" v-model.number="guestBookForm.amount" type="text" class="form-control form-control-lg" id="Amount" name="Amount" placeholder="Nominal Virtual Gift">
                                                     </div>
-                                                    <span v-if="checkAmount" class="d-block text-right text-danger" style="font-size: 11px;">Gift yang dikirimkan minimal Rp. 10.000</span>
+                                                    <span v-if="checkAmount" class="d-block text-right text-danger" style="font-size: 11px;">Nominal Gift minimal Rp. 10.000</span>
                                                 </div>
+
+                                                <p class="text-placeholder" style="font-size: 12px;">Pastikan nomor Whatsapp sudah benar karena Lovee akan mengirimkan bukti pembayaran Virtual Gift ke kontak ini</p>
                                             </form>
-                                            <p class="text-placeholder" style="font-size: 12px;">Pastikan nomor Whatsapp Sudah benar karena Lovee akan mengirimkan bukti pembayaran Virtual Gift ke kontak ini</p>
-                                            <button @click="giftStep++" :disabled="!guestBookForm.guestName || !guestBookForm.email || guestBookForm.phone === '+62 ' || guestBookForm.amount === 'Rp. 0' || checkAmount" style="font-size: 1.2rem;" class="btn btn-primary btn-block py-2 px-4 mt-5 mr-3">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <span style="font-weight: 600;" class="mr-2">Selanjutnya</span>
-                                                    <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path opacity="0.5" d="M10 1L17 8L10 15M1 8H17H1Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                                    </svg>
-                                                </div>
-                                            </button>
-                                        </template>
-                                        <template v-if="giftStep === 2">
-                                            <form autocomplete="off">
+                                            <form autocomplete="off" key="step-2" v-if="giftStep === 2">
                                                 <div class="separator-form">
                                                     <span>Pilih Metode Pembayaran</span>
                                                 </div>
-                                                <div v-if="paymentMethod.length" class="text-left">
+                                                <div v-if="paymentMethod.length" class="text-left" style="height: 335px;overflow-y: auto;overflow-x: hidden;">
                                                     <template v-for="(t,i) in paymentMethod">
                                                         <div class="mb-1" :key="i+'-type-payment'">
-                                                            <span class="text-dark-theme" style="font-size: 11px;">{{ t.type_name }}</span>
-                                                            <div v-for="(c,j) in t.data" class="form-check option-payment" :key="j+'-channel-payment'">
-                                                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                                                <label class="form-check-label" for="exampleRadios1">
-                                                                    {{ c.chanel_name }}
-                                                                </label>
+                                                            <span class="d-block text-dark-theme pl-1 mt-3" style="font-size: 11px;font-weight: 800;">{{ t.type_name }}</span>
+                                                            <div @click="setPayment(t.type_code, c.chanel_code)" v-for="(c,j) in t.data" class="form-check option-payment" :class="guestBookForm.chanel_code === c.chanel_code? 'active': ''" :key="j+'-channel-payment'">
+                                                                <div class="d-flex justify-content-start align-items-center pointer">
+                                                                    <img :src="c.chanel_icon" height="15px" width="15px" style="object-fit: cover;" class="mr-2">
+                                                                    <span>{{ c.chanel_name }}</span>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </template>
                                                 </div>
                                             </form>
-                                            <button @click="giftStep++" :disabled="!guestBookForm.guestName || !guestBookForm.email || guestBookForm.phone === '+62 ' || guestBookForm.amount === 'Rp. 0' || checkAmount" style="font-size: 1.2rem;" class="btn btn-primary btn-block py-2 px-4 mt-5 mr-3">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <span style="font-weight: 600;" class="mr-2">Selanjutnya</span>
-                                                    <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path opacity="0.5" d="M10 1L17 8L10 15M1 8H17H1Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                                    </svg>
+                                            <form autocomplete="off" key="step-3" v-if="giftStep === 3">
+                                                <div class="separator-form">
+                                                    <span>Pilih Virtual Gift</span>
                                                 </div>
-                                            </button>
-                                        </template>
-                                        <template v-if="giftStep === 3">
-                                            <form autocomplete="off" class="d-none">
+                                                <div v-if="giftList.premium.length" class="row no-gutters" style="height: 335px;overflow-y: auto;overflow-x: hidden;">
+                                                    <template v-for="(g,i) in giftList.premium">
+                                                        <div class="col-4" @click="selectGift(g.name)">
+                                                            <div class="gift-selectable">
+                                                                <img :src="'./images/gift/'+g.name+'.png'" :class="guestBookForm.gift === g.name? 'active': ''" class="gift-preview" srcset="">
+                                                            </div>
+                                                        </div>
+                                                    </template>
+                                                </div>
+                                            </form>
+                                            <form autocomplete="off" key="step-4" v-if="giftStep === 4">
                                                 <div class="separator-form">
                                                     <span>Tulis doa dan pesan untuk mempelai</span>
                                                 </div>
@@ -493,10 +486,18 @@
                                                     </div>
                                                 </div>
                                             </form>
-                                        </template>
-                                        <div class="pt-3 pt-lg-5 pb-2 d-flex align-items-center justify-content-center text-center">
-                                            <img src="./images/logo/loveeXpayce.png" height="30px" width="auto">
+                                        </transition>
+                                    </div>
+                                    <button @click="giftStep++" :disabled="disableNextGift" style="font-size: 1.2rem;" class="btn btn-primary btn-block py-2 px-4 mt-5 mr-3">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span style="font-weight: 600;" class="mr-2">Selanjutnya</span>
+                                            <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path opacity="0.5" d="M10 1L17 8L10 15M1 8H17H1Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
                                         </div>
+                                    </button>
+                                    <div class="pt-3 pt-lg-5 pb-1 d-flex align-items-center justify-content-center text-center">
+                                        <img src="./images/logo/loveeXpayce.png" height="30px" width="auto">
                                     </div>
                                 </div>
                             </div>

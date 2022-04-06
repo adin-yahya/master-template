@@ -53,7 +53,7 @@ new Vue({
     },
     data: function () {
         return {
-            giftStep: 2,
+            giftStep: 1,
             guestName: null,
             isOpenInvitation: false,
             isAudioPlay: false,
@@ -93,7 +93,20 @@ new Vue({
                 payceSandbox: 'simulate/payment/event'
             },
             dataList: {},
-            paymentMethod: []
+            paymentMethod: [],
+            giftList: {
+                premium: [
+                    { name: 'baloon' },
+                    { name: 'bicycle' },
+                    { name: 'helicopter' },
+                    { name: 'pink_rose' },
+                    { name: 'pink_rose2' },
+                    { name: 'red_rose' },
+                    { name: 'red_rose2' },
+                    { name: 'ship' },
+                    { name: 'vespa' },
+                ]
+            }
         }
     },
     computed: {
@@ -110,6 +123,15 @@ new Vue({
         checkAmount: function () {
             const amount = Number(this.guestBookForm.amount.replace('Rp. ', '').replace(/\./g, ''))
             return amount < 10000
+        },
+        disableNextGift: function () {
+            if (this.giftStep === 1) {
+                return !this.guestBookForm.guestName || !this.guestBookForm.email || this.guestBookForm.phone === '+62 ' || this.guestBookForm.amount === 'Rp. 0' || this.checkAmount
+            } else if (this.giftStep === 2) {
+                return !this.guestBookForm.chanel_code || !this.guestBookForm.chanel_type
+            } else if (this.giftStep === 3) {
+                return !this.guestBookForm.comment || !this.guestBookForm.confirmation
+            } else return false
         }
     },
     watch: {
@@ -191,7 +213,7 @@ new Vue({
                 querySnapshot.forEach((doc) => {
                     const filteredData = doc.data()
                     const arrFilter = ['UNDEFINED', 'SUCCESS']
-                    if(arrFilter.includes(filteredData.trxStats)) data.push(doc.data())
+                    if (arrFilter.includes(filteredData.trxStats)) data.push(doc.data())
                 })
                 // confirmation
                 const uniqueData = this.countUnique(data.map(x => x.guestName.trim()))
@@ -218,6 +240,13 @@ new Vue({
             await fs.addDoc(fs.collection(firestore, window.location.hostname), formdata)
             this.$set(this.guestBookForm, 'comment', '')
         },
+        selectGift: function (name){
+            this.$set(this.guestBookForm, 'gift', name)
+        },
+        setPayment: function (type, channel) {
+            this.$set(this.guestBookForm, 'chanel_code', channel)
+            this.$set(this.guestBookForm, 'chanel_type', type)
+        },
         sendGift: async function () {
             const formdata = this.guestBookForm
             formdata.alias = this.getAlias(formdata.guestName + 'demo account')
@@ -243,13 +272,13 @@ new Vue({
             })
         },
         getPaycePaymentMethod: function () {
-            _payceAPI.get(this.endpoint.payceChannelList + '/' +this.client.code.payce).then(async res => {
+            _payceAPI.get(this.endpoint.payceChannelList + '/' + this.client.code.payce).then(async res => {
                 this.paymentMethod = res.data.data
             }).catch(err => {
                 console.log(err)
             })
         },
-        tryNerror(){
+        tryNerror () {
             const payload = {
                 event_code: this.client.code.payce,
                 transaction_code: this.client.code.payce,
