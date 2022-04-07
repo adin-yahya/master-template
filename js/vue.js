@@ -53,7 +53,7 @@ new Vue({
     },
     data: function () {
         return {
-            giftStep: 1,
+            giftStep: 2,
             guestName: null,
             isOpenInvitation: false,
             isAudioPlay: false,
@@ -122,7 +122,8 @@ new Vue({
                     { name: 'ship' },
                     { name: 'vespa' },
                 ]
-            }
+            },
+            intervalPayment: null
         }
     },
     computed: {
@@ -147,7 +148,6 @@ new Vue({
         },
         checkWANumber: function () {
             const normailze = this.giftForm.phone.split(' ')
-            console.log(normailze)
             if(normailze[1]){
                 return (normailze[1].charAt(0) === '8' && normailze[1].length>8) ? true : false
             } else return true
@@ -170,8 +170,8 @@ new Vue({
             immediate: false,
             deep: false,
             handler (val) {
-                // if (val) this.audioComp.play()
-                // else this.audioComp.pause()
+                if (val) this.audioComp.play()
+                else this.audioComp.pause()
             }
         },
         paymentCountdown: {
@@ -181,10 +181,7 @@ new Vue({
                 if (val.length && this.giftPayment) {
                     var second = val[val.length - 1]
                     if (second.res && second.res < 1) {
-                        localStorage.removeItem('_pendingTRX')
-                        this.giftStep = 1
-                        this.giftPayment = null
-                        this.paymentCountdown = []
+                        this.cancelPayment()
                     }
                 }
             }
@@ -324,9 +321,9 @@ new Vue({
                     const payceResponse = { ...res.data.data, ...{ form: formdata } }
                     localStorage.setItem('_pendingTRX', JSON.stringify(payceResponse))
                     this.giftPayment = payceResponse
-                    this.setCountdownPayment(payceResponse.data.expired_at)
                     formdata.trxID = payceResponse.data.transaction_id
                     formdata.trxStats = payceResponse.data.status
+                    this.setCountdownPayment(this.giftPayment.data.expired_at)
                     await fs.addDoc(fs.collection(firestore, window.location.hostname), formdata)
                     this.giftStep++
                 }
@@ -335,7 +332,7 @@ new Vue({
             })
         },
         setCountdownPayment: function (e) {
-            setInterval(function () {
+            this.intervalPayment = setInterval(function () {
                 this.paymentCountdown = this.countEndTime(e)
             }.bind(this), 1000)
         },
@@ -343,7 +340,8 @@ new Vue({
             localStorage.removeItem('_pendingTRX')
             this.giftStep = 1
             this.giftPayment = null
-            this.paymentCountdown = []
+            this.paymentCountdown.splice(0)
+            clearInterval(this.intervalPayment)
         },
         getPaycePaymentMethod: function () {
             _payceAPI.get(this.endpoint.payceChannelList + '/' + this.client.code.payce).then(async res => {
@@ -402,7 +400,7 @@ new Vue({
         },
         countEndTime: function (e) {
             // const total = Date.parse(e) - Date.parse(new Date())
-            const total = moment(e).valueOf() - moment(new Date().valueOf())
+            const total = moment(e).valueOf() - moment(new Date()).valueOf()
             const seconds = Math.floor((total / 1000) % 60)
             const minutes = Math.floor((total / 1000 / 60) % 60)
             const hours = Math.floor((total / (1000 * 60 * 60)) % 24)

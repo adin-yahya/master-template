@@ -465,6 +465,22 @@
                                                     </div>
                                                     <span v-if="checkAmount" class="d-block text-right text-danger" style="font-size: 11px;">Nominal Gift minimal Rp. 25.000,-</span>
                                                 </div>
+                                                <div class="separator-form">
+                                                    <span>Pilih Virtual Gift</span>
+                                                </div>
+                                                <div class="form-scroll-wrapper">
+                                                    <div v-if="giftList.premium.length" class="row no-gutters show-scrollbar" style="height: 300px;overflow-y: auto;overflow-x: hidden;">
+                                                        <template v-for="(g,i) in giftList.premium">
+                                                            <div class="col-6 d-flex justify-content-center align-items-center" @click="selectGift(g.name)">
+                                                                <div class="gift-selectable">
+                                                                    <img :src="'./images/gift/'+g.name+'.png'" :class="giftForm.gift === g.name? 'active animate__animated animate__heartBeat animate__infinite animate__slower': ''" class="gift-preview" style=" filter: grayscale(100%);">
+                                                                </div>
+                                                            </div>
+                                                        </template>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <form autocomplete="off" key="step-3" v-else-if="giftStep === 3">                                                
                                                 <div class="form-scroll-wrapper">
                                                     <div v-if="paymentMethod.length" class="text-left" style="height: 290px;overflow-y: auto;overflow-x: hidden;">
                                                         <template v-for="(t,i) in paymentMethod">
@@ -482,22 +498,6 @@
                                                 </div>
                                                 <p class="text-placeholder mb-0" style="font-size: 12px;">Dengan melanjutkan ke tahap selanjutnya, Anda mengakui dan menyetujui bahwa Anda telah membaca dengan teliti, memahami, menerima dan menyetujui seluruh<br>Syarat dan Ketentuan Aplikasi Payce</p>
                                             </form>
-                                            <form autocomplete="off" key="step-3" v-else-if="giftStep === 3">
-                                                <div class="separator-form">
-                                                    <span>Pilih Virtual Gift</span>
-                                                </div>
-                                                <div class="form-scroll-wrapper">
-                                                    <div v-if="giftList.premium.length" class="row no-gutters" style="height: 440px;overflow-y: auto;overflow-x: hidden;">
-                                                        <template v-for="(g,i) in giftList.premium">
-                                                            <div class="col-6 d-flex justify-content-center align-items-center" @click="selectGift(g.name)">
-                                                                <div class="gift-selectable">
-                                                                    <img :src="'./images/gift/'+g.name+'.png'" :class="giftForm.gift === g.name? 'active animate__animated animate__heartBeat animate__infinite animate__slower': ''" class="gift-preview" srcset="">
-                                                                </div>
-                                                            </div>
-                                                        </template>
-                                                    </div>
-                                                </div>
-                                            </form>
                                             <div v-else>
                                                 <div class="separator-form">
                                                     <span>Virtual Gift Payment</span>
@@ -507,7 +507,7 @@
                                                     <img v-if="giftPayment.data.qris_image" :src="giftPayment.data.qris_image" alt="qris-image">
                                                     <img v-else :src="'./images/gift/'+giftPayment.form.gift+'.png'" class="gift-preview">
                                                 </div>
-                                                <h4 class="text-lowercase" style="font-weight:bold">{{ paymentCountdown[2].res + ' ' + paymentCountdown[2].name }} : {{ paymentCountdown[3].res + ' ' + paymentCountdown[3].name }}</h4>
+                                                <h4 v-if="paymentCountdown.length" class="text-lowercase" style="font-weight:bold">{{ paymentCountdown[2].res + ' ' + paymentCountdown[2].name }} : {{ paymentCountdown[3].res + ' ' + paymentCountdown[3].name }}</h4>
                                                 <a class="text-theme" data-toggle="collapse" href="#paymentSteps" role="button" aria-expanded="false" aria-controls="paymentSteps">
                                                     Lihat cara pembayaran
                                                 </a>
