@@ -6,6 +6,7 @@
     outline: none !important;
     box-shadow: none !important;
 }
+
 .pointer {
     cursor: pointer;
 }
@@ -36,6 +37,8 @@ html {
     overflow-y: auto;
     position: relative;
 }
+
+
 /* ================================= */
 
 
@@ -143,8 +146,8 @@ nav.web-nav-wrapper {
     top: 0;
 }
 
-#audio-control{
-    z-index: 9999;
+#audio-control {
+    z-index: 1000;
 }
 
 #audio-control img {
@@ -159,10 +162,15 @@ nav.web-nav-wrapper {
     height: 100vh;
     z-index: 9999;
     background-color: #fff;
-  }
-  .preloader .loading {
+}
+
+.preloader .loading {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
-  }
+    transform: translate(-50%, -50%);
+}
+
+.h-99vh {
+    min-height: 99vh;
+}

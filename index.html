@@ -37,6 +37,14 @@
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
         <link rel="stylesheet" href="css/global.css">
         <link rel="stylesheet" href="css/theme-1.css">
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-C95MF2H9RM"></script>
+        <script>
+            window.dataLayer = window.dataLayer || []
+            function gtag () { dataLayer.push(arguments) }
+            gtag('js', new Date())
+            gtag('config', 'G-C95MF2H9RM');
+        </script>
     </head>
 
     <body class="position-relative">
@@ -262,7 +270,7 @@
                                         <span style="font-weight: 600;" class="ml-2">Send Wishes</span>
                                     </div>
                                 </button>
-                                <button data-toggle="modal" data-target="#modalGift" style="font-size: .9rem;" class="btn btn-dark-primary text-white animate__animated animate__pulse animate__infinite animate__slower py-2 px-4 mt-3 ml-0 ml-md-3">
+                                <button data-toggle="modal" data-target="#modalGift" style="font-size: .9rem;" class="btn btn-dark-primary text-white py-2 px-4 mt-3 ml-0 ml-md-3">
                                     <div class="d-flex justify-content-center align-items-center">
                                         <svg width="17" height="27" viewBox="0 0 33 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M5.67187 0H10.3125V4.71046C9.52611 4.25334 8.61192 4.07027 7.71168 4.18965C6.81145 4.30903 5.97549 4.72418 5.33343 5.37073C4.69138 6.01728 4.27911 6.85909 4.16056 7.76561C4.04201 8.67214 4.2238 9.59273 4.67775 10.3846H0V5.71154C0 4.19674 0.597571 2.74399 1.66125 1.67287C2.72494 0.601749 4.1676 0 5.67187 0ZM0 17.1346V12.4615H8.85431L5.45737 15.8802C5.26373 16.0751 5.15495 16.3396 5.15495 16.6154C5.15495 16.8911 5.26373 17.1556 5.45737 17.3506C5.65102 17.5456 5.91365 17.6552 6.1875 17.6552C6.46135 17.6552 6.72398 17.5456 6.91762 17.3506L10.3125 13.9299V22.8462H5.67187C4.1676 22.8462 2.72494 22.2444 1.66125 21.1733C0.597571 20.1022 0 18.6494 0 17.1346ZM12.375 22.8462H23.2031C24.7074 22.8462 26.1501 22.2444 27.2137 21.1733C28.2774 20.1022 28.875 18.6494 28.875 17.1346V12.4615H13.8332L17.2301 15.8802C17.4238 16.0751 17.5326 16.3396 17.5326 16.6154C17.5326 16.8911 17.4238 17.1556 17.2301 17.3506C17.0365 17.5456 16.7738 17.6552 16.5 17.6552C16.2261 17.6552 15.9635 17.5456 15.7699 17.3506L12.375 13.9299V22.8462ZM18.0097 10.3846H28.875V5.71154C28.875 4.19674 28.2774 2.74399 27.2137 1.67287C26.1501 0.601749 24.7074 0 23.2031 0H12.375V4.71046C13.1614 4.25334 14.0756 4.07027 14.9758 4.18965C15.876 4.30903 16.712 4.72418 17.3541 5.37073C17.9961 6.01728 18.4084 6.85909 18.5269 7.76561C18.6455 8.67214 18.4637 9.59273 18.0097 10.3846ZM12.375 10.3846V8.30769C12.375 7.89692 12.496 7.49536 12.7226 7.15382C12.9492 6.81227 13.2713 6.54606 13.6482 6.38887C14.0251 6.23167 14.4398 6.19054 14.8399 6.27068C15.24 6.35082 15.6075 6.54862 15.8959 6.83909C16.1844 7.12955 16.3808 7.49962 16.4604 7.9025C16.5399 8.30539 16.4991 8.72299 16.343 9.1025C16.1869 9.48201 15.9225 9.80638 15.5834 10.0346C15.2442 10.2628 14.8454 10.3846 14.4375 10.3846H12.375ZM8.25 10.3846H10.3125V8.30769C10.3125 7.89692 10.1915 7.49536 9.9649 7.15382C9.73827 6.81227 9.41616 6.54606 9.03928 6.38887C8.66241 6.23167 8.24771 6.19054 7.84763 6.27068C7.44754 6.35082 7.08004 6.54862 6.79159 6.83909C6.50315 7.12955 6.30671 7.49962 6.22713 7.9025C6.14755 8.30539 6.18839 8.72299 6.3445 9.1025C6.5006 9.48201 6.76496 9.80638 7.10414 10.0346C7.44331 10.2628 7.84208 10.3846 8.25 10.3846ZM9.79687 27C8.03344 27 6.45769 26.19 5.41819 24.9189L5.67187 24.9231H23.2031C25.2544 24.9231 27.2217 24.1025 28.6722 22.6419C30.1226 21.1813 30.9375 19.2002 30.9375 17.1346V5.71154C30.9375 5.62638 30.9375 5.54123 30.9334 5.45608C31.5803 5.99133 32.1012 6.66446 32.4586 7.42694C32.816 8.18942 33.0009 9.02225 33 9.86539V17.1346C33 19.7511 31.9678 22.2604 30.1306 24.1105C28.2933 25.9606 25.8014 27 23.2031 27H9.79687Z" fill="white" />
@@ -320,8 +328,8 @@
                                             </div>
                                             <div class="row no-gutters mb-4">
                                                 <div class="col-4" v-for="(c,i) in confirmationList" :class="[i===0? 'pr-1': '', i===1? 'px-1': '', i===2? 'pl-1': '']" :key="i+'-confirm-form-card'">
-                                                    <div @click="chooseConfirmation('commentForm',c.val)" class="px-1 py-3 text-center pointer" style="border-radius:8px;transition: all 0.5s ease;" :class="commentForm.confirmation === c.val ? 'text-white ' +c.class : 'bg-secondary-theme text-dark-theme border-dark-theme-opacity '">
-                                                        Saya <span class="d-block" style="font-weight: 800;font-size: 15px;">{{ c.name }}</span>
+                                                    <div @click="chooseConfirmation('giftForm', c.val)" class="px-2 py-3 text-center pointer" style="border-radius:8px;transition: all 0.5s ease;" :class="giftForm.confirmation === c.val ? 'text-white border-light-theme-opacity ' +c.class : 'bg-secondary-theme text-dark-theme border-light-theme-opacity'">
+                                                        Saya <span class="d-block" style="font-weight: 800;">{{ c.name }}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -344,36 +352,37 @@
                     </div>
                     <div class="modal bd-example-modal-lg animate__animated animate__slideInUp animate__faster" id="modalGift" data-backdrop="true" tabindex="-1" role="dialog" aria-labelledby="giftModal" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-body text-center">
-                                    <span class="modal-vector" data-dismiss="modal" aria-label="Close"></span>
-                                    <template v-if="giftStep != 5">
-                                        <h5 style="font-weight: 600;" class="text-dark-theme mt-5 mb-4">Send Wishes &amp; Virtual Gift</h5>
-                                        <div class="px-4">
-                                            <div class="separator-icon mb-5">
-                                                <span @click="giftStep=1" class="pointer" :class="giftStep >= 1? 'active': ''">
+                            <div class="modal-content" :class="isMobile? 'h-99vh': ''">
+                                <div class="modal-header flex-column" style="border:none">
+                                    <span class="d-block modal-vector"></span>
+                                    <div data-dismiss="modal" aria-label="Close" class="btn-close-modal">
+                                        <svg width="27" height="27" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M21 0C16.8466 0 12.7865 1.23163 9.33303 3.53914C5.8796 5.84665 3.18798 9.1264 1.59854 12.9636C0.00909896 16.8009 -0.406771 21.0233 0.403519 25.0969C1.21381 29.1705 3.21386 32.9123 6.15077 35.8492C9.08767 38.7861 12.8295 40.7862 16.9031 41.5965C20.9767 42.4068 25.1991 41.9909 29.0364 40.4015C32.8736 38.812 36.1534 36.1204 38.4609 32.667C40.7684 29.2135 42 25.1534 42 21C42 18.2422 41.4568 15.5115 40.4015 12.9636C39.3461 10.4158 37.7993 8.10079 35.8492 6.15076C33.8992 4.20073 31.5842 2.65388 29.0364 1.59853C26.4885 0.543181 23.7578 0 21 0ZM26.691 23.709C26.8878 23.9042 27.0441 24.1365 27.1507 24.3924C27.2573 24.6483 27.3122 24.9228 27.3122 25.2C27.3122 25.4772 27.2573 25.7517 27.1507 26.0076C27.0441 26.2635 26.8878 26.4958 26.691 26.691C26.4958 26.8878 26.2635 27.0441 26.0076 27.1507C25.7517 27.2573 25.4772 27.3122 25.2 27.3122C24.9228 27.3122 24.6483 27.2573 24.3924 27.1507C24.1365 27.0441 23.9042 26.8878 23.709 26.691L21 23.961L18.291 26.691C18.0958 26.8878 17.8635 27.0441 17.6076 27.1507C17.3517 27.2573 17.0772 27.3122 16.8 27.3122C16.5228 27.3122 16.2483 27.2573 15.9924 27.1507C15.7365 27.0441 15.5042 26.8878 15.309 26.691C15.1122 26.4958 14.9559 26.2635 14.8493 26.0076C14.7427 25.7517 14.6878 25.4772 14.6878 25.2C14.6878 24.9228 14.7427 24.6483 14.8493 24.3924C14.9559 24.1365 15.1122 23.9042 15.309 23.709L18.039 21L15.309 18.291C14.9136 17.8956 14.6914 17.3592 14.6914 16.8C14.6914 16.2408 14.9136 15.7044 15.309 15.309C15.7044 14.9136 16.2408 14.6914 16.8 14.6914C17.3592 14.6914 17.8956 14.9136 18.291 15.309L21 18.039L23.709 15.309C24.1044 14.9136 24.6408 14.6914 25.2 14.6914C25.7592 14.6914 26.2956 14.9136 26.691 15.309C27.0864 15.7044 27.3086 16.2408 27.3086 16.8C27.3086 17.3592 27.0864 17.8956 26.691 18.291L23.961 21L26.691 23.709Z" fill="#CEA151" />
+                                        </svg>
+                                    </div>
+                                    <div class="mx-auto mt-5 mb-4">
+                                        <h5 style="font-weight: 600;" class="text-dark-theme">{{ giftStep >= 4 ? 'Virtual Gift Payment' : 'Send Wishes &s Virtual Gift' }}</h5>
+                                        <div v-show="giftStep < 4" class="px-4 mt-4">
+                                            <div class="separator-icon">
+                                                <span @click="changeStep(1)" class="pointer" :class="giftStep >= 1? 'active': ''">
                                                     <i data-feather="credit-card"></i>
                                                 </span>
-                                                <span @click="giftStep=2" class="pointer" :class="giftStep >= 2? 'active': ''">
+                                                <span @click="changeStep(2)" class="pointer" :class="giftStep >= 2? 'active': ''">
                                                     <i data-feather="grid"></i>
                                                 </span>
-                                                <span @click="giftStep=3" class="pointer" :class="giftStep >= 3? 'active': ''">
-                                                    <i data-feather="gift"></i>
-                                                </span>
-                                                <span @click="giftStep=4" class="pointer" :class="giftStep >= 4? 'active': ''">
+                                                <span @click="changeStep(3)" class="pointer" :class="giftStep >= 3? 'active': ''">
                                                     <i data-feather="gift"></i>
                                                 </span>
                                             </div>
                                         </div>
-                                    </template>
-                                    <template v-else>
-                                        <img src="./images/logo/loveeXpayce.png" height="50px" width="auto" class="mt-3">
-                                    </template>
-                                    <div class="px-4" style="overflow-x: hidden;">
+                                    </div>
+                                </div>
+                                <div class="modal-body pt-0 d-flex flex-column position-relative justify-content-between">
+                                    <div class="px-4 text-center" style="overflow-x: hidden;">
                                         <transition enter-active-class="animate__animated animate__fadeInRight animate__faster" leave-active-class="animate__animated animate__fadeOutLeft animate__faster" mode="out-in">
                                             <form autocomplete="off" key="step-1" v-if="giftStep === 1">
                                                 <div class="separator-form">
-                                                    <span>Informasi kontak pengirim</span>
+                                                    <span>Tulis doa dan pesan untuk mempelai</span>
                                                 </div>
                                                 <div class="form-group custom-input">
                                                     <label class="sr-only" for="username">Username</label>
@@ -400,6 +409,7 @@
                                                         </div>
                                                         <input pattern="[0-9]*" inputmode="numeric" @input="onlyNumber($event, 'phone', '+62', '', false)" v-model.number="giftForm.phone" type="text" class="form-control" id="phone" name="phone" placeholder="Nomor Whatsapp">
                                                     </div>
+                                                    <span v-if="!checkWANumber" class="d-block text-right text-danger" style="font-size: 11px;">Ini validasi nomor wa yang error</span>
                                                 </div>
                                                 <div class="form-group custom-input">
                                                     <label class="sr-only" for="email">Email</label>
@@ -413,62 +423,7 @@
                                                         </div>
                                                         <input v-model="giftForm.email" type="email" class="form-control" id="email" name="email" placeholder="Alamat Email">
                                                     </div>
-                                                </div>
-                                                <div class="separator-form">
-                                                    <span>Nominal Gift yang dikirimkan</span>
-                                                </div>
-                                                <div class="form-group custom-input">
-                                                    <label class="sr-only" for="amount">Amount</label>
-                                                    <div class="input-group mb-1">
-                                                        <div class="input-group-prepend">
-                                                            <div class="input-group-text">
-                                                                <svg width="15" height="13" viewBox="0 0 26 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                    <path d="M25.2346 1.23371C23.6588 0.566387 22.0817 0.3125 20.5055 0.3125C15.5017 0.31209 10.4983 2.86941 5.49453 2.86941C4.23962 2.86941 2.98553 2.70863 1.73062 2.30668C1.58966 2.26156 1.44828 2.24023 1.31016 2.24023C0.611 2.24023 0 2.78656 0 3.54494V16.5576C0 17.0756 0.293719 17.5665 0.765375 17.7659C2.34122 18.4336 3.91828 18.6875 5.49453 18.6875C10.4983 18.6875 15.5021 16.1302 20.5059 16.1302C21.7608 16.1302 23.0149 16.291 24.2698 16.6929C24.4107 16.738 24.5521 16.7594 24.6902 16.7594C25.3894 16.7594 26.0004 16.213 26.0004 15.4546V2.44244C26 1.924 25.7063 1.43346 25.2346 1.23371V1.23371ZM13 13.4375C11.2048 13.4375 9.75 11.6742 9.75 9.5C9.75 7.32535 11.2052 5.5625 13 5.5625C14.7948 5.5625 16.25 7.32535 16.25 9.5C16.25 11.6751 14.7944 13.4375 13 13.4375Z" fill="#964E3A" />
-                                                                </svg>
-                                                            </div>
-                                                        </div>
-                                                        <input pattern="[0-9]*" inputmode="numeric" @input="onlyNumber($event, 'amount', 'Rp.', 0)" style="padding-left: .75rem;" v-model.number="giftForm.amount" type="text" class="form-control form-control-lg" id="Amount" name="Amount" placeholder="Nominal Virtual Gift">
-                                                    </div>
-                                                    <span v-if="checkAmount" class="d-block text-right text-danger" style="font-size: 11px;">Nominal Gift minimal Rp. 10.000</span>
-                                                </div>
-
-                                                <p class="text-placeholder" style="font-size: 12px;">Pastikan nomor Whatsapp sudah benar karena Lovee akan mengirimkan bukti pembayaran Virtual Gift ke kontak ini</p>
-                                            </form>
-                                            <form autocomplete="off" key="step-2" v-else-if="giftStep === 2">
-                                                <div class="separator-form">
-                                                    <span>Pilih Metode Pembayaran</span>
-                                                </div>
-                                                <div v-if="paymentMethod.length" class="text-left" style="height: 335px;overflow-y: auto;overflow-x: hidden;">
-                                                    <template v-for="(t,i) in paymentMethod">
-                                                        <div class="mb-1" :key="i+'-type-payment'">
-                                                            <span class="d-block text-dark-theme pl-1 mt-3" style="font-size: 11px;font-weight: 800;">{{ t.type_name }}</span>
-                                                            <div @click="setPayment(t.type_code, c.chanel_code)" v-for="(c,j) in t.data" class="form-check option-payment" :class="giftForm.chanel_code === c.chanel_code? 'active': ''" :key="j+'-channel-payment'">
-                                                                <div class="d-flex justify-content-start align-items-center pointer">
-                                                                    <img :src="c.chanel_icon" height="15px" width="15px" style="object-fit: cover;" class="mr-2">
-                                                                    <span>{{ c.chanel_name }}</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </template>
-                                                </div>
-                                            </form>
-                                            <form autocomplete="off" key="step-3" v-else-if="giftStep === 3">
-                                                <div class="separator-form">
-                                                    <span>Pilih Virtual Gift</span>
-                                                </div>
-                                                <div v-if="giftList.premium.length" class="row no-gutters" style="height: 335px;overflow-y: auto;overflow-x: hidden;">
-                                                    <template v-for="(g,i) in giftList.premium">
-                                                        <div class="col-4" @click="selectGift(g.name)">
-                                                            <div class="gift-selectable">
-                                                                <img :src="'./images/gift/'+g.name+'.png'" :class="giftForm.gift === g.name? 'active': ''" class="gift-preview" srcset="">
-                                                            </div>
-                                                        </div>
-                                                    </template>
-                                                </div>
-                                            </form>
-                                            <form autocomplete="off" key="step-4" v-else-if="giftStep === 4">
-                                                <div class="separator-form">
-                                                    <span>Tulis doa dan pesan untuk mempelai</span>
+                                                    <span v-if="!checkEmail" class="d-block text-right text-danger" style="font-size: 11px;">Ini validasi email yang error</span>
                                                 </div>
                                                 <div class="form-group custom-input">
                                                     <label class="sr-only" for="wishes">Wishes</label>
@@ -485,9 +440,61 @@
                                                 </div>
                                                 <div class="row no-gutters mb-4">
                                                     <div class="col-4" v-for="(c,i) in confirmationList" :class="[i===0? 'pr-1': '', i===1? 'px-1': '', i===2? 'pl-1': '']" :key="i+'-confirm-form-card'">
-                                                        <div @click="chooseConfirmation('giftForm', c.val)" class="px-1 py-3 text-center pointer" style="border-radius:8px;transition: all 0.5s ease;" :class="giftForm.confirmation === c.val ? 'text-white ' +c.class : 'bg-secondary-theme text-dark-theme border-dark-theme-opacity '">
+                                                        <div @click="chooseConfirmation('giftForm', c.val)" class="px-2 py-3 text-center pointer" style="border-radius:8px;transition: all 0.5s ease;" :class="giftForm.confirmation === c.val ? 'text-white border-light-theme-opacity ' +c.class : 'bg-secondary-theme text-dark-theme border-light-theme-opacity'">
                                                             Saya <span class="d-block" style="font-weight: 800;">{{ c.name }}</span>
                                                         </div>
+                                                    </div>
+                                                </div>
+                                                <p class="text-placeholder" style="font-size: 12px;">Pastikan nomor Whatsapp &amp; alamat Email sudah benar karena Lovee akan mengirimkan bukti pembayaran Virtual Gift ke kontak ini</p>
+                                            </form>
+                                            <form autocomplete="off" key="step-2" v-else-if="giftStep === 2">
+                                                <div class="separator-form">
+                                                    <span>Krim Virtual Gift</span>
+                                                </div>
+                                                <div class="form-group custom-input">
+                                                    <label class="sr-only" for="amount">Amount</label>
+                                                    <div class="input-group mb-1">
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text">
+                                                                <svg width="15" height="13" viewBox="0 0 26 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M25.2346 1.23371C23.6588 0.566387 22.0817 0.3125 20.5055 0.3125C15.5017 0.31209 10.4983 2.86941 5.49453 2.86941C4.23962 2.86941 2.98553 2.70863 1.73062 2.30668C1.58966 2.26156 1.44828 2.24023 1.31016 2.24023C0.611 2.24023 0 2.78656 0 3.54494V16.5576C0 17.0756 0.293719 17.5665 0.765375 17.7659C2.34122 18.4336 3.91828 18.6875 5.49453 18.6875C10.4983 18.6875 15.5021 16.1302 20.5059 16.1302C21.7608 16.1302 23.0149 16.291 24.2698 16.6929C24.4107 16.738 24.5521 16.7594 24.6902 16.7594C25.3894 16.7594 26.0004 16.213 26.0004 15.4546V2.44244C26 1.924 25.7063 1.43346 25.2346 1.23371V1.23371ZM13 13.4375C11.2048 13.4375 9.75 11.6742 9.75 9.5C9.75 7.32535 11.2052 5.5625 13 5.5625C14.7948 5.5625 16.25 7.32535 16.25 9.5C16.25 11.6751 14.7944 13.4375 13 13.4375Z" fill="#964E3A" />
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                        <input pattern="[0-9]*" inputmode="numeric" @input="onlyNumber($event, 'amount', 'Rp.', 0)" style="padding-left: .75rem;" v-model.number="giftForm.amount" type="text" class="form-control form-control-lg" id="Amount" name="Amount" placeholder="Nominal Virtual Gift">
+                                                    </div>
+                                                    <span v-if="checkAmount" class="d-block text-right text-danger" style="font-size: 11px;">Nominal Gift minimal Rp. 25.000,-</span>
+                                                </div>
+                                                <div class="form-scroll-wrapper">
+                                                    <div v-if="paymentMethod.length" class="text-left" style="height: 290px;overflow-y: auto;overflow-x: hidden;">
+                                                        <template v-for="(t,i) in paymentMethod">
+                                                            <div class="mb-1" :key="i+'-type-payment'">
+                                                                <span class="d-block text-dark-theme pl-1 mt-3" style="font-size: 11px;font-weight: 800;">{{ t.type_name }}</span>
+                                                                <div @click="setPayment(t.type_code, c.chanel_code)" v-for="(c,j) in t.data" class="form-check option-payment" :class="giftForm.chanel_code === c.chanel_code? 'active': ''" :key="j+'-channel-payment'">
+                                                                    <div class="d-flex justify-content-start align-items-center pointer">
+                                                                        <img :src="c.chanel_icon" height="15px" width="15px" style="object-fit: cover;" class="mr-2">
+                                                                        <span>{{ c.chanel_name }}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </template>
+                                                    </div>
+                                                </div>
+                                                <p class="text-placeholder mb-0" style="font-size: 12px;">Dengan melanjutkan ke tahap selanjutnya, Anda mengakui dan menyetujui bahwa Anda telah membaca dengan teliti, memahami, menerima dan menyetujui seluruh<br>Syarat dan Ketentuan Aplikasi Payce</p>
+                                            </form>
+                                            <form autocomplete="off" key="step-3" v-else-if="giftStep === 3">
+                                                <div class="separator-form">
+                                                    <span>Pilih Virtual Gift</span>
+                                                </div>
+                                                <div class="form-scroll-wrapper">
+                                                    <div v-if="giftList.premium.length" class="row no-gutters" style="height: 440px;overflow-y: auto;overflow-x: hidden;">
+                                                        <template v-for="(g,i) in giftList.premium">
+                                                            <div class="col-6 d-flex justify-content-center align-items-center" @click="selectGift(g.name)">
+                                                                <div class="gift-selectable">
+                                                                    <img :src="'./images/gift/'+g.name+'.png'" :class="giftForm.gift === g.name? 'active animate__animated animate__heartBeat animate__infinite animate__slower': ''" class="gift-preview" srcset="">
+                                                                </div>
+                                                            </div>
+                                                        </template>
                                                     </div>
                                                 </div>
                                             </form>
@@ -522,25 +529,27 @@
                                             </div>
                                         </transition>
                                     </div>
-                                    <button v-if="giftStep < 4" @click="giftStep++" :disabled="disableNextGift" style="font-size: 1.2rem;" class="btn btn-primary btn-block py-2 px-4 mt-5 mr-3">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <span style="font-weight: 600;" class="mr-2">Selanjutnya</span>
-                                            <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path opacity="0.5" d="M10 1L17 8L10 15M1 8H17H1Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-                                        </div>
-                                    </button>
-                                    <button v-if="giftStep === 4" @click="sendGift()" :disabled="disableNextGift" style="font-size: 1.2rem;" class="btn btn-dark-primary text-white btn-block py-2 px-4 mt-5 mr-3">
-                                        <div class="d-flex justify-content-center align-items-center">
-                                            <svg width="17" height="27" viewBox="0 0 33 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M5.67187 0H10.3125V4.71046C9.52611 4.25334 8.61192 4.07027 7.71168 4.18965C6.81145 4.30903 5.97549 4.72418 5.33343 5.37073C4.69138 6.01728 4.27911 6.85909 4.16056 7.76561C4.04201 8.67214 4.2238 9.59273 4.67775 10.3846H0V5.71154C0 4.19674 0.597571 2.74399 1.66125 1.67287C2.72494 0.601749 4.1676 0 5.67187 0ZM0 17.1346V12.4615H8.85431L5.45737 15.8802C5.26373 16.0751 5.15495 16.3396 5.15495 16.6154C5.15495 16.8911 5.26373 17.1556 5.45737 17.3506C5.65102 17.5456 5.91365 17.6552 6.1875 17.6552C6.46135 17.6552 6.72398 17.5456 6.91762 17.3506L10.3125 13.9299V22.8462H5.67187C4.1676 22.8462 2.72494 22.2444 1.66125 21.1733C0.597571 20.1022 0 18.6494 0 17.1346ZM12.375 22.8462H23.2031C24.7074 22.8462 26.1501 22.2444 27.2137 21.1733C28.2774 20.1022 28.875 18.6494 28.875 17.1346V12.4615H13.8332L17.2301 15.8802C17.4238 16.0751 17.5326 16.3396 17.5326 16.6154C17.5326 16.8911 17.4238 17.1556 17.2301 17.3506C17.0365 17.5456 16.7738 17.6552 16.5 17.6552C16.2261 17.6552 15.9635 17.5456 15.7699 17.3506L12.375 13.9299V22.8462ZM18.0097 10.3846H28.875V5.71154C28.875 4.19674 28.2774 2.74399 27.2137 1.67287C26.1501 0.601749 24.7074 0 23.2031 0H12.375V4.71046C13.1614 4.25334 14.0756 4.07027 14.9758 4.18965C15.876 4.30903 16.712 4.72418 17.3541 5.37073C17.9961 6.01728 18.4084 6.85909 18.5269 7.76561C18.6455 8.67214 18.4637 9.59273 18.0097 10.3846ZM12.375 10.3846V8.30769C12.375 7.89692 12.496 7.49536 12.7226 7.15382C12.9492 6.81227 13.2713 6.54606 13.6482 6.38887C14.0251 6.23167 14.4398 6.19054 14.8399 6.27068C15.24 6.35082 15.6075 6.54862 15.8959 6.83909C16.1844 7.12955 16.3808 7.49962 16.4604 7.9025C16.5399 8.30539 16.4991 8.72299 16.343 9.1025C16.1869 9.48201 15.9225 9.80638 15.5834 10.0346C15.2442 10.2628 14.8454 10.3846 14.4375 10.3846H12.375ZM8.25 10.3846H10.3125V8.30769C10.3125 7.89692 10.1915 7.49536 9.9649 7.15382C9.73827 6.81227 9.41616 6.54606 9.03928 6.38887C8.66241 6.23167 8.24771 6.19054 7.84763 6.27068C7.44754 6.35082 7.08004 6.54862 6.79159 6.83909C6.50315 7.12955 6.30671 7.49962 6.22713 7.9025C6.14755 8.30539 6.18839 8.72299 6.3445 9.1025C6.5006 9.48201 6.76496 9.80638 7.10414 10.0346C7.44331 10.2628 7.84208 10.3846 8.25 10.3846ZM9.79687 27C8.03344 27 6.45769 26.19 5.41819 24.9189L5.67187 24.9231H23.2031C25.2544 24.9231 27.2217 24.1025 28.6722 22.6419C30.1226 21.1813 30.9375 19.2002 30.9375 17.1346V5.71154C30.9375 5.62638 30.9375 5.54123 30.9334 5.45608C31.5803 5.99133 32.1012 6.66446 32.4586 7.42694C32.816 8.18942 33.0009 9.02225 33 9.86539V17.1346C33 19.7511 31.9678 22.2604 30.1306 24.1105C28.2933 25.9606 25.8014 27 23.2031 27H9.79687Z" fill="white" />
-                                            </svg>
-                                            <span style="font-weight: 600;" class="ml-2">Send Virtual Gift</span>
-                                        </div>
-                                    </button>
-                                    <div class="pt-3 pt-lg-5 pb-1 d-flex align-items-center justify-content-center text-center">
-                                        <img src="./images/logo/loveeXpayce.png" height="30px" width="auto">
+                                    <div class="px-4">
+                                        <button v-if="giftStep < 3" @click="giftStep++" :disabled="disableNextGift(giftStep)" style="font-size: 1rem;" class="btn btn-primary btn-block py-2 px-4 mt-5 mr-3">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span style="font-weight: 600;" class="mr-2">Selanjutnya</span>
+                                                <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path opacity="0.5" d="M10 1L17 8L10 15M1 8H17H1Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                </svg>
+                                            </div>
+                                        </button>
+                                        <button v-if="giftStep === 3" @click="sendGift()" :disabled="disableNextGift(giftStep)" style="font-size: 1rem;" class="btn btn-dark-primary text-white btn-block py-2 px-4 mt-5 mr-3">
+                                            <div class="d-flex justify-content-center align-items-center">
+                                                <svg width="17" height="27" viewBox="0 0 33 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M5.67187 0H10.3125V4.71046C9.52611 4.25334 8.61192 4.07027 7.71168 4.18965C6.81145 4.30903 5.97549 4.72418 5.33343 5.37073C4.69138 6.01728 4.27911 6.85909 4.16056 7.76561C4.04201 8.67214 4.2238 9.59273 4.67775 10.3846H0V5.71154C0 4.19674 0.597571 2.74399 1.66125 1.67287C2.72494 0.601749 4.1676 0 5.67187 0ZM0 17.1346V12.4615H8.85431L5.45737 15.8802C5.26373 16.0751 5.15495 16.3396 5.15495 16.6154C5.15495 16.8911 5.26373 17.1556 5.45737 17.3506C5.65102 17.5456 5.91365 17.6552 6.1875 17.6552C6.46135 17.6552 6.72398 17.5456 6.91762 17.3506L10.3125 13.9299V22.8462H5.67187C4.1676 22.8462 2.72494 22.2444 1.66125 21.1733C0.597571 20.1022 0 18.6494 0 17.1346ZM12.375 22.8462H23.2031C24.7074 22.8462 26.1501 22.2444 27.2137 21.1733C28.2774 20.1022 28.875 18.6494 28.875 17.1346V12.4615H13.8332L17.2301 15.8802C17.4238 16.0751 17.5326 16.3396 17.5326 16.6154C17.5326 16.8911 17.4238 17.1556 17.2301 17.3506C17.0365 17.5456 16.7738 17.6552 16.5 17.6552C16.2261 17.6552 15.9635 17.5456 15.7699 17.3506L12.375 13.9299V22.8462ZM18.0097 10.3846H28.875V5.71154C28.875 4.19674 28.2774 2.74399 27.2137 1.67287C26.1501 0.601749 24.7074 0 23.2031 0H12.375V4.71046C13.1614 4.25334 14.0756 4.07027 14.9758 4.18965C15.876 4.30903 16.712 4.72418 17.3541 5.37073C17.9961 6.01728 18.4084 6.85909 18.5269 7.76561C18.6455 8.67214 18.4637 9.59273 18.0097 10.3846ZM12.375 10.3846V8.30769C12.375 7.89692 12.496 7.49536 12.7226 7.15382C12.9492 6.81227 13.2713 6.54606 13.6482 6.38887C14.0251 6.23167 14.4398 6.19054 14.8399 6.27068C15.24 6.35082 15.6075 6.54862 15.8959 6.83909C16.1844 7.12955 16.3808 7.49962 16.4604 7.9025C16.5399 8.30539 16.4991 8.72299 16.343 9.1025C16.1869 9.48201 15.9225 9.80638 15.5834 10.0346C15.2442 10.2628 14.8454 10.3846 14.4375 10.3846H12.375ZM8.25 10.3846H10.3125V8.30769C10.3125 7.89692 10.1915 7.49536 9.9649 7.15382C9.73827 6.81227 9.41616 6.54606 9.03928 6.38887C8.66241 6.23167 8.24771 6.19054 7.84763 6.27068C7.44754 6.35082 7.08004 6.54862 6.79159 6.83909C6.50315 7.12955 6.30671 7.49962 6.22713 7.9025C6.14755 8.30539 6.18839 8.72299 6.3445 9.1025C6.5006 9.48201 6.76496 9.80638 7.10414 10.0346C7.44331 10.2628 7.84208 10.3846 8.25 10.3846ZM9.79687 27C8.03344 27 6.45769 26.19 5.41819 24.9189L5.67187 24.9231H23.2031C25.2544 24.9231 27.2217 24.1025 28.6722 22.6419C30.1226 21.1813 30.9375 19.2002 30.9375 17.1346V5.71154C30.9375 5.62638 30.9375 5.54123 30.9334 5.45608C31.5803 5.99133 32.1012 6.66446 32.4586 7.42694C32.816 8.18942 33.0009 9.02225 33 9.86539V17.1346C33 19.7511 31.9678 22.2604 30.1306 24.1105C28.2933 25.9606 25.8014 27 23.2031 27H9.79687Z" fill="white" />
+                                                </svg>
+                                                <span style="font-weight: 600;" class="ml-2">Send Virtual Gift</span>
+                                            </div>
+                                        </button>
                                     </div>
+                                </div>
+                                <div class="modal-footer bg-secondary-theme" style="border:none">
+                                    <img src="./images/logo/loveeXpayce.png" height="30px" width="auto" class="mx-auto mb-0 mt-1">
                                 </div>
                             </div>
                         </div>
@@ -617,14 +626,11 @@
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- <script src="https://unpkg.com/cupertino-pane/dist/cupertino-pane.min.js"></script> -->
     <script src="https://unpkg.com/vue-meta@2.4.0/dist/vue-meta.min.js"></script>
     <script src="js/master-data.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script> -->
     <script type="module" src="js/vue.js"></script>
-<script>
-    $(document).ready(function () {
-        window.scrollTo(0, 1)
-    })
-</script>
+
 </html>

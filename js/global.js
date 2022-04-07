@@ -24,6 +24,20 @@ function openFullscreen () {
         elem.msRequestFullscreen()
     }
 }
+function cupertinoInit () {
+    var myPane = new CupertinoPane(
+        '.cupertino-pane-gift',
+        {
+            parentElement: '#invitation',
+            fitHeight: true,
+            touchMoveStopPropagation: true
+        }
+    )
+    myPane.present({animate: true}).then(res => {
+        console.log(res)
+    });
+}
+
 export default function (refresh = false) {
     feather.replace()
     $(document).ready(function () {
@@ -32,9 +46,10 @@ export default function (refresh = false) {
         }, 2000)
     })
     if (refresh) {
-        window.scrollTo(0, 1)
+        window.scrollTo(0, 0)
         AOS.init()
         swiperInit()
+        // cupertinoInit()
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault()

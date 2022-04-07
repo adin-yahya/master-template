@@ -138,19 +138,20 @@ new Vue({
         },
         checkAmount: function () {
             const amount = Number(this.giftForm.amount.replace('Rp. ', '').replace(/\./g, ''))
-            return amount < 10000
+            return amount < 25000
         },
-        disableNextGift: function () {
-            if (this.giftStep === 1) {
-                return !this.giftForm.guestName || !this.giftForm.email || this.giftForm.phone === '+62 ' || this.giftForm.amount === 'Rp. 0' || this.checkAmount
-            } else if (this.giftStep === 2) {
-                return !this.giftForm.chanel_code || !this.giftForm.chanel_type
-            } else if (this.giftStep === 3) {
-                return !this.giftForm.gift
-            } else if (this.giftStep === 4) {
-                return !this.giftForm.comment || !this.giftForm.confirmation
-            } else return false
-        }
+        checkEmail: function () {
+            let regex = new RegExp(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
+            if (this.giftForm.email) return regex.test(this.giftForm.email)
+            else return true
+        },
+        checkWANumber: function () {
+            const normailze = this.giftForm.phone.split(' ')
+            console.log(normailze)
+            if(normailze[1]){
+                return (normailze[1].charAt(0) === '8' && normailze[1].length>8) ? true : false
+            } else return true
+        },
     },
     watch: {
         isOpenInvitation: {
@@ -176,10 +177,10 @@ new Vue({
         paymentCountdown: {
             immediate: true,
             deep: true,
-            handler (val){
-                if(val.length && this.giftPayment){
-                    var second = val[val.length-1]
-                    if(second.res && second.res < 1) {
+            handler (val) {
+                if (val.length && this.giftPayment) {
+                    var second = val[val.length - 1]
+                    if (second.res && second.res < 1) {
                         localStorage.removeItem('_pendingTRX')
                         this.giftStep = 1
                         this.giftPayment = null
@@ -220,10 +221,10 @@ new Vue({
         globalInit()
         this.audioComp = new Audio(this.changeAudioURL(this.client.sound))
         const checkPendingPayment = localStorage.getItem('_pendingTRX')
-        if(checkPendingPayment) {
+        if (checkPendingPayment) {
             this.giftPayment = JSON.parse(checkPendingPayment)
             this.setCountdownPayment(this.giftPayment.data.expired_at)
-            this.giftStep = 5
+            this.giftStep = 4
         }
     },
     beforeMount () {
@@ -283,6 +284,18 @@ new Vue({
             await fs.addDoc(fs.collection(firestore, window.location.hostname), formdata)
             this.$set(this.commentForm, 'comment', '')
         },
+        disableNextGift: function (giftStep) {
+            if (giftStep === 1) {
+                return !this.giftForm.guestName || !this.giftForm.email || this.giftForm.phone === '+62 ' || !this.giftForm.comment || !this.giftForm.confirmation || !this.checkEmail || !this.checkWANumber
+            } else if (giftStep === 2) {
+                return !this.giftForm.chanel_code || !this.giftForm.chanel_type || this.giftForm.amount === 'Rp. 0' || this.checkAmount
+            } else if (giftStep === 3) {
+                return !this.giftForm.gift
+            } else return false
+        },
+        changeStep: function (giftStep) {
+            if (!this.disableNextGift(giftStep)) this.giftStep = giftStep
+        },
         selectGift: function (name) {
             this.$set(this.giftForm, 'gift', name)
         },
@@ -307,19 +320,21 @@ new Vue({
                 "amount": Number(formdata.amount.replace('Rp. ', '').replace(/\./g, ''))
             }
             _payceAPI.post(this.endpoint.payceTrx, payceBody).then(async res => {
-                const payceResponse = {...res.data.data, ...{ form: formdata}}
-                localStorage.setItem('_pendingTRX', JSON.stringify(payceResponse))
-                this.giftPayment = payceResponse
-                this.setCountdownPayment(payceResponse.data.expired_at)
-                formdata.trxID = payceResponse.data.transaction_id
-                formdata.trxStats = payceResponse.data.status
-                await fs.addDoc(fs.collection(firestore, window.location.hostname), formdata)
-                this.giftStep++
+                if (res) {
+                    const payceResponse = { ...res.data.data, ...{ form: formdata } }
+                    localStorage.setItem('_pendingTRX', JSON.stringify(payceResponse))
+                    this.giftPayment = payceResponse
+                    this.setCountdownPayment(payceResponse.data.expired_at)
+                    formdata.trxID = payceResponse.data.transaction_id
+                    formdata.trxStats = payceResponse.data.status
+                    await fs.addDoc(fs.collection(firestore, window.location.hostname), formdata)
+                    this.giftStep++
+                }
             }).catch(err => {
                 console.log(err)
             })
         },
-        setCountdownPayment: function (e){
+        setCountdownPayment: function (e) {
             setInterval(function () {
                 this.paymentCountdown = this.countEndTime(e)
             }.bind(this), 1000)
