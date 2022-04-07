@@ -8,7 +8,7 @@
         <link rel="shortcut icon" href="images/favicon.png">
 
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes">
 
         <meta name=title content="Lovee invitation">
         <meta name=author content="Lovee.id">
@@ -282,10 +282,10 @@
                         </div>
                     </div>
                     <div class="modal bd-example-modal-lg animate__animated animate__slideInUp animate__faster" id="modalComment" data-backdrop="true" tabindex="-1" role="dialog" aria-labelledby="commentModal" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-body text-center">
-                                    <span class="modal-vector"></span>
+                                    <span class="modal-vector" data-dismiss="modal" aria-label="Close"></span>
                                     <h5 style="font-weight: 600;" class="text-dark-theme mt-5 mb-4">Send Wishes</h5>
                                     <div class="px-4">
                                         <div class="separator-form">
@@ -320,8 +320,8 @@
                                             </div>
                                             <div class="row no-gutters mb-4">
                                                 <div class="col-4" v-for="(c,i) in confirmationList" :class="[i===0? 'pr-1': '', i===1? 'px-1': '', i===2? 'pl-1': '']" :key="i+'-confirm-form-card'">
-                                                    <div @click="chooseConfirmation(c.val)" class="px-2 py-3 text-center pointer" style="border-radius:8px;transition: all 0.5s ease;" :class="commentForm.confirmation === c.val ? 'text-white ' +c.class : 'bg-secondary-theme text-dark-theme border-dark-theme-opacity '">
-                                                        Saya <span class="d-block" style="font-weight: 800;">{{ c.name }}</span>
+                                                    <div @click="chooseConfirmation('commentForm',c.val)" class="px-1 py-3 text-center pointer" style="border-radius:8px;transition: all 0.5s ease;" :class="commentForm.confirmation === c.val ? 'text-white ' +c.class : 'bg-secondary-theme text-dark-theme border-dark-theme-opacity '">
+                                                        Saya <span class="d-block" style="font-weight: 800;font-size: 15px;">{{ c.name }}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -343,30 +343,32 @@
                         </div>
                     </div>
                     <div class="modal bd-example-modal-lg animate__animated animate__slideInUp animate__faster" id="modalGift" data-backdrop="true" tabindex="-1" role="dialog" aria-labelledby="giftModal" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-body text-center">
-                                    <span class="modal-vector"></span>
-                                    <h5 style="font-weight: 600;" class="text-dark-theme mt-5 mb-4">Send Wishes &amp; Virtual Gift</h5>
-                                    <div class="px-4">
-                                        <div class="separator-icon mb-5">
-                                            <span @click="giftStep=1" class="pointer" :class="giftStep >= 1? 'active': ''">
-                                                <i data-feather="credit-card"></i>
-                                            </span>
-                                            <span @click="giftStep=2" class="pointer" :class="giftStep >= 2? 'active': ''">
-                                                <i data-feather="grid"></i>
-                                            </span>
-                                            <span @click="giftStep=3" class="pointer" :class="giftStep >= 3? 'active': ''">
-                                                <i data-feather="gift"></i>
-                                            </span>
-                                            <span @click="giftStep=4" class="pointer" :class="giftStep >= 4? 'active': ''">
-                                                <i data-feather="gift"></i>
-                                            </span>
-                                            <span @click="giftStep=5" class="pointer" :class="giftStep >= 5? 'active': ''">
-                                                <i data-feather="gift"></i>
-                                            </span>
+                                    <span class="modal-vector" data-dismiss="modal" aria-label="Close"></span>
+                                    <template v-if="giftStep != 5">
+                                        <h5 style="font-weight: 600;" class="text-dark-theme mt-5 mb-4">Send Wishes &amp; Virtual Gift</h5>
+                                        <div class="px-4">
+                                            <div class="separator-icon mb-5">
+                                                <span @click="giftStep=1" class="pointer" :class="giftStep >= 1? 'active': ''">
+                                                    <i data-feather="credit-card"></i>
+                                                </span>
+                                                <span @click="giftStep=2" class="pointer" :class="giftStep >= 2? 'active': ''">
+                                                    <i data-feather="grid"></i>
+                                                </span>
+                                                <span @click="giftStep=3" class="pointer" :class="giftStep >= 3? 'active': ''">
+                                                    <i data-feather="gift"></i>
+                                                </span>
+                                                <span @click="giftStep=4" class="pointer" :class="giftStep >= 4? 'active': ''">
+                                                    <i data-feather="gift"></i>
+                                                </span>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </template>
+                                    <template v-else>
+                                        <img src="./images/logo/loveeXpayce.png" height="50px" width="auto" class="mt-3">
+                                    </template>
                                     <div class="px-4" style="overflow-x: hidden;">
                                         <transition enter-active-class="animate__animated animate__fadeInRight animate__faster" leave-active-class="animate__animated animate__fadeOutLeft animate__faster" mode="out-in">
                                             <form autocomplete="off" key="step-1" v-if="giftStep === 1">
@@ -432,7 +434,7 @@
 
                                                 <p class="text-placeholder" style="font-size: 12px;">Pastikan nomor Whatsapp sudah benar karena Lovee akan mengirimkan bukti pembayaran Virtual Gift ke kontak ini</p>
                                             </form>
-                                            <form autocomplete="off" key="step-2" v-if="giftStep === 2">
+                                            <form autocomplete="off" key="step-2" v-else-if="giftStep === 2">
                                                 <div class="separator-form">
                                                     <span>Pilih Metode Pembayaran</span>
                                                 </div>
@@ -450,7 +452,7 @@
                                                     </template>
                                                 </div>
                                             </form>
-                                            <form autocomplete="off" key="step-3" v-if="giftStep === 3">
+                                            <form autocomplete="off" key="step-3" v-else-if="giftStep === 3">
                                                 <div class="separator-form">
                                                     <span>Pilih Virtual Gift</span>
                                                 </div>
@@ -464,7 +466,7 @@
                                                     </template>
                                                 </div>
                                             </form>
-                                            <form autocomplete="off" key="step-4" v-if="giftStep === 4">
+                                            <form autocomplete="off" key="step-4" v-else-if="giftStep === 4">
                                                 <div class="separator-form">
                                                     <span>Tulis doa dan pesan untuk mempelai</span>
                                                 </div>
@@ -483,12 +485,41 @@
                                                 </div>
                                                 <div class="row no-gutters mb-4">
                                                     <div class="col-4" v-for="(c,i) in confirmationList" :class="[i===0? 'pr-1': '', i===1? 'px-1': '', i===2? 'pl-1': '']" :key="i+'-confirm-form-card'">
-                                                        <div @click="chooseConfirmation(c.val)" class="px-2 py-3 text-center pointer" style="border-radius:8px;transition: all 0.5s ease;" :class="giftForm.confirmation === c.val ? 'text-white ' +c.class : 'bg-secondary-theme text-dark-theme border-dark-theme-opacity '">
+                                                        <div @click="chooseConfirmation('giftForm', c.val)" class="px-1 py-3 text-center pointer" style="border-radius:8px;transition: all 0.5s ease;" :class="giftForm.confirmation === c.val ? 'text-white ' +c.class : 'bg-secondary-theme text-dark-theme border-dark-theme-opacity '">
                                                             Saya <span class="d-block" style="font-weight: 800;">{{ c.name }}</span>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </form>
+                                            <div v-else>
+                                                <div class="separator-form">
+                                                    <span>Virtual Gift Payment</span>
+                                                </div>
+                                                <h2 class="text-dark-theme" style="font-weight:bold">Rp. {{ giftPayment.data.total_amount | idr }},-</h2>
+                                                <div style="max-width: 150px;" class="mx-auto">
+                                                    <img v-if="giftPayment.data.qris_image" :src="giftPayment.data.qris_image" alt="qris-image">
+                                                    <img v-else :src="'./images/gift/'+giftPayment.form.gift+'.png'" class="gift-preview">
+                                                </div>
+                                                <h4 class="text-lowercase" style="font-weight:bold">{{ paymentCountdown[2].res + ' ' + paymentCountdown[2].name }} : {{ paymentCountdown[3].res + ' ' + paymentCountdown[3].name }}</h4>
+                                                <a class="text-theme" data-toggle="collapse" href="#paymentSteps" role="button" aria-expanded="false" aria-controls="paymentSteps">
+                                                    Lihat cara pembayaran
+                                                </a>
+                                                <div class="collapse" id="paymentSteps">
+                                                    <div class="card card-body text-left payment-step py-1">
+                                                        <ul class="list-unstyled">
+                                                            <li v-for="(p,i) in giftPayment.payment_steps" :key="i+'-title-step'">
+                                                                <span class="title-steps">{{ p.title }}</span>
+                                                                <ol>
+                                                                    <li class="steps" v-for="(steps,j) in p.steps" :key="j+'-'+i+'-payment-step'">{{ steps }}</li>
+                                                                </ol>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <a class="d-block mt-5 text-muted pointer" @click="cancelPayment()" data-dismiss="modal" aria-label="Close" style="font-size: 11px;">
+                                                    Batalkan pembayaran
+                                                </a>
+                                            </div>
                                         </transition>
                                     </div>
                                     <button v-if="giftStep < 4" @click="giftStep++" :disabled="disableNextGift" style="font-size: 1.2rem;" class="btn btn-primary btn-block py-2 px-4 mt-5 mr-3">
@@ -499,7 +530,7 @@
                                             </svg>
                                         </div>
                                     </button>
-                                    <button v-else @click="sendGift()" :disabled="disableNextGift" style="font-size: 1.2rem;" class="btn btn-dark-primary text-white btn-block py-2 px-4 mt-5 mr-3">
+                                    <button v-if="giftStep === 4" @click="sendGift()" :disabled="disableNextGift" style="font-size: 1.2rem;" class="btn btn-dark-primary text-white btn-block py-2 px-4 mt-5 mr-3">
                                         <div class="d-flex justify-content-center align-items-center">
                                             <svg width="17" height="27" viewBox="0 0 33 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M5.67187 0H10.3125V4.71046C9.52611 4.25334 8.61192 4.07027 7.71168 4.18965C6.81145 4.30903 5.97549 4.72418 5.33343 5.37073C4.69138 6.01728 4.27911 6.85909 4.16056 7.76561C4.04201 8.67214 4.2238 9.59273 4.67775 10.3846H0V5.71154C0 4.19674 0.597571 2.74399 1.66125 1.67287C2.72494 0.601749 4.1676 0 5.67187 0ZM0 17.1346V12.4615H8.85431L5.45737 15.8802C5.26373 16.0751 5.15495 16.3396 5.15495 16.6154C5.15495 16.8911 5.26373 17.1556 5.45737 17.3506C5.65102 17.5456 5.91365 17.6552 6.1875 17.6552C6.46135 17.6552 6.72398 17.5456 6.91762 17.3506L10.3125 13.9299V22.8462H5.67187C4.1676 22.8462 2.72494 22.2444 1.66125 21.1733C0.597571 20.1022 0 18.6494 0 17.1346ZM12.375 22.8462H23.2031C24.7074 22.8462 26.1501 22.2444 27.2137 21.1733C28.2774 20.1022 28.875 18.6494 28.875 17.1346V12.4615H13.8332L17.2301 15.8802C17.4238 16.0751 17.5326 16.3396 17.5326 16.6154C17.5326 16.8911 17.4238 17.1556 17.2301 17.3506C17.0365 17.5456 16.7738 17.6552 16.5 17.6552C16.2261 17.6552 15.9635 17.5456 15.7699 17.3506L12.375 13.9299V22.8462ZM18.0097 10.3846H28.875V5.71154C28.875 4.19674 28.2774 2.74399 27.2137 1.67287C26.1501 0.601749 24.7074 0 23.2031 0H12.375V4.71046C13.1614 4.25334 14.0756 4.07027 14.9758 4.18965C15.876 4.30903 16.712 4.72418 17.3541 5.37073C17.9961 6.01728 18.4084 6.85909 18.5269 7.76561C18.6455 8.67214 18.4637 9.59273 18.0097 10.3846ZM12.375 10.3846V8.30769C12.375 7.89692 12.496 7.49536 12.7226 7.15382C12.9492 6.81227 13.2713 6.54606 13.6482 6.38887C14.0251 6.23167 14.4398 6.19054 14.8399 6.27068C15.24 6.35082 15.6075 6.54862 15.8959 6.83909C16.1844 7.12955 16.3808 7.49962 16.4604 7.9025C16.5399 8.30539 16.4991 8.72299 16.343 9.1025C16.1869 9.48201 15.9225 9.80638 15.5834 10.0346C15.2442 10.2628 14.8454 10.3846 14.4375 10.3846H12.375ZM8.25 10.3846H10.3125V8.30769C10.3125 7.89692 10.1915 7.49536 9.9649 7.15382C9.73827 6.81227 9.41616 6.54606 9.03928 6.38887C8.66241 6.23167 8.24771 6.19054 7.84763 6.27068C7.44754 6.35082 7.08004 6.54862 6.79159 6.83909C6.50315 7.12955 6.30671 7.49962 6.22713 7.9025C6.14755 8.30539 6.18839 8.72299 6.3445 9.1025C6.5006 9.48201 6.76496 9.80638 7.10414 10.0346C7.44331 10.2628 7.84208 10.3846 8.25 10.3846ZM9.79687 27C8.03344 27 6.45769 26.19 5.41819 24.9189L5.67187 24.9231H23.2031C25.2544 24.9231 27.2217 24.1025 28.6722 22.6419C30.1226 21.1813 30.9375 19.2002 30.9375 17.1346V5.71154C30.9375 5.62638 30.9375 5.54123 30.9334 5.45608C31.5803 5.99133 32.1012 6.66446 32.4586 7.42694C32.816 8.18942 33.0009 9.02225 33 9.86539V17.1346C33 19.7511 31.9678 22.2604 30.1306 24.1105C28.2933 25.9606 25.8014 27 23.2031 27H9.79687Z" fill="white" />
@@ -591,5 +622,9 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script> -->
     <script type="module" src="js/vue.js"></script>
-
+<script>
+    $(document).ready(function () {
+        window.scrollTo(0, 1)
+    })
+</script>
 </html>

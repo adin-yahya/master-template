@@ -16,7 +16,9 @@
     --gray: #9C9C9C;
 }
 
+
 body {
+    position: relative;
     background-color: #efe5ea;
     font-family: 'Raleway', sans-serif;
     font-size: .9em;
@@ -109,11 +111,12 @@ body {
     display: flex;
     min-height: -webkit-fill-available;
     max-height: -webkit-fill-available;
-    min-height: 100vh;
+    height: 100vh;
     padding: 1em 0;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .opening::after {
@@ -564,12 +567,19 @@ body {
 }
 
 .modal-dialog {
-    position: fixed;
+    /* position: fixed;
     bottom: 0;
     left: 0%;
     right: 0%;
     transform: translate(-50%, -50%);
+    margin: 0 auto; */
+    display: flex;
+    position: relative;
+    align-items: flex-end;
     margin: 0 auto;
+}
+.modal-dialog-centered {
+    min-height: 100%;
 }
 
 .modal-content {
@@ -720,15 +730,17 @@ body {
     cursor: pointer;
 }
 
-.option-payment.active{
+.option-payment.active {
     background-color: var(--dark-primary);
     border: 1px solid var(--dark-primary);
     color: var(--light);
 }
+
 .gift-selectable {
     padding: .5rem;
     cursor: pointer;
 }
+
 .gift-preview {
     width: 100%;
     height: auto;
@@ -736,11 +748,37 @@ body {
     border: 3px solid var(--light);
     border-radius: 13px;
 }
+
 .gift-preview.active {
     border: 3px solid var(--dark-primary);
 }
-.gift-chat{
+
+.gift-chat {
     width: 100px;
     height: auto;
     object-fit: cover;
+}
+
+.payment-step {
+    border: 2px solid var(--dark-transparent-primarys);
+    max-height: 250px;
+    overflow-y: auto;
+    border-radius: 13px;
+    margin-top: .75rem;
+}
+
+.payment-step .title-steps {
+    display: block;
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--dark-primary);
+    margin-top: 1rem;
+}
+
+.payment-step ul li ol {
+    padding-left: 1.5rem;
+}
+
+.payment-step .steps {
+    font-size: 12px;
 }

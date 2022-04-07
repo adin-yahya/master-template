@@ -67,7 +67,7 @@ new Vue({
                 ragu: 0,
             },
             confirmationList: [
-                { name: 'Hadir', val: 'akan_hadir', class: 'bg-success-theme' },
+                { name: 'Akan Hadir', val: 'akan_hadir', class: 'bg-success-theme' },
                 { name: 'Tidak Hadir', val: 'tidak_hadir', class: 'bg-danger-theme' },
                 { name: 'Masih Ragu', val: 'ragu_hadir', class: 'bg-gray-theme' },
             ],
@@ -108,6 +108,8 @@ new Vue({
             },
             dataList: {},
             paymentMethod: [],
+            giftPayment: null,
+            paymentCountdown: [],
             giftList: {
                 premium: [
                     { name: 'baloon' },
@@ -170,6 +172,21 @@ new Vue({
                 // if (val) this.audioComp.play()
                 // else this.audioComp.pause()
             }
+        },
+        paymentCountdown: {
+            immediate: true,
+            deep: true,
+            handler (val){
+                if(val.length && this.giftPayment){
+                    var second = val[val.length-1]
+                    if(second.res && second.res < 1) {
+                        localStorage.removeItem('_pendingTRX')
+                        this.giftStep = 1
+                        this.giftPayment = null
+                        this.paymentCountdown = []
+                    }
+                }
+            }
         }
     },
     filters: {
@@ -192,11 +209,22 @@ new Vue({
             if (!value) return ''
             value = moment(value).format('LT')
             return value
+        },
+        idr: function (value) {
+            if (!value) return 0
+            value = Number(value).toLocaleString('id-ID')
+            return value
         }
     },
     created () {
         globalInit()
         this.audioComp = new Audio(this.changeAudioURL(this.client.sound))
+        const checkPendingPayment = localStorage.getItem('_pendingTRX')
+        if(checkPendingPayment) {
+            this.giftPayment = JSON.parse(checkPendingPayment)
+            this.setCountdownPayment(this.giftPayment.data.expired_at)
+            this.giftStep = 5
+        }
     },
     beforeMount () {
         this.getGuestName()
@@ -211,7 +239,6 @@ new Vue({
             }.bind(this), 1000)
         }
         this.getComment()
-        // this.tryNerror()
     },
     methods: {
         getGuestName: function (e) {
@@ -280,15 +307,28 @@ new Vue({
                 "amount": Number(formdata.amount.replace('Rp. ', '').replace(/\./g, ''))
             }
             _payceAPI.post(this.endpoint.payceTrx, payceBody).then(async res => {
-                const payceResponse = res.data.data
+                const payceResponse = {...res.data.data, ...{ form: formdata}}
+                localStorage.setItem('_pendingTRX', JSON.stringify(payceResponse))
+                this.giftPayment = payceResponse
+                this.setCountdownPayment(payceResponse.data.expired_at)
                 formdata.trxID = payceResponse.data.transaction_id
                 formdata.trxStats = payceResponse.data.status
                 await fs.addDoc(fs.collection(firestore, window.location.hostname), formdata)
-                this.$set(this.giftForm, 'comment', '')
                 this.giftStep++
             }).catch(err => {
                 console.log(err)
             })
+        },
+        setCountdownPayment: function (e){
+            setInterval(function () {
+                this.paymentCountdown = this.countEndTime(e)
+            }.bind(this), 1000)
+        },
+        cancelPayment: function () {
+            localStorage.removeItem('_pendingTRX')
+            this.giftStep = 1
+            this.giftPayment = null
+            this.paymentCountdown = []
         },
         getPaycePaymentMethod: function () {
             _payceAPI.get(this.endpoint.payceChannelList + '/' + this.client.code.payce).then(async res => {
@@ -360,8 +400,8 @@ new Vue({
             ]
             return result
         },
-        chooseConfirmation: function (e) {
-            this.$set(this.giftForm, 'confirmation', e)
+        chooseConfirmation: function (f, e) {
+            this.$set(this[f], 'confirmation', e)
         },
         onlyNumber (e, prop, prefix, defVal = '', tranform = true) {
             let val = e.target.value.split(' ')

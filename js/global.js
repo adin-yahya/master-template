@@ -32,7 +32,7 @@ export default function (refresh = false) {
         }, 2000)
     })
     if (refresh) {
-        window.scrollTo(0, 0)
+        window.scrollTo(0, 1)
         AOS.init()
         swiperInit()
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
