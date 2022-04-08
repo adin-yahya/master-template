@@ -53,7 +53,7 @@ new Vue({
     },
     data: function () {
         return {
-            giftStep: 2,
+            giftStep: 1,
             guestName: null,
             isOpenInvitation: false,
             isAudioPlay: false,
