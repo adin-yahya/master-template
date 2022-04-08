@@ -102,7 +102,7 @@ new Vue({
             },
             loveeLogo: 'https://drive.google.com/file/d/1RFtFh92iedY1YC__2o6qO26ZPj2Ar6d-/view?usp=sharing',
             endpoint: {
-                payceChannelList: 'guest/event/payment-chanel/',
+                payceChannelList: 'guest/event/payment-chanel',
                 payceTrx: 'guest/event/payment',
                 payceSandbox: 'simulate/payment/event'
             },
@@ -148,8 +148,8 @@ new Vue({
         },
         checkWANumber: function () {
             const normailze = this.giftForm.phone.split(' ')
-            if(normailze[1]){
-                return (normailze[1].charAt(0) === '8' && normailze[1].length>8) ? true : false
+            if (normailze[1]) {
+                return (normailze[1].charAt(0) === '8' && normailze[1].length > 8) ? true : false
             } else return true
         },
     },
@@ -163,6 +163,7 @@ new Vue({
                     this.$nextTick(e => {
                         globalInit(val)
                     })
+                    this.ga('open_invitation', 'lovee_1_analytic', 'Open Invitation', 1)
                 }
             }
         },
@@ -226,8 +227,6 @@ new Vue({
     },
     beforeMount () {
         this.getGuestName()
-        this.$set(this.giftForm, 'guestName', this.guestName)
-        this.getPaycePaymentMethod()
     },
     mounted () {
         for (let i = 0; i < this.client.event.length; i++) {
@@ -237,6 +236,7 @@ new Vue({
             }.bind(this), 1000)
         }
         this.getComment()
+        this.getPaycePaymentMethod()
     },
     methods: {
         getGuestName: function (e) {
@@ -244,6 +244,8 @@ new Vue({
             if (urlParams) {
                 urlParams = urlParams.split('#')[0].split('=')[1].split('-').join(' ')
                 this.guestName = urlParams
+                this.$set(this.giftForm, 'guestName', urlParams)
+                this.$set(this.commentForm, 'guestName', urlParams)
             }
         },
         getComment: async function () {
@@ -424,5 +426,8 @@ new Vue({
                 this.$set(this.giftForm, prop, prefix + ' ' + result)
             }
         },
+        ga: function (event, category, label, value = 1) {
+            gtag('event', event, { 'event_category': category, 'event_label': label, 'value': value, 'non_interaction': true })
+        }
     }
 })
