@@ -187,8 +187,8 @@
                         <div class="swiper swiper-normal" style="border-radius:32px;">
                             <div class="swiper-wrapper" style="border-radius:32px;">
                                 <div class="swiper-slide" v-for="(s,i) in client.story" :key="i+'-storyline'" style="border-radius:32px;" :style="{background: 'url(' + changeImgURL(s.background, 1500, 1500) + ') center center/cover no-repeat'}">
-                                    <div class="container px-md-5 pt-5" style="z-index: 5;">
-                                        <div class="story-wrapper text-center">
+                                    <div class="story-wrapper text-center" style="z-index: 5;">
+                                        <div class="container px-md-5">
                                             <h2 style="font-weight: 600;" class="text-dark-theme font-italic mb-0 ml-3">{{ s.title }}</h2>
                                             <p style="font-size: 1.5rem;" class="mb-0 mt-3">{{ s.text }}</p>
                                         </div>
@@ -473,14 +473,14 @@
                                                         <template v-for="(g,i) in giftList.premium">
                                                             <div class="col-6 d-flex justify-content-center align-items-center" @click="selectGift(g.name)">
                                                                 <div class="gift-selectable">
-                                                                    <img :src="'./images/gift/'+g.name+'.png'" :class="giftForm.gift === g.name? 'active animate__animated animate__heartBeat animate__infinite animate__slower': ''" class="gift-preview" style=" filter: grayscale(100%);">
+                                                                    <img :src="'./images/gift/'+g.name+'.png'" :class="giftForm.gift === g.name? 'active animate__animated animate__heartBeat animate__infinite animate__slower': ''" class="gift-preview">
                                                                 </div>
                                                             </div>
                                                         </template>
                                                     </div>
                                                 </div>
                                             </form>
-                                            <form autocomplete="off" key="step-3" v-else-if="giftStep === 3">                                                
+                                            <form autocomplete="off" key="step-3" v-else-if="giftStep === 3">
                                                 <div class="form-scroll-wrapper">
                                                     <div v-if="paymentMethod.length" class="text-left" style="height: 290px;overflow-y: auto;overflow-x: hidden;">
                                                         <template v-for="(t,i) in paymentMethod">

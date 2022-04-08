@@ -456,8 +456,12 @@ body {
 }
 
 .story-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     padding: 5rem 2rem;
-    background-image: radial-gradient(53.9% 128.96% at 50% 50%, rgba(151, 96, 66, 0.2) 0%, rgba(87, 53, 43, 0) 100%);
+    background-image: radial-gradient(53.9% 128.96% at 50% 50%, rgba(255, 241, 241, 0.801) 0%, rgba(255, 255, 255, 0.151) 100%);
 }
 
 .swiper {
